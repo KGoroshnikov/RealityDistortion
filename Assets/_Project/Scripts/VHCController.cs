@@ -22,6 +22,7 @@ public class VHCController : MonoBehaviour
     [SerializeField] private ScriptableRendererFeature[] VHSscreenEffects;
 
     private bool VHSActive;
+    private bool inAnimation;
 
     void OnEnable(){
         F.action.performed += ctx => OpenVHC();
@@ -34,6 +35,9 @@ public class VHCController : MonoBehaviour
     }
 
     void OpenVHC(){
+        if (inAnimation) return;
+        inAnimation = true;
+
         if (!VHSActive){
             VHSActive = true;
             CamPref.SetActive(true);
@@ -68,6 +72,7 @@ public class VHCController : MonoBehaviour
     }
 
     public void SetupCamVHC(){
+        inAnimation = false;
         if(!VHSActive){
             CamPref.SetActive(false);
             return;
