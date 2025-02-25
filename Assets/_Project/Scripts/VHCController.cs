@@ -12,6 +12,8 @@ public class VHCController : MonoBehaviour
     [SerializeField] private InputActionReference F;
     [SerializeField] private GameObject CamPref;
 
+    [SerializeField] private Inventory inventory;
+
     [SerializeField] private VHSWorldManager vhsWorldManager;
     
     [SerializeField] private GameObject VHSCanvas;
@@ -35,7 +37,7 @@ public class VHCController : MonoBehaviour
     }
 
     void OpenVHC(){
-        if (inAnimation) return;
+        if (inAnimation || !inventory.GetHaveCamera()) return;
         inAnimation = true;
 
         if (!VHSActive){
