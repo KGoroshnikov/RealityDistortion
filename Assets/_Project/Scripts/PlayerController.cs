@@ -130,6 +130,7 @@ public class PlayerContoller : Character
 
     void OnGUI()
     {
+        return;
         GUIStyle guiStyle = new GUIStyle();
         guiStyle.normal.textColor = Color.red;
         guiStyle.fontSize = 20;
