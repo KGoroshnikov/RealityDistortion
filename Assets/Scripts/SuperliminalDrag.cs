@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class SuperliminalHand : MonoBehaviour
+public class SuperliminalDrag : MonoBehaviour
 {
     [Header("Components")]
     [SerializeField] private Transform target;
