@@ -98,9 +98,10 @@ GameObject:
   - component: {fileID: 5001865719534984827}
   - component: {fileID: 4441778927639616407}
   - component: {fileID: 6848614924731244562}
+  - component: {fileID: 8178412772580905408}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -194,6 +195,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.020000007, y: 0.014481303, z: 0.019999998}
   m_Center: {x: -0.0000000018626451, y: 0, z: 0.0000000037252903}
+--- !u!114 &8178412772580905408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2828050969306717798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acfbddd36bd46c9499f360c4114c0ee9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tip: 
+  description: Wan Cock 1234 B.C.
+  canUse: 0
 --- !u!1 &3087566343525442076
 GameObject:
   m_ObjectHideFlags: 0
