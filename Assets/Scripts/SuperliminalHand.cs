@@ -12,15 +12,15 @@ public class SuperliminalHand : MonoBehaviour
     [SerializeField] private LayerMask targetMask;
     [SerializeField] private LayerMask ignoreTargetMask;
     [SerializeField] private float offsetFactor = 1;
-    [SerializeField] private float maxDistance = 100;
+    [SerializeField, Min(1)] private float maxDistance = 100;
+    [SerializeField, Min(0)] private float minDistance = 1;
  
     private float originalDistance;
     private Vector3 originalScale;
     private float targetScale;
-    private Quaternion originalRotation;
-    private Quaternion originalCameraRotation;
- 
- 
+    private Transform originalParent;
+
+
     private void FixedUpdate()
     {
         HandleInput();
@@ -39,13 +39,14 @@ public class SuperliminalHand : MonoBehaviour
             originalDistance = Vector3.Distance(transform.position, target.position);
             originalScale = target.localScale;
             targetScale = target.localScale.x;
-            originalRotation = target.rotation;
-            originalCameraRotation = transform.rotation;
+            originalParent = target.parent;
+            target.parent = transform;
         }
         else
         {
             if (!target) return;
             if(target.TryGetComponent<Rigidbody>(out var rb)) rb.isKinematic = false;
+            target.parent = originalParent;
             target = null;
         }
     }
@@ -58,13 +59,18 @@ public class SuperliminalHand : MonoBehaviour
             point = transform.position + transform.forward * maxDistance;
         else point = hit.point;
         target.position = point;
-        target.rotation = originalRotation * Quaternion.Inverse(originalCameraRotation) * transform.rotation;
         var colliders = new Collider[16];
         for (var i = 0; i < 10; i++) 
         {
             var currentDistance = Vector3.Distance(transform.position, target.position);
-            var s = currentDistance / originalDistance;
-            targetScale = s;
+            if (currentDistance < minDistance)
+            {
+                target.position += transform.forward * (minDistance - currentDistance);  
+                targetScale = minDistance / originalDistance;
+                target.localScale = targetScale * originalScale;
+                break;
+            }
+            targetScale = currentDistance / originalDistance;
             target.localScale = targetScale * originalScale;
             if (Physics.OverlapBoxNonAlloc(target.position, target.lossyScale * 0.5f, 
                     colliders, target.rotation, ignoreTargetMask) == 0) return;
