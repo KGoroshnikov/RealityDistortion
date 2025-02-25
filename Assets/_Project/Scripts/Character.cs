@@ -13,6 +13,7 @@ public abstract class Character : MonoBehaviour
     [SerializeField] protected Rigidbody r;
     [SerializeField] private Collider collider;
     [SerializeField] private LayerMask layerMask;
+    [SerializeField] private LayerMask layerMaskCOLLISION;
     [SerializeField] private string[] movingPlatformsTags;
     private RaycastHit _rayHit;
     protected bool isGrounded;
@@ -175,7 +176,7 @@ public abstract class Character : MonoBehaviour
 
         RaycastHit hit;
         if(
-            Physics.SphereCast(pos, bounds.extents.x, vel.normalized, out hit, dist, layerMask)
+            Physics.SphereCast(pos, bounds.extents.x, vel.normalized, out hit, dist, layerMaskCOLLISION)
         ) {
             Vector3 snapToSurface = vel.normalized * (hit.distance - skinWidth);
             Vector3 leftover = vel - snapToSurface;
