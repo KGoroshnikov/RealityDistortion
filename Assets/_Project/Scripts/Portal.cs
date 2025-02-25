@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Portal : MonoBehaviour {
+
     public Portal linkedPortal;
     public MeshRenderer screen;
 
@@ -13,6 +14,8 @@ public class Portal : MonoBehaviour {
     private List<PortalTraveller> trackedTravellers = new List<PortalTraveller>();
 
     void Awake(){
+        myRenderTex = new RenderTexture(Screen.width, Screen.height, 1);
+        portalCam.targetTexture = myRenderTex;
         playerCam = Camera.main;
         screen.material.SetInt("displayMask", 1);
         screen.sharedMaterial.SetTexture("_MainTex", myRenderTex);
@@ -69,6 +72,7 @@ public class Portal : MonoBehaviour {
         localToWorldMatrix = transform.localToWorldMatrix * linkedPortal.transform.worldToLocalMatrix * localToWorldMatrix;
         linkedPortal.portalCam.transform.position = localToWorldMatrix.GetColumn(3);
         linkedPortal.portalCam.transform.rotation = localToWorldMatrix.rotation;
+
     }
 
     void OnTravellerEnterPortal(PortalTraveller traveller){
