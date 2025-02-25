@@ -1,8 +1,7 @@
 using UnityEngine;
-using UnityEngine.Experimental.Rendering;
 using UnityEngine.Rendering.Universal;
 
-public class DecalRenderer : MonoBehaviour
+public class ObjectToDecalProjector : MonoBehaviour
 {
     private static readonly int BaseMap = Shader.PropertyToID("Base_Map");
     [SerializeField] private DecalProjector projector;
@@ -16,6 +15,9 @@ public class DecalRenderer : MonoBehaviour
         var forward = (objectToRender.transform.position - renderCamera.transform.position).normalized;
         projector.transform.forward = forward;
         renderCamera.transform.forward = forward;
+
+        var s = Vector3.Distance(objectToRender.transform.position, renderCamera.transform.position);
+        projector.size = new Vector3(s, s, projector.size.z);
         texture = new RenderTexture(
             720, 720, 16, 
             RenderTextureFormat.ARGBFloat
