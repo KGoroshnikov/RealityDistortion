@@ -11,11 +11,11 @@ TagManager:
   - Player
   - Water
   - UI
-  - Movable
   - 
   - 
   - 
-  - 
+  - Moveable
+  - Moving
   - 
   - 
   - 
