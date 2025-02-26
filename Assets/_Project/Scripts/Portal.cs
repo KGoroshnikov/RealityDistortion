@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Portal : MonoBehaviour {
 
@@ -12,6 +13,8 @@ public class Portal : MonoBehaviour {
     public RenderTexture myRenderTex;
 
     private List<PortalTraveller> trackedTravellers = new List<PortalTraveller>();
+
+    [SerializeField] private UnityEvent onTeleport;
 
     void Awake(){
         myRenderTex = new RenderTexture(Screen.width, Screen.height, 1);
@@ -41,6 +44,7 @@ public class Portal : MonoBehaviour {
                 traveller.Teleport(transform, linkedPortal.transform, m.GetColumn(3), m.rotation);
                 linkedPortal.OnTravellerEnterPortal(traveller);
                 trackedTravellers.RemoveAt(i);
+                onTeleport.Invoke();
                 i--;
 
             } else{
