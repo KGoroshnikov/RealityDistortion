@@ -18,21 +18,21 @@ namespace _Project.Scripts
         [SerializeField, Min(0)] private float minTimerDuration = 1;
         [SerializeField, Min(0)] private float maxTimerDuration = 2;
 
-        private void Start() => RestartTimer();
-
         private void TryDetect()
         {
             onDetectStarted.Invoke();
-            RestartTimer();
+            StartTimer();
             if (Physics.Linecast(moon.position, player.position, obstacleLayer)) return;
             onPlayerDetected.Invoke();
         }
 
-        private void RestartTimer()
+        private void StartTimer()
         {
             var time = Random.Range(minTimerDuration, maxTimerDuration);
             Invoke(nameof(TryDetect), time);
             onTimerStarted.Invoke(time);
         }
+        
+        private void StopTimer() => CancelInvoke(nameof(TryDetect));
     }
 }
