@@ -28,6 +28,11 @@ public class PlayerContoller : Character
     private float forceDamping = 0.95f;
     private float minForceThreshold = 0.1f;
 
+    
+
+
+    [SerializeField] private Interaction interaction;
+
     void Start(){
         base.Start();
         jointOriginalPos = joint.localPosition;
@@ -122,10 +127,14 @@ public class PlayerContoller : Character
     public void FreezePlayer(){
         m_state = state.NoUse;
         MakeMeStatic();
+
+        interaction.SetActive(false);
     }
     public void UnfreezePlayer(){
         m_state = state.Idle;
         MakeMeNONStatic();
+
+        interaction.SetActive(true);
     }
 
     void OnGUI()
