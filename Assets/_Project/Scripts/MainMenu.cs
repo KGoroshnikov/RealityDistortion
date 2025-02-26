@@ -1,35 +1,27 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] private float speedRotation;
-    [SerializeField] private float scaleSelected;
 
-    [System.Serializable]
-    public class mButton{
-        public Transform button;
-        public Transform img;
-    }
-    [SerializeField] private mButton[] buttons;
+    [SerializeField] private Animator animatorCam;
+    [SerializeField] private Animator animatorFade;
 
-    private int selected;
+    [SerializeField] private MainMenuCam mainMenuCam;
 
-    void Update()
-    {
-        if (selected == -1) return;
-        buttons[selected].img.localEulerAngles = new Vector3(buttons[selected].img.localEulerAngles.x, 
-                buttons[selected].img.localEulerAngles.y + speedRotation * Time.deltaTime, buttons[selected].img.localEulerAngles.z);
+    public void Click(int id){
+        if (id == 0){
+            animatorCam.enabled = true;
+            if (Random.value > 0.5f) animatorCam.Play("CamEnterGame", 0, 0);
+            else animatorCam.Play("CamEnterGame2", 0, 0);
+            animatorFade.SetTrigger("FadeIn");
+            mainMenuCam.LockMousePos();
+            Invoke("LoadGame", 3f);
+        }
     }
 
-    public void Hover(int id){
-        selected = id;
-        buttons[selected].button.localScale = new Vector3(scaleSelected, scaleSelected, scaleSelected);
-    }
-
-    public void Leave(int id){
-        buttons[id].button.localScale = new Vector3(1, 1, 1);
-        buttons[id].img.localEulerAngles = new Vector3(buttons[id].img.localEulerAngles.x, 0, buttons[id].img.localEulerAngles.z);
-        selected = -1;
+    void LoadGame(){
+        SceneManager.LoadScene("GALLERY 1");
     }
 }

@@ -14,11 +14,17 @@ public class MainMenuCam : MonoBehaviour
     private Vector2 screenCenter;
     private Quaternion defaultRotation;
 
+    private bool lockToCenter;
+
     void Start()
     {
         delautPos = cam.position;
         defaultRotation = cam.rotation;
         screenCenter = new Vector2(Screen.width / 2f, Screen.height / 2f);
+    }
+
+    public void LockMousePos(){
+        lockToCenter = true;
     }
 
     void Update()
@@ -29,6 +35,7 @@ public class MainMenuCam : MonoBehaviour
     void RotateCamera()
     {
         Vector2 mousePos = Mouse.current.position.ReadValue();
+        if (lockToCenter) mousePos = screenCenter;
         Vector2 offset = mousePos - screenCenter;
         float normalizedX = Mathf.Clamp(offset.x / screenCenter.x, -1f, 1f);
         float normalizedY = Mathf.Clamp(offset.y / screenCenter.y, -1f, 1f);

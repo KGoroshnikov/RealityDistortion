@@ -1,28 +1,37 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PauseSystem : MonoBehaviour
 {
     [SerializeField] private GameObject PauseUI;
     [SerializeField] private GameObject pauseVolume;
     [SerializeField] private InputActionReference esc;
+    private Action<InputAction.CallbackContext> pauseDelegate;
     [SerializeField] private PlayerContoller playerContoller;
 
     [SerializeField] private GameObject[] freezables;
     private IFreezable[] _freezables;
 
     [SerializeField] private Animator pauseAnimator;
+    [SerializeField] private Animator fadeAnim;
 
     private bool paused;
 
     void Awake()
     {
+        pauseDelegate = ctx => Pause();
         _freezables = new IFreezable[freezables.Length];
         for(int i = 0; i < freezables.Length; i++) _freezables[i] = freezables[i].GetComponent<IFreezable>();   
     }
 
-    void OnEnable(){
-        esc.action.performed += ctx => Pause();
+    void OnEnable() {
+        esc.action.performed += pauseDelegate;
+    }
+
+    void OnDisable() {
+        esc.action.performed -= pauseDelegate;
     }
 
     public void Pause(){
@@ -57,10 +66,14 @@ public class PauseSystem : MonoBehaviour
         pauseAnimator.SetTrigger("Leave");
     }
 
-    /*
-            Stencil {
-            Ref 10
-            Comp Equal
+    public void ButtonClick(int id){
+        if (id == 1){
+            fadeAnim.SetTrigger("FadeIn");
+            Invoke("LoadMenu", 2f);
         }
-    */
+    }
+
+    void LoadMenu(){
+        SceneManager.LoadScene("MENU");
+    }
 }
