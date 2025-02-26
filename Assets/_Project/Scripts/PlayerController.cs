@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -23,15 +24,23 @@ public class PlayerContoller : Character
     [SerializeField] private Vector2 mouseSensitivity;
     [SerializeField] private float maxLookAngle = 85f;
 
-    [SerializeField] private InputActionReference wasd, look;
+    [SerializeField] private InputActionReference wasd, look, jump;
+    private Action<InputAction.CallbackContext> jumpDelegate;
 
     private float forceDamping = 0.95f;
     private float minForceThreshold = 0.1f;
+
+    private Vector3 dir;
 
     
 
 
     [SerializeField] private Interaction interaction;
+
+    void Awake()
+    {
+        jumpDelegate = ctx => Jump();   
+    }
 
     void Start(){
         base.Start();
@@ -42,25 +51,34 @@ public class PlayerContoller : Character
         Cursor.visible = false;
     }
 
+    void OnEnable() {
+        jump.action.performed += jumpDelegate;
+    }
+
+    void OnDisable() {
+        jump.action.performed -= jumpDelegate;
+    }
+
     void FixedUpdate(){
         base.FixedUpdate();
         CalculateExternalForce();
+
+        MoveCharacter(dir * walkSpeed);
     }
 
     void Update()
     {
-        Vector3 dir = Vector3.zero;
         if (m_state != state.NoUse){
             Rotating();
             dir = new Vector3(wasd.action.ReadValue<Vector2>().x, 0, wasd.action.ReadValue<Vector2>().y);
             UpdateAnim(dir);
             HeadBob();
         }
-        MoveCharacter(dir * walkSpeed);
     }
 
     private void Jump()
     {
+        if (!isGrounded) return;
         ApplyExplosionForce(Vector3.up * jumpForce, 0.55f);
         r.linearVelocity = new Vector3(r.linearVelocity.x, 0, r.linearVelocity.z);
     }
