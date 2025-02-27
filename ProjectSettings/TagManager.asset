@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Interactable
+  - Star
   layers:
   - Default
   - TransparentFX
@@ -18,9 +19,7 @@ TagManager:
   - Moveable
   - Moving
   - SeeObj
-  - 
-  - 
-  - 
+  - Trigger
   - 
   - 
   - 

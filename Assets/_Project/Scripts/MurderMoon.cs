@@ -1,12 +1,14 @@
 ﻿using System;
+using Triggers;
 using UnityEngine;
 using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
 namespace _Project.Scripts
 {
-    public class MurderMoon : MonoBehaviour
+    public class MurderMoon : AbstractTrigger
     {
+        [SerializeField] private bool inDetectMode;
         [SerializeField] private Transform moon;
         [SerializeField] private Transform player;
         [SerializeField] private LayerMask obstacleLayer;
@@ -18,10 +20,19 @@ namespace _Project.Scripts
         [SerializeField, Min(0)] private float minTimerDuration = 1;
         [SerializeField, Min(0)] private float maxTimerDuration = 2;
 
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawLine(moon.position, player.position);
+        }
+
+        private void Start() => StartTimer();
+
         private void TryDetect()
         {
-            onDetectStarted.Invoke();
             StartTimer();
+            if (!inDetectMode) return;
+            onDetectStarted.Invoke();
             if (Physics.Linecast(moon.position, player.position, obstacleLayer)) return;
             onPlayerDetected.Invoke();
         }
@@ -33,6 +44,6 @@ namespace _Project.Scripts
             onTimerStarted.Invoke(time);
         }
         
-        private void StopTimer() => CancelInvoke(nameof(TryDetect));
+        public void ChangeDetectMode(bool mode) => inDetectMode = mode;
     }
 }
