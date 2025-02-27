@@ -603,7 +603,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 1536
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 1
@@ -24052,9 +24052,7 @@ MonoBehaviour:
   ignoreTargetMask:
     serializedVersion: 2
     m_Bits: 23
-  offsetFactor: 1
   maxDistance: 100
-  minDistance: 1
   numberOfGridColumns: 16
   numberOfGridRows: 16
   target: {fileID: 0}
@@ -24115,6 +24113,9 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 1
+  layerMaskCOLLISION:
+    serializedVersion: 2
+    m_Bits: 0
   movingPlatformsTags: []
   walkSpeed: 5
   jumpForce: 10

@@ -95,8 +95,15 @@ public class SuperliminalDrag : MonoBehaviour
             if (RaycastFast(camera.transform.TransformPoint(pos), 
                     ignoreTargetMask | targetMask, out var hit))
                 dst = Mathf.Min(dst, hit.distance);
-        // dst -= target.GetComponent<Renderer>().localBounds.extents.magnitude;
+        
         target.position = camera.transform.position + camera.transform.forward * dst;
+        for (var i = 0; i < 10; i++)
+        {
+            if (!Physics.CheckBox(target.position, target.localScale, 
+                    target.rotation, ignoreTargetMask | targetMask)) break;
+            target.position -= camera.transform.forward
+                               * Mathf.Abs(Vector3.Dot(target.localScale, camera.transform.forward));
+        }
         targetScale = dst / originalDistance;
         target.localScale = targetScale * originalScale;
     }
