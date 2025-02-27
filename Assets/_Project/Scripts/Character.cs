@@ -109,12 +109,14 @@ public abstract class Character : MonoBehaviour
         Vector3 worldVel = transform.TransformDirection(targetVelocity);
         ApplySpringForce();
 
+        Vector3 upVel = new Vector3(0, r.linearVelocity.y, 0);
+
         if (!isGrounded) 
-            worldVel = Move(worldVel + externalForce + platformVelocity);
+            worldVel = Move(worldVel + externalForce + platformVelocity + upVel);
         else
-            worldVel = Move(worldVel + externalForce);
-        worldVel += PlatformMovement();
-        worldVel.y += r.linearVelocity.y;
+            worldVel = Move(worldVel + externalForce + upVel);
+        //worldVel += PlatformMovement();
+        //worldVel.y += r.linearVelocity.y;
         r.linearVelocity = worldVel;
         r.rotation = PlatformRotation();
     }

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 // 0 - nothing
 // 1 - camera
 // 2 - key
+// 3 - lever
 
 public class Inventory : MonoBehaviour
 {

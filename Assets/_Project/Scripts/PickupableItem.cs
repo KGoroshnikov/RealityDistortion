@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PickupableItem : MonoBehaviour, IInteractable
 {
@@ -19,6 +20,8 @@ public class PickupableItem : MonoBehaviour, IInteractable
     }
     [SerializeField] private ItemIconData iconData;
 
+    [SerializeField] private UnityEvent pickedEvent;
+
     public void EndHover(Interaction player)
     {
         Debug.Log("Stop Hover");
@@ -33,6 +36,7 @@ public class PickupableItem : MonoBehaviour, IInteractable
     {
         Debug.Log("Interact");
         player.AddItem(ID, iconData);
+        pickedEvent.Invoke();
         gameObject.SetActive(false);
     }
 }
