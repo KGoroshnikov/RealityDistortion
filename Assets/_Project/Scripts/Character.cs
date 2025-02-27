@@ -149,7 +149,7 @@ public abstract class Character : MonoBehaviour
             
             //if (externalForce.y > 0)
                 //externalForce -= Vector3.down * springForce;
-            if (Mathf.Abs(externalForce.y) < 0.1f)
+            if (Mathf.Abs(externalForce.y) < 0.01f)
                 r.AddForce(Vector3.down * springForce);
         }
         else{

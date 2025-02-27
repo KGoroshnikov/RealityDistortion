@@ -47,8 +47,8 @@ Material:
     - _Speed: 0.1
     m_Colors:
     - _Direction: {r: 0, g: -1, b: 0, a: 0}
-    - _Tiling: {r: 10, g: 10, b: 0, a: 0}
-    - _Tint: {r: 0.735849, g: 0.735849, b: 0.735849, a: 1}
+    - _Tiling: {r: 50, g: 50, b: 0, a: 0}
+    - _Tint: {r: 0.38679248, g: 0.38679248, b: 0.38679248, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &7206695452956701714

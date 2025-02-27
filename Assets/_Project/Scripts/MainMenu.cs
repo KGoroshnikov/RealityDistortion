@@ -22,6 +22,6 @@ public class MainMenu : MonoBehaviour
     }
 
     void LoadGame(){
-        SceneManager.LoadScene("GALLERY 1");
+        SceneManager.LoadScene("GAME1");
     }
 }
