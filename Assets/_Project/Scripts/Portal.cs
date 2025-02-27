@@ -16,6 +16,8 @@ public class Portal : MonoBehaviour {
 
     [SerializeField] private UnityEvent onTeleport;
 
+    private bool invokeTP;
+
     void Awake(){
         myRenderTex = new RenderTexture(Screen.width, Screen.height, 1);
         portalCam.targetTexture = myRenderTex;
@@ -24,6 +26,10 @@ public class Portal : MonoBehaviour {
         screen.sharedMaterial.SetTexture("_MainTex", myRenderTex);
     }
     void FixedUpdate(){
+        if (invokeTP){
+            onTeleport.Invoke();
+            invokeTP = false;
+        }
         ProtectScreenFromClipping(playerCam.transform.position);
         HandleTravellers();
     }
@@ -44,7 +50,8 @@ public class Portal : MonoBehaviour {
                 traveller.Teleport(transform, linkedPortal.transform, m.GetColumn(3), m.rotation);
                 linkedPortal.OnTravellerEnterPortal(traveller);
                 trackedTravellers.RemoveAt(i);
-                onTeleport.Invoke();
+                invokeTP = true;
+                //onTeleport.Invoke();
                 i--;
 
             } else{
