@@ -61,8 +61,8 @@ MonoBehaviour:
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 0.31941032
-          value: 0.35751295
+          time: 0.30273557
+          value: 0.7688309
           inSlope: 0.05407228
           outSlope: 0.05407228
           tangentMode: 0
@@ -70,8 +70,8 @@ MonoBehaviour:
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 0.4963145
-          value: 0.7253886
+          time: 0.6431611
+          value: 0.74805164
           inSlope: 0.50428027
           outSlope: 0.50428027
           tangentMode: 0
@@ -319,11 +319,11 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: {x: 1, y: 0.99914235, z: 0.9860465, w: -0.40925264}
   midtones:
-    m_OverrideState: 0
-    m_Value: {x: 1, y: 1, z: 1, w: 0.071174234}
+    m_OverrideState: 1
+    m_Value: {x: 1, y: 1, z: 1, w: 0.036617197}
   highlights:
     m_OverrideState: 0
-    m_Value: {x: 0.95549554, y: 1, z: 0.91099036, w: -0.33807823}
+    m_Value: {x: 0.95549554, y: 1, z: 0.91099036, w: -0.48812056}
   shadowsStart:
     m_OverrideState: 0
     m_Value: 0
@@ -479,7 +479,7 @@ MonoBehaviour:
   active: 1
   postExposure:
     m_OverrideState: 1
-    m_Value: -0.19
+    m_Value: 0.23
   contrast:
     m_OverrideState: 1
     m_Value: 6
