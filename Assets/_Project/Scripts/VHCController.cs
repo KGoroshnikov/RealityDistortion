@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -10,6 +11,7 @@ public class VHCController : MonoBehaviour
     [SerializeField] private Animator camAnim;
     [SerializeField] private Animator animFade;
     [SerializeField] private InputActionReference F;
+    private Action<InputAction.CallbackContext> fdelegate;
     [SerializeField] private GameObject CamPref;
 
     [SerializeField] private Inventory inventory;
@@ -18,19 +20,22 @@ public class VHCController : MonoBehaviour
     
     [SerializeField] private GameObject VHSCanvas;
     [SerializeField] private VideoPlayer videoPlayer;
-    [SerializeField] private Volume volume;
-    [SerializeField] private VolumeProfile DefaultVolume;
-    [SerializeField] private VolumeProfile VHSVolume;
+    [SerializeField] private GameObject VHSVolume;
     [SerializeField] private ScriptableRendererFeature[] VHSscreenEffects;
 
     private bool VHSActive;
     private bool inAnimation;
 
+    void Awake()
+    {
+        fdelegate = ctx => OpenVHC();   
+    }
+
     void OnEnable(){
-        F.action.performed += ctx => OpenVHC();
+        F.action.performed += fdelegate;
     }
     void OnDisable(){
-        F.action.performed -= ctx => OpenVHC();
+        F.action.performed -= fdelegate;
         for(int i = 0; i < VHSscreenEffects.Length; i++){
             VHSscreenEffects[i].SetActive(false);
         }
@@ -68,7 +73,8 @@ public class VHCController : MonoBehaviour
         for(int i = 0; i < VHSscreenEffects.Length; i++){
             VHSscreenEffects[i].SetActive(false);
         }
-        volume.profile = DefaultVolume;
+        //volume.profile = DefaultVolume;
+        VHSVolume.SetActive(false);
         videoPlayer.Stop();
         VHSCanvas.SetActive(false);
     }
@@ -85,7 +91,8 @@ public class VHCController : MonoBehaviour
         for(int i = 0; i < VHSscreenEffects.Length; i++){
             VHSscreenEffects[i].SetActive(true);
         }
-        volume.profile = VHSVolume;
+        //volume.profile = VHSVolume;
+        VHSVolume.SetActive(true);
         videoPlayer.Play();
         VHSCanvas.SetActive(true);
     }
