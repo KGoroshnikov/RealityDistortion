@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Interaction : MonoBehaviour
+public class Interaction : MonoBehaviour, IFreezable
 {
     [SerializeField] private float distInteract;
     [SerializeField] private LayerMask layerMask;
@@ -19,6 +19,8 @@ public class Interaction : MonoBehaviour
 
     [SerializeField] private Inventory inventory;
 
+    private bool active = true;
+
     void OnEnable()
     {
         interactionButton.action.performed += ctx => TryInteract();
@@ -29,12 +31,26 @@ public class Interaction : MonoBehaviour
     }
 
     void TryInteract(){
-        if (currentInteraction == null || !currentInteraction.CanUse) return;
+        if (!active || currentInteraction == null || !currentInteraction.CanUse) return;
         currentInteraction.Interact(this);
+    }
+
+    public void SetActive(bool a){
+        active = a;
     }
 
     void Update()
     {
+        if (!active){
+            if (currentInteraction != null){
+                currentInteraction.EndHover(this);
+                description.text = "";
+                currentInteraction = null;
+                currentInteractionObj = null;
+                tipObj.SetActive(false);
+            }
+            return;
+        }
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
         if (Physics.Raycast(ray.origin, ray.direction, out hit, distInteract, layerMask) && hit.collider.gameObject.CompareTag("Interactable")) {
@@ -66,5 +82,15 @@ public class Interaction : MonoBehaviour
 
     public void AddItem(int id, PickupableItem.ItemIconData itemIconData){
         inventory.AddItem(id, itemIconData);
+    }
+
+    public void Freeze()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void UnFreeze()
+    {
+        throw new System.NotImplementedException();
     }
 }

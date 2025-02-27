@@ -150,7 +150,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7c8c0cae5c6eea94dbfe3f27a75611f2, type: 2}
+  - {fileID: 2100000, guid: 1e3366f6d0f786c4e89a41bddafb29b2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -182,7 +182,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8156722908117839566}
   m_Layer: 0
-  m_Name: Minotaur
+  m_Name: Scream
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
