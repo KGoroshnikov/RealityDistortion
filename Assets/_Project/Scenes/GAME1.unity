@@ -93,7 +93,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 41293d8f079726543a3952ba2c25bf3a, type: 2}
+  m_LightingDataAsset: {fileID: 112000000, guid: 1b3b4ef31908550429e413b17ccfd309, type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 7273701fe7ea2b64785573859518a667, type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -2986,6 +2986,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2015737673}
     m_Modifications:
+    - target: {fileID: 2166141528634674790, guid: 55748fef7551378488371b1cf774db76, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3339107462829653197, guid: 55748fef7551378488371b1cf774db76, type: 3}
       propertyPath: m_LocalPosition.x
       value: 53.2
@@ -3682,7 +3686,7 @@ MeshRenderer:
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
+  m_ScaleInLightmap: 2
   m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
@@ -7183,7 +7187,7 @@ MeshRenderer:
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
+  m_ScaleInLightmap: 3
   m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
@@ -17204,6 +17208,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Godrays (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7501400298996401014, guid: 973828b7baa00e24c851b22a1f9bb6d6, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17222,6 +17230,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2015737673}
     m_Modifications:
+    - target: {fileID: 2166141528634674790, guid: 55748fef7551378488371b1cf774db76, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3339107462829653197, guid: 55748fef7551378488371b1cf774db76, type: 3}
       propertyPath: m_LocalPosition.x
       value: 38.87
@@ -19200,6 +19212,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2015737673}
     m_Modifications:
+    - target: {fileID: 2166141528634674790, guid: 55748fef7551378488371b1cf774db76, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3339107462829653197, guid: 55748fef7551378488371b1cf774db76, type: 3}
       propertyPath: m_LocalPosition.x
       value: 86.4
@@ -20358,7 +20374,7 @@ MeshRenderer:
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
+  m_ScaleInLightmap: 3
   m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
@@ -26913,7 +26929,7 @@ MeshRenderer:
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
+  m_ScaleInLightmap: 2
   m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
@@ -38715,6 +38731,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2015737673}
     m_Modifications:
+    - target: {fileID: 2166141528634674790, guid: 55748fef7551378488371b1cf774db76, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3339107462829653197, guid: 55748fef7551378488371b1cf774db76, type: 3}
       propertyPath: m_LocalPosition.x
       value: 30.4
@@ -48694,6 +48714,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2015737673}
     m_Modifications:
+    - target: {fileID: 2166141528634674790, guid: 55748fef7551378488371b1cf774db76, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3339107462829653197, guid: 55748fef7551378488371b1cf774db76, type: 3}
       propertyPath: m_LocalPosition.x
       value: 79.2
@@ -56415,6 +56439,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2015737673}
     m_Modifications:
+    - target: {fileID: 2166141528634674790, guid: 55748fef7551378488371b1cf774db76, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3339107462829653197, guid: 55748fef7551378488371b1cf774db76, type: 3}
       propertyPath: m_LocalPosition.x
       value: 65.3
@@ -67365,6 +67393,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 824404499}
     m_Modifications:
+    - target: {fileID: 671200642718529884, guid: 73ddf12f96b136e4bac13ffba8ac73c2, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5891018283209029189, guid: 73ddf12f96b136e4bac13ffba8ac73c2, type: 3}
       propertyPath: m_LocalScale.x
       value: 3.1221733
