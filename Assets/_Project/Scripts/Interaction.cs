@@ -1,4 +1,6 @@
+using System;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,6 +10,7 @@ public class Interaction : MonoBehaviour, IFreezable
     [SerializeField] private LayerMask layerMask;
 
     [SerializeField] private InputActionReference interactionButton;
+    private Action<InputAction.CallbackContext> eDelegate;
 
     [SerializeField] private GameObject tipObj;
     [SerializeField] private TMP_Text tip;
@@ -21,13 +24,18 @@ public class Interaction : MonoBehaviour, IFreezable
 
     private bool active = true;
 
+    void Awake()
+    {
+        eDelegate = ctx => TryInteract();
+    }
+
     void OnEnable()
     {
-        interactionButton.action.performed += ctx => TryInteract();
+        interactionButton.action.performed += eDelegate;
     }
     void OnDisable()
     {
-        interactionButton.action.performed -= ctx => TryInteract();
+        interactionButton.action.performed -= eDelegate;
     }
 
     void TryInteract(){
@@ -37,6 +45,23 @@ public class Interaction : MonoBehaviour, IFreezable
 
     public void SetActive(bool a){
         active = a;
+    }
+
+    public void RefreshTips(){
+        if (currentInteraction == null){
+            description.text = "";
+            tipObj.SetActive(false);
+            return;
+        }
+        description.text = currentInteraction.Description;
+
+        if (currentInteraction.CanUse){
+            tipObj.SetActive(true);
+            tip.text = currentInteraction.Tip;
+        }
+        else{
+            tipObj.SetActive(false);
+        }
     }
 
     void Update()
