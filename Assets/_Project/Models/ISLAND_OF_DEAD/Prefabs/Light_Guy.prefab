@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2507968574879200952}
   - component: {fileID: 9210032820997875835}
+  - component: {fileID: 8743379276228678549}
   m_Layer: 0
   m_Name: Light_Guy
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25,9 +26,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 77440053413440101}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.54651225, z: -0, w: 0.8374511}
+  m_LocalRotation: {x: 0, y: 0.54651123, z: 0, w: 0.8374518}
   m_LocalPosition: {x: -30.547, y: 0.335, z: -29.104}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.0848999, y: 1.0849, z: 1.0848999}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9140645635878653971}
@@ -55,6 +56,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.541174, y: 1.2513264, z: 1.0527985}
   m_Center: {x: 0.00514804, y: 0.9382257, z: 0.608489}
+--- !u!114 &8743379276228678549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 77440053413440101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0ce63d84328e7a4cb98b547467e8119, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tip: 
+  description: "\u041C\u043D\u0435 \u043D\u0443\u0436\u0435\u043D \u043A\u043B\u044E\u0447"
+  canUse: 0
+  ID: -1
 --- !u!1 &270841258752153788
 GameObject:
   m_ObjectHideFlags: 0
@@ -714,7 +731,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 1ca20bcc6b27c0348988e0d9e0036a5e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

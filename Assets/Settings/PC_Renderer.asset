@@ -48,8 +48,8 @@ MonoBehaviour:
   - {fileID: 7833122117494664109}
   - {fileID: 325232196955834386}
   - {fileID: -7084199659224416353}
-  - {fileID: 2016856471884069403}
-  m_RendererFeatureMap: ad6b866f10d7b46c128812c1f57483049f3ffc91f1ddaf9d1bfa98814650fd1b
+  - {fileID: 1775107483226226237}
+  m_RendererFeatureMap: ad6b866f10d7b46c128812c1f57483049f3ffc91f1ddaf9d3d3ed6dfd972a218
   m_UseNativeRenderPass: 1
   xrSystemData: {fileID: 0}
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
@@ -95,7 +95,7 @@ MonoBehaviour:
   passIndex: 0
   bindDepthStencilAttachment: 0
   m_Version: 1
---- !u!114 &2016856471884069403
+--- !u!114 &1775107483226226237
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

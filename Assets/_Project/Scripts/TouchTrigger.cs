@@ -1,7 +1,8 @@
+using Triggers;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class TouchTrigger : MonoBehaviour
+public class TouchTrigger : AbstractTrigger
 {
     [SerializeField] private UnityEvent onEnter;
     [SerializeField] private UnityEvent onExit;

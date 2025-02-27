@@ -295,7 +295,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdeba76d2eb521e4b85d01e8c3f5911f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tip: TAKE
-  description: Camera
+  tip: "\u0412\u0417\u042F\u0422\u042C"
+  description: "\u041A\u0410\u041C\u0415\u0420\u0410"
   canUse: 1
   ID: 1
+  iconData:
+    sprite: {fileID: 0}
+    widthHeight: {x: 0, y: 0}
+    scale: 0
+    blackOffset: 0

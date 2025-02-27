@@ -8,18 +8,28 @@ public class Anger : MonoBehaviour
     [SerializeField] private FOV playerFOV;
 
     [SerializeField] private NavMeshAgent agent;
+    [SerializeField] private GameObject meshToSee;
 
-    void Start()
-    {
+    private bool started;
+
+    public void ActivateMe(){
         agent.acceleration = 10000f;
         agent.angularSpeed = 10000f;
         agent.autoBraking = false;
         agent.stoppingDistance = 0f;
+        started = true;
+    }
+
+    public void DisableMe(){
+        started = false;
+        agent.isStopped = true;
+        agent.ResetPath();
     }
 
     void Update()
     {
-        if (!playerFOV.isMeVisible(gameObject))
+        if (!started) return;
+        if (!playerFOV.isMeVisible(meshToSee))
         {
             if (agent.isStopped)
                 agent.isStopped = false;
