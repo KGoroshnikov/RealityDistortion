@@ -1737,6 +1737,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8178412772580905408, guid: a3614ccb09b87a442ac0c95f640d8585, type: 3}
+      propertyPath: description
+      value: Arnold Becklin's "Island of the Dead" 1880AD.
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2075,6 +2079,10 @@ PrefabInstance:
     - target: {fileID: 4805425397228149772, guid: a3614ccb09b87a442ac0c95f640d8585, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8178412772580905408, guid: a3614ccb09b87a442ac0c95f640d8585, type: 3}
+      propertyPath: description
+      value: Atkinson Grimshaw "View of Heath Street by Night" 1882AD.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3933,6 +3941,10 @@ PrefabInstance:
     - target: {fileID: 4805425397228149772, guid: a3614ccb09b87a442ac0c95f640d8585, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8178412772580905408, guid: a3614ccb09b87a442ac0c95f640d8585, type: 3}
+      propertyPath: description
+      value: Kazimir Malevich "Black Square" 1915AD.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6039,6 +6051,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8178412772580905408, guid: a3614ccb09b87a442ac0c95f640d8585, type: 3}
+      propertyPath: description
+      value: Roy Lichtenstein "Woman in a wheelchair" 1963AD
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6684,6 +6700,10 @@ PrefabInstance:
     - target: {fileID: 4805425397228149772, guid: a3614ccb09b87a442ac0c95f640d8585, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8178412772580905408, guid: a3614ccb09b87a442ac0c95f640d8585, type: 3}
+      propertyPath: description
+      value: Nikolay Kazakov "Fight for your soul" 2025AD.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8655,6 +8675,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8178412772580905408, guid: a3614ccb09b87a442ac0c95f640d8585, type: 3}
+      propertyPath: description
+      value: Emanuel Leutze "Mrs. Schuyler Burning Her Wheat Fields on the Approach
+        of the British" 1852AD.
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9153,6 +9178,10 @@ PrefabInstance:
     - target: {fileID: 4805425397228149772, guid: a3614ccb09b87a442ac0c95f640d8585, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8178412772580905408, guid: a3614ccb09b87a442ac0c95f640d8585, type: 3}
+      propertyPath: description
+      value: Albert Anker "Bertha Wegmann" 1870AD.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9889,6 +9918,10 @@ PrefabInstance:
     - target: {fileID: 4805425397228149772, guid: a3614ccb09b87a442ac0c95f640d8585, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8178412772580905408, guid: a3614ccb09b87a442ac0c95f640d8585, type: 3}
+      propertyPath: description
+      value: Nikolay Kazakov "Meeting of Souls" 2025AD.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11287,6 +11320,11 @@ PrefabInstance:
     - target: {fileID: 4805425397228149772, guid: a3614ccb09b87a442ac0c95f640d8585, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8178412772580905408, guid: a3614ccb09b87a442ac0c95f640d8585, type: 3}
+      propertyPath: description
+      value: Anokhin Yuri Nikolaevich "Spring is coming. The village is under construction"
+        1959AD.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13289,6 +13327,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8178412772580905408, guid: a3614ccb09b87a442ac0c95f640d8585, type: 3}
+      propertyPath: description
+      value: Kaspar David Friedrich "The Wanderer over the Sea of Fog" 1818AD.
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15131,6 +15173,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8178412772580905408, guid: a3614ccb09b87a442ac0c95f640d8585, type: 3}
+      propertyPath: description
+      value: Nikolay Kazakov "Tereza Fayn" 2024AD.
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16067,6 +16113,10 @@ PrefabInstance:
     - target: {fileID: 4805425397228149772, guid: a3614ccb09b87a442ac0c95f640d8585, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8178412772580905408, guid: a3614ccb09b87a442ac0c95f640d8585, type: 3}
+      propertyPath: description
+      value: Peter Brueghel the Elder "Babylon tower" 1563AD.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19880,6 +19930,14 @@ PrefabInstance:
     - target: {fileID: 4805425397228149772, guid: a3614ccb09b87a442ac0c95f640d8585, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8178412772580905408, guid: a3614ccb09b87a442ac0c95f640d8585, type: 3}
+      propertyPath: canUse
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8178412772580905408, guid: a3614ccb09b87a442ac0c95f640d8585, type: 3}
+      propertyPath: description
+      value: Pablo Picasso "Lecture" 1932AD.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -25450,6 +25508,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8178412772580905408, guid: a3614ccb09b87a442ac0c95f640d8585, type: 3}
+      propertyPath: description
+      value: Vincent Wangog "Starry Night" 1889AD.
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -26714,6 +26776,10 @@ PrefabInstance:
     - target: {fileID: 4805425397228149772, guid: a3614ccb09b87a442ac0c95f640d8585, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8178412772580905408, guid: a3614ccb09b87a442ac0c95f640d8585, type: 3}
+      propertyPath: description
+      value: Karl Bryullov "The Last Day of Pompeii" 1833AD.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -29807,6 +29873,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8178412772580905408, guid: a3614ccb09b87a442ac0c95f640d8585, type: 3}
+      propertyPath: description
+      value: Edvard Munch "The Scream" 1893AD.
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -30980,6 +31050,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8178412772580905408, guid: a3614ccb09b87a442ac0c95f640d8585, type: 3}
+      propertyPath: description
+      value: Leonardo Da Vinci "The Vitruvian Man" 1490AD.
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -31260,7 +31334,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5179486542413609389, guid: e0a79a960379388478135a154d3df96e, type: 3}
       propertyPath: m_Name
-      value: Minotaur
+      value: Scream
       objectReference: {fileID: 0}
     - target: {fileID: 5179486542413609389, guid: e0a79a960379388478135a154d3df96e, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -32572,6 +32646,10 @@ PrefabInstance:
     - target: {fileID: 4805425397228149772, guid: a3614ccb09b87a442ac0c95f640d8585, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8178412772580905408, guid: a3614ccb09b87a442ac0c95f640d8585, type: 3}
+      propertyPath: description
+      value: Anri de Tuluz-Lotrek "Portrait of Vincent Wangog" 1887AD.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
