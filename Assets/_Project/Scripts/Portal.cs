@@ -23,9 +23,10 @@ public class Portal : MonoBehaviour {
     private bool invokeTP;
 
     void Awake(){
-        myRenderTex = new RenderTexture(Screen.width, Screen.height, 1);
-        portalCam.targetTexture = myRenderTex;
         playerCam = Camera.main;
+        if (!screen) return;
+        myRenderTex = new RenderTexture(Screen.width, Screen.height, 1);
+        if (portalCam) portalCam.targetTexture = myRenderTex;
         screen.material.SetInt("displayMask", 1);
         screen.sharedMaterial.SetTexture("_MainTex", myRenderTex);
     }
@@ -34,7 +35,7 @@ public class Portal : MonoBehaviour {
             onTeleport.Invoke();
             invokeTP = false;
         }
-        ProtectScreenFromClipping(playerCam.transform.position);
+        if (screen) ProtectScreenFromClipping(playerCam.transform.position);
         HandleTravellers();
     }
 
@@ -48,7 +49,7 @@ public class Portal : MonoBehaviour {
             int portalSide = System.Math.Sign(Vector3.Dot(offsetFromPortal, transform.forward));
             int portalSideOld = System.Math.Sign(Vector3.Dot(traveller.previousOffsetFromPortal, transform.forward));
             if (portalSide != portalSideOld){
-                linkedPortal.ProtectScreenFromClipping(m.GetColumn(3));
+                if (linkedPortal.screen) linkedPortal.ProtectScreenFromClipping(m.GetColumn(3));
                 var positionOld = travellerT.position;
                 var rotOld = travellerT.rotation;
                 traveller.Teleport(transform, linkedPortal.transform, m.GetColumn(3), m.rotation);
@@ -78,7 +79,8 @@ public class Portal : MonoBehaviour {
     }
 
     public void Render(){
-        if (!CamFuncs.VisibleFromCamera(linkedPortal.screen, playerCam)){
+        if (!linkedPortal.portalCam) return;
+        if (linkedPortal.screen && !CamFuncs.VisibleFromCamera(linkedPortal.screen, playerCam)){
             
         }
         Matrix4x4 localToWorldMatrix = playerCam.transform.localToWorldMatrix;
