@@ -17,7 +17,7 @@ namespace Triggers
         [SerializeField] private float angularTolerance = 0.01f;
 
     
-        private bool _activated = false;
+        private bool _activated;
         private void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.yellow;

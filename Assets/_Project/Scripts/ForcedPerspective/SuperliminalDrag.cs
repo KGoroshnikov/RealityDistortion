@@ -14,6 +14,7 @@ public class SuperliminalDrag : MonoBehaviour
     [SerializeField] private LayerMask dragMask;
     [SerializeField] private LayerMask ignoreTargetMask;
     [SerializeField, Min(1)] private float maxDistance = 100;
+    [SerializeField, Min(0)] private float minDistance = 0.5f;
     [SerializeField, Min(1)] private int numberOfGridColumns = 16;
     [SerializeField, Min(1)] private int numberOfGridRows = 16;
     
@@ -96,6 +97,8 @@ public class SuperliminalDrag : MonoBehaviour
                     ignoreTargetMask | targetMask, out var hit))
                 dst = Mathf.Min(dst, hit.distance);
 
+        dst -= dst / originalDistance;
+        dst = Mathf.Max(dst, minDistance);
         target.position = camera.transform.position + camera.transform.forward * dst;
         targetScale = dst / originalDistance;
         target.localScale = targetScale * originalScale;
