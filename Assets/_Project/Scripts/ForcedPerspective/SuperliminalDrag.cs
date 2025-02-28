@@ -36,7 +36,7 @@ public class SuperliminalDrag : MonoBehaviour
     {
         if (!target) return;
         Gizmos.color = Color.red;
-        Gizmos.matrix = Matrix4x4.TRS(target.position, target.rotation, target.lossyScale);
+        Gizmos.matrix = target.transform.localToWorldMatrix;
         Gizmos.DrawWireCube(Vector3.zero, Vector3.one);
         
         Gizmos.matrix = camera.transform.localToWorldMatrix;
@@ -69,10 +69,10 @@ public class SuperliminalDrag : MonoBehaviour
             target = hit.transform;
             if(target.TryGetComponent<Rigidbody>(out var rb)) rb.isKinematic = true;
             originalDistance = Vector3.Distance(camera.transform.position, target.position);
-            originalScale = target.localScale;
-            targetScale = target.localScale.x;
             originalParent = target.parent;
             target.parent = transform;
+            originalScale = target.localScale;
+            targetScale = target.localScale.x;
             SetupShapedGrid(GetBoundingBoxPoints());
             target.gameObject.layer = (int) Mathf.Log(dragMask	, 2);
         }
@@ -85,30 +85,23 @@ public class SuperliminalDrag : MonoBehaviour
             target = null;
         }
     }
- 
+
     private void ResizeTarget()
     {
         if (!target) return;
-        
+
         var dst = maxDistance;
         foreach (var pos in shapedGrid)
-            if (RaycastFast(camera.transform.TransformPoint(pos), 
+            if (RaycastFast(camera.transform.TransformPoint(pos),
                     ignoreTargetMask | targetMask, out var hit))
                 dst = Mathf.Min(dst, hit.distance);
-        
+
         target.position = camera.transform.position + camera.transform.forward * dst;
-        for (var i = 0; i < 10; i++)
-        {
-            if (!Physics.CheckBox(target.position, target.localScale, 
-                    target.rotation, ignoreTargetMask | targetMask)) break;
-            target.position -= camera.transform.forward
-                               * Mathf.Abs(Vector3.Dot(target.localScale, camera.transform.forward));
-        }
         targetScale = dst / originalDistance;
         target.localScale = targetScale * originalScale;
     }
-    
-#region Calculating grid
+
+    #region Calculating grid
     private Vector3[] GetBoundingBoxPoints() 
     {
         var size = target.GetComponent<Renderer>().localBounds.size;
