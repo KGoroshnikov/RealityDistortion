@@ -2392,6 +2392,38 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 843518651688121648, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 843518651688121648, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 843518651688121648, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1556398044}
+    - target: {fileID: 843518651688121648, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 843518651688121648, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddEnteredPortal
+      objectReference: {fileID: 0}
+    - target: {fileID: 843518651688121648, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ScreamGameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 843518651688121648, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 963825762}
+    - target: {fileID: 843518651688121648, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Transform, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1567100960973562592, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -217.09
@@ -2431,6 +2463,38 @@ PrefabInstance:
     - target: {fileID: 1567100960973562592, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1666348369222188173, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1666348369222188173, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1666348369222188173, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1556398044}
+    - target: {fileID: 1666348369222188173, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1666348369222188173, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddEnteredPortal
+      objectReference: {fileID: 0}
+    - target: {fileID: 1666348369222188173, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ScreamGameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1666348369222188173, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 963825762}
+    - target: {fileID: 1666348369222188173, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Transform, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2212710063741222922, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
       propertyPath: m_LocalScale.x
@@ -12133,6 +12197,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2175182911858445573, guid: ccd50ecadfa00334f80ba08cbd99123f, type: 3}
   m_PrefabInstance: {fileID: 462824275}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &462903619
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 462903620}
+  m_Layer: 0
+  m_Name: PosEndGame
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &462903620
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 462903619}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -198.71, y: 18.429916, z: -309.55}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1001 &467553464
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16764,6 +16859,38 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 843518651688121648, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 843518651688121648, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 843518651688121648, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1556398044}
+    - target: {fileID: 843518651688121648, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 843518651688121648, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddEnteredPortal
+      objectReference: {fileID: 0}
+    - target: {fileID: 843518651688121648, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ScreamGameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 843518651688121648, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 600345987}
+    - target: {fileID: 843518651688121648, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Transform, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1567100960973562592, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -217.09
@@ -16827,6 +16954,10 @@ PrefabInstance:
     - target: {fileID: 1666348369222188173, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
       propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: ScreamGameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1666348369222188173, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1666348369222188173, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
       propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -22265,6 +22396,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9098721340954791087, guid: 3bff3607fa4d1384dae05c7198c776a8, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9098721340954791087, guid: 3bff3607fa4d1384dae05c7198c776a8, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9098721340954791087, guid: 3bff3607fa4d1384dae05c7198c776a8, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1556398044}
+    - target: {fileID: 9098721340954791087, guid: 3bff3607fa4d1384dae05c7198c776a8, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9098721340954791087, guid: 3bff3607fa4d1384dae05c7198c776a8, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddEnteredPortal
+      objectReference: {fileID: 0}
+    - target: {fileID: 9098721340954791087, guid: 3bff3607fa4d1384dae05c7198c776a8, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ScreamGameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 9098721340954791087, guid: 3bff3607fa4d1384dae05c7198c776a8, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -23704,6 +23863,38 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 843518651688121648, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 843518651688121648, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 843518651688121648, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1556398044}
+    - target: {fileID: 843518651688121648, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 843518651688121648, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddEnteredPortal
+      objectReference: {fileID: 0}
+    - target: {fileID: 843518651688121648, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ScreamGameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 843518651688121648, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 429479103}
+    - target: {fileID: 843518651688121648, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Transform, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1567100960973562592, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -217.09
@@ -23743,6 +23934,38 @@ PrefabInstance:
     - target: {fileID: 1567100960973562592, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1666348369222188173, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1666348369222188173, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1666348369222188173, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1556398044}
+    - target: {fileID: 1666348369222188173, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1666348369222188173, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddEnteredPortal
+      objectReference: {fileID: 0}
+    - target: {fileID: 1666348369222188173, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ScreamGameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1666348369222188173, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 429479103}
+    - target: {fileID: 1666348369222188173, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Transform, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2212710063741222922, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
       propertyPath: m_LocalScale.x
@@ -26168,6 +26391,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 886305490}
+  - component: {fileID: 886305491}
+  - component: {fileID: 886305492}
+  - component: {fileID: 886305494}
+  - component: {fileID: 886305493}
+  - component: {fileID: 886305495}
   m_Layer: 0
   m_Name: Scream
   m_TagString: Untagged
@@ -26184,18 +26412,150 @@ Transform:
   m_GameObject: {fileID: 886305489}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.40809146, z: 0, w: 0.9129411}
-  m_LocalPosition: {x: -210.53, y: 17.1, z: -360.91}
+  m_LocalPosition: {x: -210.53, y: 16.92, z: -360.91}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4556612818997491989}
   - {fileID: 1351322438506557653}
-  - {fileID: 4537217261331373196}
-  - {fileID: 5063404928278717137}
-  - {fileID: 7382533555454940261}
-  - {fileID: 470820227375495116}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 48.17, z: 0}
+--- !u!195 &886305491
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 886305489}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0.42
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &886305492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 886305489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 074c0acb476fc5940ba24121da3fcdb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onTeleport:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1556398044}
+        m_TargetAssemblyTypeName: ScreamGameManager, Assembly-CSharp
+        m_MethodName: ScreamEnteredPortal
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onPreTeleport:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 886305491}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!54 &886305493
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 886305489}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!136 &886305494
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 886305489}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2.94
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.03, z: 0}
+--- !u!95 &886305495
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 886305489}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c8ee9d084597a924a8b5588defaaf161, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &891505056
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27616,6 +27976,38 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 843518651688121648, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 843518651688121648, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 843518651688121648, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1556398044}
+    - target: {fileID: 843518651688121648, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 843518651688121648, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddEnteredPortal
+      objectReference: {fileID: 0}
+    - target: {fileID: 843518651688121648, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ScreamGameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 843518651688121648, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 429479103}
+    - target: {fileID: 843518651688121648, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Transform, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1567100960973562592, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -217.09
@@ -27655,6 +28047,38 @@ PrefabInstance:
     - target: {fileID: 1567100960973562592, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1666348369222188173, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1666348369222188173, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1666348369222188173, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1556398044}
+    - target: {fileID: 1666348369222188173, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1666348369222188173, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddEnteredPortal
+      objectReference: {fileID: 0}
+    - target: {fileID: 1666348369222188173, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ScreamGameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1666348369222188173, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 429479103}
+    - target: {fileID: 1666348369222188173, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Transform, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2212710063741222922, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
       propertyPath: m_LocalScale.x
@@ -28629,6 +29053,38 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 843518651688121648, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 843518651688121648, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 843518651688121648, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1556398044}
+    - target: {fileID: 843518651688121648, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 843518651688121648, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddEnteredPortal
+      objectReference: {fileID: 0}
+    - target: {fileID: 843518651688121648, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ScreamGameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 843518651688121648, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 429479103}
+    - target: {fileID: 843518651688121648, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Transform, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1567100960973562592, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -217.09
@@ -28668,6 +29124,38 @@ PrefabInstance:
     - target: {fileID: 1567100960973562592, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1666348369222188173, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1666348369222188173, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1666348369222188173, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1556398044}
+    - target: {fileID: 1666348369222188173, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1666348369222188173, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddEnteredPortal
+      objectReference: {fileID: 0}
+    - target: {fileID: 1666348369222188173, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ScreamGameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1666348369222188173, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 429479103}
+    - target: {fileID: 1666348369222188173, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Transform, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2212710063741222922, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
       propertyPath: m_LocalScale.x
@@ -28827,6 +29315,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 3635333206112714490, guid: 8a5fdf0fe240abe42b104448e0c07f57, type: 3}
   m_PrefabInstance: {fileID: 963742877}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &963825762 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7939094365131463009, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+  m_PrefabInstance: {fileID: 97843681}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &966594206
 GameObject:
@@ -34278,6 +34771,70 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2175182911858445573, guid: ccd50ecadfa00334f80ba08cbd99123f, type: 3}
   m_PrefabInstance: {fileID: 1161717106}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1162016201
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1162016202}
+  - component: {fileID: 1162016203}
+  m_Layer: 0
+  m_Name: Navmesh
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1162016202
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162016201}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1556398045}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1162016203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162016201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 1
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: e7438d1d195abde44b4e638a4671aafa, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!1001 &1162241257
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36574,6 +37131,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2175182911858445573, guid: ccd50ecadfa00334f80ba08cbd99123f, type: 3}
   m_PrefabInstance: {fileID: 1237506289}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1242210648 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 843518651688121648, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+  m_PrefabInstance: {fileID: 600345986}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 731328d12dffe8d4e855973d231cb274, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1250103509
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36630,6 +37198,38 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 843518651688121648, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 843518651688121648, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 843518651688121648, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1556398044}
+    - target: {fileID: 843518651688121648, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 843518651688121648, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddEnteredPortal
+      objectReference: {fileID: 0}
+    - target: {fileID: 843518651688121648, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ScreamGameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 843518651688121648, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 429479103}
+    - target: {fileID: 843518651688121648, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Transform, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1567100960973562592, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -217.09
@@ -36669,6 +37269,38 @@ PrefabInstance:
     - target: {fileID: 1567100960973562592, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1666348369222188173, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1666348369222188173, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1666348369222188173, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1556398044}
+    - target: {fileID: 1666348369222188173, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1666348369222188173, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddEnteredPortal
+      objectReference: {fileID: 0}
+    - target: {fileID: 1666348369222188173, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ScreamGameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1666348369222188173, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 429479103}
+    - target: {fileID: 1666348369222188173, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: onTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Transform, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2212710063741222922, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
       propertyPath: m_LocalScale.x
@@ -44668,6 +45300,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1516203579}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1521908837
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1521908838}
+  m_Layer: 0
+  m_Name: PosStartGame
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1521908838
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1521908837}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -217.09, y: 18.429916, z: -364.87}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1523747386
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46360,6 +47023,15 @@ MonoBehaviour:
   startPlayerPos: {fileID: 367031250}
   player: {fileID: 591057792}
   playerContoller: {fileID: 591057784}
+  posesPortal:
+  - {fileID: 1521908838}
+  - {fileID: 462903620}
+  portalTransform: {fileID: 600345988}
+  portal: {fileID: 1242210648}
+  screamAnimator: {fileID: 886305495}
+  scream: {fileID: 886305491}
+  regularSpeed: 5.5
+  toPortalSpeed: 8
 --- !u!4 &1556398045
 Transform:
   m_ObjectHideFlags: 0
@@ -46372,7 +47044,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1162016202}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1557199888
@@ -63130,6 +63803,8 @@ Transform:
   m_LocalScale: {x: 0.99999994, y: 1, z: 0.99999994}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 7382533555454940261}
+  - {fileID: 470820227375495116}
   - {fileID: 605757982873271911}
   m_Father: {fileID: 2897243536985794292}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -63149,12 +63824,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6676053437124692019}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.50000006, y: 0.49999997, z: 0.50000006, w: 0.49999997}
-  m_LocalPosition: {x: -3.117951, y: 0, z: 1.1210333}
-  m_LocalScale: {x: 81.1751, y: 81.175095, z: 81.1751}
+  m_LocalRotation: {x: -0.69676507, y: 0.11273814, z: -0.1204928, w: 0.69806165}
+  m_LocalPosition: {x: -0.017251683, y: -0.015398083, z: -0.03886025}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 886305490}
+  m_Father: {fileID: 112586602951477213}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &605757982873271911
 Transform:
@@ -63279,6 +63954,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1.0000001, z: 1.0000001}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 4537217261331373196}
+  - {fileID: 5063404928278717137}
   - {fileID: 2897243536985794292}
   m_Father: {fileID: 5057917544492715394}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -63440,12 +64117,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6868142190581264956}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.50000006, y: 0.49999997, z: 0.50000006, w: 0.49999997}
-  m_LocalPosition: {x: -3.117951, y: 0, z: 1.1210333}
-  m_LocalScale: {x: 81.1751, y: 81.175095, z: 81.1751}
+  m_LocalRotation: {x: -0.707096, y: -0.0039311866, z: -0.0039311973, w: 0.7070958}
+  m_LocalPosition: {x: -0.012836879, y: -0.004171432, z: -0.03881115}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 886305490}
+  m_Father: {fileID: 2621283933611435391}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4556612818997491989
 Transform:
@@ -63487,12 +64164,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5820359086647271911}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.50000006, y: 0.49999997, z: 0.50000006, w: 0.49999997}
-  m_LocalPosition: {x: -3.117951, y: 0, z: 1.1210333}
-  m_LocalScale: {x: 81.1751, y: 81.175095, z: 81.1751}
+  m_LocalRotation: {x: -0.707096, y: -0.0039311866, z: -0.0039311973, w: 0.7070958}
+  m_LocalPosition: {x: -0.012836879, y: -0.004171432, z: -0.03881115}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 886305490}
+  m_Father: {fileID: 2621283933611435391}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &5711895322902220238
 MeshRenderer:
@@ -63788,12 +64465,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2024629810807667743}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.50000006, y: 0.49999997, z: 0.50000006, w: 0.49999997}
-  m_LocalPosition: {x: -3.117951, y: 0, z: 1.1210333}
-  m_LocalScale: {x: 81.1751, y: 81.175095, z: 81.1751}
+  m_LocalRotation: {x: -0.69676507, y: 0.11273814, z: -0.1204928, w: 0.69806165}
+  m_LocalPosition: {x: -0.017251683, y: -0.015398083, z: -0.03886025}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 886305490}
+  m_Father: {fileID: 112586602951477213}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7830232151372049193
 MeshFilter:
@@ -64087,6 +64764,8 @@ SceneRoots:
   - {fileID: 1250103509}
   - {fileID: 815473109}
   - {fileID: 600345986}
+  - {fileID: 462903620}
+  - {fileID: 1521908838}
   - {fileID: 10531433}
   - {fileID: 155141093}
   - {fileID: 367031250}
