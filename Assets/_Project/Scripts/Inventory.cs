@@ -71,4 +71,27 @@ public class Inventory : MonoBehaviour
         
         currentItems.Add(newItem);
     }
+
+    public bool RemoveItem(int id) {
+        if (id == 1) {
+            if (haveCamera) {
+                haveCamera = false;
+                camUI.SetActive(false);
+            }
+            return true;
+        }
+
+        int removeIndex = currentItems.FindIndex(item => item.id == id);
+        if (removeIndex == -1) {
+            return false;
+        }
+        
+        currentItems[removeIndex].uiIcon.SetActive(false);
+        currentItems.RemoveAt(removeIndex);
+        
+        for (int i = 0; i < currentItems.Count; i++) {
+            currentItems[i].uiIcon.transform.localPosition = posFirstItem.localPosition + iconOffset * i;
+        }
+        return true;
+    }
 }

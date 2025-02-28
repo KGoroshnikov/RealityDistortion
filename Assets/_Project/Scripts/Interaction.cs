@@ -109,6 +109,10 @@ public class Interaction : MonoBehaviour, IFreezable
         inventory.AddItem(id, itemIconData);
     }
 
+    public Inventory GetInventory(){
+        return inventory;
+    }
+
     public void Freeze()
     {
         throw new System.NotImplementedException();

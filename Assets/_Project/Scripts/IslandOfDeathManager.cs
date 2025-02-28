@@ -4,6 +4,7 @@ using UnityEngine;
 public class IslandOfDeathManager : MonoBehaviour
 {
     [SerializeField] private PlayerContoller playerContoller;
+    [SerializeField] private Inventory inventory;
     [SerializeField] private MoveObjects moveObjects;
     [SerializeField] private float timeMove;
 
@@ -41,6 +42,10 @@ public class IslandOfDeathManager : MonoBehaviour
         portal.position = portalPoses[1].position;
         portal.rotation = portalPoses[1].rotation;
         portalOnBoat = true;
+
+        /*PickupableItem.ItemIconData itemIconData = new PickupableItem.ItemIconData();
+        itemIconData.
+        inventory.AddItem();*/
     }
 
     public void ActivateAngel(){
