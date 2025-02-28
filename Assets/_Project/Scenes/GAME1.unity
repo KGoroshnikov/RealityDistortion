@@ -29702,6 +29702,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5053309972898395981, guid: 2f9ea895013235145b867ef99448394b, type: 3}
+      propertyPath: far clip plane
+      value: 100000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5053309972898395981, guid: 2f9ea895013235145b867ef99448394b, type: 3}
       propertyPath: m_TargetTexture
       value: 
       objectReference: {fileID: 8400000, guid: 765f7aa795017cf4aa908d4ac8e70e33, type: 2}
@@ -30957,7 +30961,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7635708, z: -0, w: -0.6457241}
   m_LocalPosition: {x: -163.53, y: 2.35, z: -404.16}
-  m_LocalScale: {x: 0.7, y: 0.49295774, z: 0.3471534}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1892415177}
@@ -32744,7 +32748,7 @@ PrefabInstance:
       objectReference: {fileID: 970001014}
     - target: {fileID: 1971917416590820686, guid: 2f9ea895013235145b867ef99448394b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.3729876
+      value: 0.70000005
       objectReference: {fileID: 0}
     - target: {fileID: 1971917416590820686, guid: 2f9ea895013235145b867ef99448394b, type: 3}
       propertyPath: m_LocalScale.y
@@ -32752,7 +32756,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1971917416590820686, guid: 2f9ea895013235145b867ef99448394b, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.17459245
+      value: 0.3471534
       objectReference: {fileID: 0}
     - target: {fileID: 1971917416590820686, guid: 2f9ea895013235145b867ef99448394b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -32768,7 +32772,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1971917416590820686, guid: 2f9ea895013235145b867ef99448394b, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1971917416590820686, guid: 2f9ea895013235145b867ef99448394b, type: 3}
       propertyPath: m_LocalRotation.x
@@ -32776,7 +32780,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1971917416590820686, guid: 2f9ea895013235145b867ef99448394b, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 1
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1971917416590820686, guid: 2f9ea895013235145b867ef99448394b, type: 3}
       propertyPath: m_LocalRotation.z
@@ -32796,7 +32800,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1971917416590820686, guid: 2f9ea895013235145b867ef99448394b, type: 3}
       propertyPath: m_ConstrainProportionsScale
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7765855188329454629, guid: 2f9ea895013235145b867ef99448394b, type: 3}
       propertyPath: m_LocalScale.y
@@ -44724,9 +44728,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1527069929}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -155, y: 24.369, z: -340}
-  m_LocalScale: {x: 0.7, y: 0.49295774, z: 0.3471534}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1892415177}
@@ -55345,6 +55349,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8743379276228678549, guid: a14c91abd2a7fae40b949ef2929d9236, type: 3}
+      propertyPath: islandOfDeathManager
+      value: 
+      objectReference: {fileID: 2015737674}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -57271,6 +57279,10 @@ MonoBehaviour:
   kletka: {fileID: 587540493}
   rockexit: {fileID: 1423299073}
   lightGuy: {fileID: 1957697127}
+  portal: {fileID: 1069247648}
+  portalPoses:
+  - {fileID: 1527069930}
+  - {fileID: 1002683292}
 --- !u!1001 &2016266540
 PrefabInstance:
   m_ObjectHideFlags: 0
