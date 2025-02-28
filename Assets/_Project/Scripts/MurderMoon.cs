@@ -16,9 +16,18 @@ namespace _Project.Scripts
         [SerializeField] private UnityEvent<float> onTimerStarted;
         [SerializeField] private UnityEvent onDetectStarted;
         [SerializeField] private UnityEvent onPlayerDetected;
+
+        [SerializeField] private Animator animator;
     
-        [SerializeField, Min(0)] private float minTimerDuration = 1;
-        [SerializeField, Min(0)] private float maxTimerDuration = 2;
+        [SerializeField] private Vector2 timeNotSee;
+        [SerializeField] private Vector2 timeSee;
+
+        [SerializeField] private float warningTime = 2f;
+        private float rotateTime = 0.5f;
+
+        private bool seeing;
+
+        [SerializeField] private DeathManager playerDie;
 
         private void OnDrawGizmos()
         {
@@ -30,16 +39,38 @@ namespace _Project.Scripts
 
         private void TryDetect()
         {
-            StartTimer();
-            if (!inDetectMode) return;
+            seeing = true;
+            Invoke("LookBack", Random.Range(timeSee.x, timeSee.y));
             onDetectStarted.Invoke();
+        }
+
+        void WarnPlayer(){
+            Debug.Log("Warning");
+        }
+
+        void RotateToLook(){
+            animator.SetTrigger("See");
+        }
+
+        void FixedUpdate()
+        {
+            if (!seeing || !inDetectMode) return;
             if (Physics.Linecast(moon.position, player.position, obstacleLayer)) return;
+            playerDie.Die();
             onPlayerDetected.Invoke();
+        }
+
+        void LookBack(){
+            seeing = false;
+            StartTimer();
+            animator.SetTrigger("DontSee");
         }
 
         private void StartTimer()
         {
-            var time = Random.Range(minTimerDuration, maxTimerDuration);
+            var time = Random.Range(timeNotSee.x, timeNotSee.y);
+            Invoke("WarnPlayer", time - warningTime);
+            Invoke("RotateToLook", time - rotateTime);
             Invoke(nameof(TryDetect), time);
             onTimerStarted.Invoke(time);
         }
