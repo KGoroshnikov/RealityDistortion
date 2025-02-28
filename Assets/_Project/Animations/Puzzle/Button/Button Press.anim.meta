@@ -1,8 +1,15 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/_Project/Animations/Puzzle/Button/Button Press.anim.meta
 guid: d66a1c4b42322a4449916297824644f1
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 7400000
+========
+guid: 04dc0cad4df6fcc458e52d2d7aecf8bb
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+>>>>>>>> origin/main:Assets/_Project/Models/GREEN_BACKROOMS/Materials/sky.mat.meta
   userData: 
   assetBundleName: 
   assetBundleVariant: 
