@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.Serialization;
 
@@ -15,14 +14,22 @@ public class ObjectToDecalProjector : MonoBehaviour
     [SerializeField] private float maxDepth = 10;
     [SerializeField] private GameObject objectToRender;
     [SerializeField] private Camera renderCamera;
-    [SerializeField] private bool debug = false;
+    [SerializeField] private bool debug;
     
     private RenderTexture texture;
 
 
-    
-    private void Start()
+
+    private void Start() => StartDecalBuild();
+    private void CompleteDecalBuild()
     {
+        renderCamera.targetTexture = null;
+        renderCamera.gameObject.SetActive(false);
+        objectToRender.SetActive(false);
+    }
+    public void StartDecalBuild()
+    {
+        renderCamera.gameObject.SetActive(true);
         var forward = (objectToRender.transform.position - renderCamera.transform.position).normalized;
         texture = new RenderTexture(
             720, 720, 16, 
@@ -51,22 +58,9 @@ public class ObjectToDecalProjector : MonoBehaviour
         if (debug) return;
         Invoke(nameof(CompleteDecalBuild), 0);
     }
-    private void CompleteDecalBuild()
-    {
-        renderCamera.targetTexture = null;
-        Destroy(renderCamera.gameObject);
-        objectToRender.SetActive(false);
-    }
-
     public void DecalToObject()
     {
         objectToRender.SetActive(true);
         projectorObject.SetActive(false);
-    }
-
-    public void ObjectToDecal()
-    {
-        objectToRender.SetActive(false);
-        projectorObject.SetActive(true);
     }
 }
