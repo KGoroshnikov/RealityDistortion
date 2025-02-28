@@ -19,9 +19,15 @@ public class IslandOfDeathManager : MonoBehaviour
 
     [SerializeField] private LightGuy lightGuy;
 
+    [SerializeField] private Transform portal;
+    [SerializeField] private Transform[] portalPoses;
+
+    private bool portalOnBoat;
+
     private int levaverActived;
 
     public void MovePlayer(){
+        if (portalOnBoat) return;
         playerContoller.FreezePlayer();
         moveObjects.AddObjectToMove(playerContoller.gameObject, posPlayer.position, posPlayer.rotation, timeMove, PlayerMoved);
     }
@@ -29,6 +35,12 @@ public class IslandOfDeathManager : MonoBehaviour
     void PlayerMoved(){
         playerContoller.UnfreezePlayer();
         
+    }
+
+    public void MovePortalOnBoat(){
+        portal.position = portalPoses[1].position;
+        portal.rotation = portalPoses[1].rotation;
+        portalOnBoat = true;
     }
 
     public void ActivateAngel(){
