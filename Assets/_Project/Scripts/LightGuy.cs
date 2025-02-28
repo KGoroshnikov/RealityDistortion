@@ -10,6 +10,8 @@ public class LightGuy : MonoBehaviour, IInteractable
     public bool CanUse => canUse;
     [SerializeField] private int ID;
 
+    [SerializeField]private IslandOfDeathManager islandOfDeathManager;
+
     private bool playerTookLever;
     private bool playerHaveKey;
 
@@ -32,6 +34,7 @@ public class LightGuy : MonoBehaviour, IInteractable
 
         if (playerHaveKey && playerTookLever){
             description = "ПОКА!";
+            islandOfDeathManager.MovePortalOnBoat();
         }
         else if (playerHaveKey && !playerTookLever)
             description = "ТЫ ЗАБЫЛ РЫЧАГ! ОН НЕПОДАЛЕКУ ОТ ПОДЗЕМЕЛЬЯ";

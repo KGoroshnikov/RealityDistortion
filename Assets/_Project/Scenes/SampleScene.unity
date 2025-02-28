@@ -13024,7 +13024,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1392513121078643541, guid: c2b74a84d33754149a5c635c00fcdaca, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -16.67
+      value: -15.607
       objectReference: {fileID: 0}
     - target: {fileID: 1392513121078643541, guid: c2b74a84d33754149a5c635c00fcdaca, type: 3}
       propertyPath: m_LocalRotation.w
@@ -13381,6 +13381,8 @@ MonoBehaviour:
   maxLookAngle: 85
   wasd: {fileID: -1680190386980627800, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   look: {fileID: -5630151704836100654, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  jump: {fileID: 0}
+  interaction: {fileID: 0}
 --- !u!114 &7939256819111150021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13409,12 +13411,11 @@ MonoBehaviour:
   animFade: {fileID: 107323745}
   F: {fileID: 6360309616965494599, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   CamPref: {fileID: 903812486}
+  inventory: {fileID: 0}
   vhsWorldManager: {fileID: 282231130}
   VHSCanvas: {fileID: 1341953043}
   videoPlayer: {fileID: 1648614133}
-  volume: {fileID: 832575518}
-  DefaultVolume: {fileID: 11400000, guid: c65b17c7d762be443b16ec4b2e44815b, type: 2}
-  VHSVolume: {fileID: 11400000, guid: 30e4398e3050eca4ba9b29b974d0f9c1, type: 2}
+  VHSVolume: {fileID: 0}
   VHSscreenEffects:
   - {fileID: 325232196955834386, guid: f288ae1f4751b564a96ac7587541f7a2, type: 2}
   - {fileID: -7084199659224416353, guid: f288ae1f4751b564a96ac7587541f7a2, type: 2}
