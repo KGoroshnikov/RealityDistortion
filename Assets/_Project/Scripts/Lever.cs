@@ -41,8 +41,7 @@ public class Lever : SaveableBehaviour, IInteractable
         
     }
     
-    private void OnEnable() => Initialize();
-    private void OnDisable() => Dispose();
+    private void Start() => Initialize();
     public override void ResetState(Dictionary<string, object> states)
     {
         onDeactivate.Invoke();

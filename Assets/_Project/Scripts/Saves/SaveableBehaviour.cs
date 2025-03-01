@@ -18,10 +18,10 @@ namespace _Project.Scripts.Saves
         public abstract void ResetState(Dictionary<string, object> states);
         public abstract void ApplyState(Dictionary<string, object> states);
 
-        public void SetState(string state) => manager.AddState(state);
+        protected void SetState(string state) => manager.SetState(state);
 
-        public void SetState(string state, object value) => manager.AddState(state, value);
+        protected void SetState(string state, object value) => manager.SetState(state, value);
 
-        public void RemoveState(string state) => manager.RemoveState(state);
+        protected void RemoveState(string state) => manager.RemoveState(state);
     }
 }

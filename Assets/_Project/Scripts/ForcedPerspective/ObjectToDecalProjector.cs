@@ -21,12 +21,11 @@ public class ObjectToDecalProjector : SaveableBehaviour
     [SerializeField] private string uid;
     
     private RenderTexture texture;
+    private DecalProjector projector;
 
 
 
     private void Start() => StartDecalBuild();
-    private void OnEnable() => Initialize();
-    private void OnDisable() => Dispose();
 
     private void CompleteDecalBuild()
     {
@@ -50,7 +49,7 @@ public class ObjectToDecalProjector : SaveableBehaviour
         material.SetVector(CameraPosition, renderCamera.transform.position);
         
         
-        var projector = projectorObject.AddComponent<DecalProjector>();
+        projector = projectorObject.AddComponent<DecalProjector>();
         projector.scaleMode = DecalScaleMode.InheritFromHierarchy;
         projector.transform.forward = forward;
         projector.size = new Vector3(dst, dst, maxDepth);
@@ -64,11 +63,12 @@ public class ObjectToDecalProjector : SaveableBehaviour
         renderCamera.Render();
         if (debug) return;
         Invoke(nameof(CompleteDecalBuild), 0);
+        Initialize();
     }
     public void DecalToObject()
     {
         objectToRender.SetActive(true);
-        projectorObject.SetActive(false);
+        projector.enabled = false;
         SetState($"{name}_{uid}_Activated");
     }
 
@@ -78,7 +78,7 @@ public class ObjectToDecalProjector : SaveableBehaviour
     {
         if (states.ContainsKey($"{name}_{uid}_Activated")) return;
         objectToRender.SetActive(false);
-        projectorObject.SetActive(true);
+        projector.enabled = true;
         
     }
 }

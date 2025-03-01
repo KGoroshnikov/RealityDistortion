@@ -26,6 +26,7 @@ public class CountTrigger : AbstractTrigger
         if (value == limit) onValueLimitReached.Invoke();
         SetState($"{uid}_Count", value);
     }
+    private void Start() => Initialize();
 
     public override void ResetState(Dictionary<string, object> states) { }
     public override void ApplyState(Dictionary<string, object> states)

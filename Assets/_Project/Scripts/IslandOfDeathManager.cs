@@ -30,9 +30,6 @@ public class IslandOfDeathManager : SaveableBehaviour
 
     private int levaverActived;
 
-    private void OnEnable() => Initialize();
-    private void OnDisable() => Dispose();
-
     public void MovePlayer(){
         if (portalOnBoat) return;
         playerContoller.FreezePlayer();
@@ -80,6 +77,7 @@ public class IslandOfDeathManager : SaveableBehaviour
         kletka.SetActive(false);
     }
 
+    private void Start() => Initialize();
     public override void ResetState(Dictionary<string, object> states)
     {
         throw new NotImplementedException();

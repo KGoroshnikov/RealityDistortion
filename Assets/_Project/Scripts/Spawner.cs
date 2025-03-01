@@ -15,8 +15,7 @@ public class Spawner : SaveableBehaviour
         Instantiate(prefab, transform);
     }
 
-    private void OnEnable() => Initialize();
-    private void OnDisable() => Dispose();
+    private void Start() => Initialize();
 
     public override void ResetState(Dictionary<string, object> states)
     {
