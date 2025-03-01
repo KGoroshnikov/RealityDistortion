@@ -15,9 +15,11 @@ namespace _Project.Scripts.Saves
 
         protected void Dispose() => manager.SaveObjects.Remove(this);
 
-        public abstract void ResetState(HashSet<string> states);
+        public abstract void ResetState(Dictionary<string, object> states);
 
         public void AddState(string state) => manager.AddState(state);
+
+        public void AddState(string state, object value) => manager.AddState(state, value);
 
         public void RemoveState(string state) => manager.RemoveState(state);
     }

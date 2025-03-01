@@ -1,3 +1,4 @@
+using _Project.Scripts.Saves;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
@@ -5,6 +6,7 @@ using UnityEngine.Video;
 
 public class DeathManager : MonoBehaviour
 {
+    [SerializeField] private SaveManager saveManager;
     [SerializeField] private VideoPlayer videoPlayer;
     [SerializeField] private GameObject deathScreen;
     [SerializeField] private GameObject canvas;
@@ -47,6 +49,7 @@ public class DeathManager : MonoBehaviour
     }
 
     void ReloadScene(){
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        saveManager.Revert();
+        // SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
