@@ -15,13 +15,13 @@ public class ReloadPlayerMover : SaveableBehaviour
     public override void ApplyState(Dictionary<string, object> states)
     {
         if (!states.ContainsKey(stateName)) return;
-        player.FreezePlayer();
+        player.FreezePlayer(true);
         Invoke(nameof(Teleport),0);
     }
 
     private void Teleport()
     {
         player.transform.position = transform.position;
-        player.UnfreezePlayer();
+        player.UnfreezePlayer(true);
     }
 }
