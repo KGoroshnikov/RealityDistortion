@@ -46,11 +46,11 @@ public class PauseSystem : MonoBehaviour
         }
 
         if (paused){
-            playerContoller.FreezePlayer();
+            playerContoller.FreezePlayer(false);
             Cursor.lockState = CursorLockMode.None;
         }
         else{
-            playerContoller.UnfreezePlayer();
+            playerContoller.UnfreezePlayer(false);
             Cursor.lockState = CursorLockMode.Locked;
         }
         Cursor.visible = paused;

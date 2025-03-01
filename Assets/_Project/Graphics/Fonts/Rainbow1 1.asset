@@ -176314,8 +176314,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _ClipThresold: 0.37
-    - _Scale: 6
-    - _Speed: 2
+    - _Scale: 3
+    - _Speed: 1
     m_Colors:
     - _ClipRect: {r: -32767, g: -32767, b: 32767, a: 32767}
   m_BuildTextureStacks: []

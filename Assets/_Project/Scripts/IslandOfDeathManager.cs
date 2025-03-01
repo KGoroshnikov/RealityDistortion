@@ -29,12 +29,12 @@ public class IslandOfDeathManager : MonoBehaviour
 
     public void MovePlayer(){
         if (portalOnBoat) return;
-        playerContoller.FreezePlayer();
+        playerContoller.FreezePlayer(true);
         moveObjects.AddObjectToMove(playerContoller.gameObject, posPlayer.position, posPlayer.rotation, timeMove, PlayerMoved);
     }
 
     void PlayerMoved(){
-        playerContoller.UnfreezePlayer();
+        playerContoller.UnfreezePlayer(true);
         
     }
 

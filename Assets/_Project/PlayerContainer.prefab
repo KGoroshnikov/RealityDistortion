@@ -3799,7 +3799,7 @@ MonoBehaviour:
     m_Bits: 1
   layerMaskCOLLISION:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 513
   movingPlatformsTags: []
   walkSpeed: 3.5
   jumpForce: 4.5
@@ -3966,10 +3966,10 @@ RectTransform:
   - {fileID: 658734271556927767}
   - {fileID: 7982036230215577503}
   - {fileID: 8104056634434963090}
-  - {fileID: 8994003451449260971}
   - {fileID: 8716407372204239230}
   - {fileID: 7377165610785560258}
   - {fileID: 7734295410768143896}
+  - {fileID: 8994003451449260971}
   m_Father: {fileID: 7996150919743075577}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

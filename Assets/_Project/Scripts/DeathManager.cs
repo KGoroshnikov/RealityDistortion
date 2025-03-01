@@ -36,7 +36,7 @@ public class DeathManager : MonoBehaviour
         for(int i = 0; i < VHSscreenEffects.Length; i++){
             VHSscreenEffects[i].SetActive(true);
         }
-        playerContoller.FreezePlayer();
+        playerContoller.FreezePlayer(true);
 
         Invoke("BlackScreen", 2.5f);
     }

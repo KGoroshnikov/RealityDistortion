@@ -10,6 +10,12 @@ public class MainMenu : MonoBehaviour
 
     [SerializeField] private MainMenuCam mainMenuCam;
 
+    void Start()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
     public void Click(int id){
         if (id == 0){
             animatorCam.enabled = true;
