@@ -86,7 +86,7 @@ public class Portal : MonoBehaviour {
             linkedPortal.portalCam.enabled = false;
             return;
         }
-        else if (!linkedPortal.portalCam.enabled){
+        else if (!linkedPortal.portalCam.enabled)
             linkedPortal.portalCam.enabled = true;
         if (!linkedPortal.portalCam) return;
         if (linkedPortal.screen && !CamFuncs.VisibleFromCamera(linkedPortal.screen, playerCam)){
