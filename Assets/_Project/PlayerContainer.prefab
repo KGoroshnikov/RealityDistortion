@@ -4345,6 +4345,7 @@ GameObject:
   - component: {fileID: 8810506491754384916}
   - component: {fileID: 8500949231044149698}
   - component: {fileID: 8193555733752758283}
+  - component: {fileID: 4235023112047963964}
   m_Layer: 3
   m_Name: PlayerCamera
   m_TagString: MainCamera
@@ -4483,6 +4484,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f06eb5669cb92c5428190c155ff4ff3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4235023112047963964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5840075009408175117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfa4b4960805a404d914e22895abd84f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camera: {fileID: 5650883959136427425}
+  grab: {fileID: 1120369429361536294, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 512
+  dragMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  ignoreTargetMask:
+    serializedVersion: 2
+    m_Bits: 23
+  maxDistance: 100
+  numberOfGridColumns: 16
+  numberOfGridRows: 16
+  target: {fileID: 0}
 --- !u!1 &5891802594519586221
 GameObject:
   m_ObjectHideFlags: 0

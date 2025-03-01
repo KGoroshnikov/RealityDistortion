@@ -16,6 +16,10 @@ public class Portal : MonoBehaviour {
 
     [SerializeField] private UnityEvent onTeleport;
 
+    public float nearClipOffset = 0.05f;
+    public float nearClipLimit = 0.2f;
+
+
     private bool invokeTP;
 
     void Awake(){
@@ -79,11 +83,29 @@ public class Portal : MonoBehaviour {
         }
         Matrix4x4 localToWorldMatrix = playerCam.transform.localToWorldMatrix;
 
-        linkedPortal.portalCam.projectionMatrix = playerCam.projectionMatrix;
+        //portalCam.projectionMatrix = playerCam.projectionMatrix;
+        SetNearClipPlane();
+
         localToWorldMatrix = transform.localToWorldMatrix * linkedPortal.transform.worldToLocalMatrix * localToWorldMatrix;
         linkedPortal.portalCam.transform.position = localToWorldMatrix.GetColumn(3);
         linkedPortal.portalCam.transform.rotation = localToWorldMatrix.rotation;
 
+    }
+
+    void SetNearClipPlane() {
+        Transform clipPlane = transform;
+        int dot = System.Math.Sign (Vector3.Dot (clipPlane.forward, transform.position - linkedPortal.portalCam.transform.position));
+
+        Vector3 camSpacePos = linkedPortal.portalCam.worldToCameraMatrix.MultiplyPoint (clipPlane.position);
+        Vector3 camSpaceNormal = linkedPortal.portalCam.worldToCameraMatrix.MultiplyVector (clipPlane.forward) * dot;
+        float camSpaceDst = -Vector3.Dot (camSpacePos, camSpaceNormal) + nearClipOffset;
+
+        if (Mathf.Abs (camSpaceDst) > nearClipLimit) {
+            Vector4 clipPlaneCameraSpace = new Vector4 (camSpaceNormal.x, camSpaceNormal.y, camSpaceNormal.z, camSpaceDst);
+            linkedPortal.portalCam.projectionMatrix = playerCam.CalculateObliqueMatrix (clipPlaneCameraSpace);
+        } else {
+            linkedPortal.portalCam.projectionMatrix = playerCam.projectionMatrix;
+        }
     }
 
     void OnTravellerEnterPortal(PortalTraveller traveller){
