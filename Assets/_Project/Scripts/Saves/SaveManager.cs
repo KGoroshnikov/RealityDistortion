@@ -7,8 +7,8 @@ namespace _Project.Scripts.Saves
     public class SaveManager : MonoBehaviour
     {
         private readonly List<SaveableBehaviour> saveObjects = new();
-        private readonly HashSet<string> _stateChanges = new();
-        private readonly HashSet<string> _savedState = new();
+        private readonly Dictionary<string, object> _stateChanges = new();
+        private readonly Dictionary<string, object> _savedState = new();
         
         public List<SaveableBehaviour> SaveObjects => saveObjects;
 
@@ -22,11 +22,12 @@ namespace _Project.Scripts.Saves
 
         public void Commit()
         {
-            foreach (var change in _stateChanges)
-                _savedState.Add(change);
+            foreach (var (key, value) in _stateChanges)
+                _savedState.Add(key, value);
         }
 
-        public void AddState(string state) => _stateChanges.Add(state);
+        public void AddState(string state) => _stateChanges.Add(state, true);
+        public void AddState(string state, object value) => _stateChanges.Add(state, value);
 
         public void RemoveState(string state) => _stateChanges.Remove(state);
 
