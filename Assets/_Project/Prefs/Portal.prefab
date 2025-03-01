@@ -70,6 +70,11 @@ MonoBehaviour:
   screen: {fileID: 797852713687355618}
   portalCam: {fileID: 5053309972898395981}
   myRenderTex: {fileID: 8400000, guid: 3e6f887a2d67cc943858e8515326e83d, type: 2}
+  onTeleport:
+    m_PersistentCalls:
+      m_Calls: []
+  nearClipOffset: 0.05
+  nearClipLimit: 0.2
 --- !u!1 &5001076905364965645
 GameObject:
   m_ObjectHideFlags: 0
@@ -151,7 +156,7 @@ Camera:
   m_AllowMSAA: 1
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
+  m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
 --- !u!114 &3577242940141048998

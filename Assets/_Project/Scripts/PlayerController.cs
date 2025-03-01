@@ -76,6 +76,11 @@ public class PlayerContoller : Character
         }
     }
 
+    public void SetRunningMode(){
+        walkSpeed = 6f;
+        bobSpeed = 15f;
+    }
+
     private void Jump()
     {
         if (!isGrounded) return;

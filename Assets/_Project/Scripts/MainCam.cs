@@ -15,7 +15,7 @@ public class MainCam : MonoBehaviour
     void CustomOnPostRender(ScriptableRenderContext context, Camera camera)
     {
         for (int i = 0; i < portals.Length; i++) {
-            portals[i].Render ();
+            portals[i].Render();
         }
     }
 

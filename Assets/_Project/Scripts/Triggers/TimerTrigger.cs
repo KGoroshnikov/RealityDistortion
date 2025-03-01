@@ -1,4 +1,5 @@
-﻿using Triggers;
+﻿using System.Collections.Generic;
+using Triggers;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -15,4 +16,6 @@ public class TimerTrigger : AbstractTrigger
         Invoke(nameof(Finish), timerDuration);
     }
     private void Finish() => onTimerEnd.Invoke();
+    
+    public void CancelTimer() => CancelInvoke(nameof(Finish));
 }
