@@ -7,6 +7,7 @@ using UnityEngine.UI;
 // 1 - camera
 // 2 - key
 // 3 - lever
+// 4 - bucket
 
 public class Inventory : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class Inventory : MonoBehaviour
 
     [SerializeField] private Transform posFirstItem;
     [SerializeField] private Vector3 iconOffset;
+
+    [SerializeField] private Sprite bucketSprite;
     
     private class Item{
         public GameObject uiIcon;
@@ -70,5 +73,38 @@ public class Inventory : MonoBehaviour
         freeIcon.transform.localPosition = posFirstItem.localPosition + iconOffset * currentItems.Count;
         
         currentItems.Add(newItem);
+    }
+
+    public bool RemoveItem(int id) {
+        if (id == 1) {
+            if (haveCamera) {
+                haveCamera = false;
+                camUI.SetActive(false);
+            }
+            return true;
+        }
+
+        int removeIndex = currentItems.FindIndex(item => item.id == id);
+        if (removeIndex == -1) {
+            return false;
+        }
+        
+        currentItems[removeIndex].uiIcon.SetActive(false);
+        currentItems.RemoveAt(removeIndex);
+        
+        for (int i = 0; i < currentItems.Count; i++) {
+            currentItems[i].uiIcon.transform.localPosition = posFirstItem.localPosition + iconOffset * i;
+        }
+        return true;
+    }
+
+    public void AddBucket(){
+        PickupableItem.ItemIconData itemIconData = new PickupableItem.ItemIconData();
+        itemIconData.sprite = bucketSprite;
+        itemIconData.widthHeight = new Vector2(393, 519);
+        itemIconData.scale = 0.4f;
+        itemIconData.blackOffset = 50;
+
+        AddItem(4, itemIconData);
     }
 }
