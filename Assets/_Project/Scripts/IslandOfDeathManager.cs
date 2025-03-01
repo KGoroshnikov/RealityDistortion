@@ -1,7 +1,10 @@
+using System;
+using System.Collections.Generic;
+using _Project.Scripts.Saves;
 using TMPro;
 using UnityEngine;
 
-public class IslandOfDeathManager : MonoBehaviour
+public class IslandOfDeathManager : SaveableBehaviour
 {
     [SerializeField] private PlayerContoller playerContoller;
     [SerializeField] private Inventory inventory;
@@ -27,6 +30,9 @@ public class IslandOfDeathManager : MonoBehaviour
 
     private int levaverActived;
 
+    private void OnEnable() => Initialize();
+    private void OnDisable() => Dispose();
+
     public void MovePlayer(){
         if (portalOnBoat) return;
         playerContoller.FreezePlayer();
@@ -35,7 +41,6 @@ public class IslandOfDeathManager : MonoBehaviour
 
     void PlayerMoved(){
         playerContoller.UnfreezePlayer();
-        
     }
 
     public void MovePortalOnBoat(){
@@ -73,5 +78,14 @@ public class IslandOfDeathManager : MonoBehaviour
     void OpenGates(){
         leverUI.SetActive(false);
         kletka.SetActive(false);
+    }
+
+    public override void ResetState(Dictionary<string, object> states)
+    {
+        throw new NotImplementedException();
+    }
+    public override void ApplyState(Dictionary<string, object> states)
+    {
+        throw new NotImplementedException();
     }
 }

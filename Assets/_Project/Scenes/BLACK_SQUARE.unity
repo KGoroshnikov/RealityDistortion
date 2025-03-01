@@ -626,9 +626,10 @@ MonoBehaviour:
   decalMaterial: {fileID: 2100000, guid: 15190ad3bfc653b479638c381c538597, type: 2}
   quality: 64
   maxDepth: 30
-  objectToRender: {fileID: 2035812346}
+  objectToRender: {fileID: 227396282}
   renderCamera: {fileID: 1169903497}
   debug: 0
+  uid: puzzle2_cube
 --- !u!4 &101001152
 Transform:
   m_ObjectHideFlags: 0
@@ -2400,7 +2401,7 @@ MonoBehaviour:
           m_StringArgument: Activated!
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1343407739}
         m_TargetAssemblyTypeName: UnityEngine.Rigidbody, UnityEngine
         m_MethodName: set_isKinematic
         m_Mode: 6
@@ -2412,7 +2413,7 @@ MonoBehaviour:
           m_StringArgument: Activated!
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 320696123}
+      - m_Target: {fileID: 1971784556}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -2527,19 +2528,7 @@ MonoBehaviour:
           m_StringArgument: Activated!
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.Rigidbody, UnityEngine
-        m_MethodName: set_isKinematic
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Activated!
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 336295833}
+      - m_Target: {fileID: 173154436}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -2854,7 +2843,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 397964696}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5027717fe46c4113bc58bf894ca5d7bf, type: 3}
   m_Name: 
@@ -7584,13 +7573,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edafea5cbd3a470a8d4ec2411dee1b53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stairPrefab: {fileID: 5857560729158945190, guid: b79c98bdc4610384a82b5b055a613b9e, type: 3}
-  cubePrefab: {fileID: 2257628571446777128, guid: 00fc7e0e78f30c14392a8909f90916b5, type: 3}
-  p1StairSpawner: {fileID: 397964697}
-  p2CubeSpawner: {fileID: 0}
-  p3StairSpawner: {fileID: 0}
-  cleaned: 
-  player: 
 --- !u!1 &1282960502
 GameObject:
   m_ObjectHideFlags: 0
@@ -8019,6 +8001,11 @@ PrefabInstance:
 --- !u!4 &1343407738 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5603780493446374420, guid: b79c98bdc4610384a82b5b055a613b9e, type: 3}
+  m_PrefabInstance: {fileID: 1343407737}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &1343407739 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 8017067726646202547, guid: b79c98bdc4610384a82b5b055a613b9e, type: 3}
   m_PrefabInstance: {fileID: 1343407737}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1363876090
@@ -8571,6 +8558,7 @@ MonoBehaviour:
   objectToRender: {fileID: 173154436}
   renderCamera: {fileID: 147513803}
   debug: 0
+  uid: puzzle3_portal
 --- !u!1 &1519682068
 GameObject:
   m_ObjectHideFlags: 0
@@ -9553,6 +9541,7 @@ MonoBehaviour:
   objectToRender: {fileID: 1971784556}
   renderCamera: {fileID: 982228724}
   debug: 0
+  uid: puzzle3_ladder
 --- !u!1 &1721675672
 GameObject:
   m_ObjectHideFlags: 0
@@ -10053,7 +10042,7 @@ MonoBehaviour:
           m_StringArgument: Activated!
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1821764876}
+      - m_Target: {fileID: 227396282}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -10482,11 +10471,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1999621317}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &2035812346 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2257628571446777128, guid: 00fc7e0e78f30c14392a8909f90916b5, type: 3}
-  m_PrefabInstance: {fileID: 4664653631238152003}
-  m_PrefabAsset: {fileID: 0}
 --- !u!54 &2035812347 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 4275514930442089290, guid: 00fc7e0e78f30c14392a8909f90916b5, type: 3}

@@ -1,4 +1,5 @@
-﻿using Triggers;
+﻿using System.Collections.Generic;
+using Triggers;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -33,4 +34,6 @@ public class ZoneTrigger : AbstractTrigger
             && (layerMask.value & layer) == layer) 
             onExit.Invoke(other);
     }
+    public override void ResetState(Dictionary<string, object> states) { }
+    public override void ApplyState(Dictionary<string, object> states) { }
 }

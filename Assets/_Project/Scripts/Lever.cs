@@ -1,7 +1,9 @@
+using System.Collections.Generic;
+using _Project.Scripts.Saves;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Lever : MonoBehaviour, IInteractable
+public class Lever : SaveableBehaviour, IInteractable
 {
     [SerializeField] private string tip;
     public string Tip => tip;
@@ -14,6 +16,7 @@ public class Lever : MonoBehaviour, IInteractable
     [SerializeField] private MeshRenderer[] meshes;
     [SerializeField] private Material defaultMat;
     [SerializeField] private UnityEvent onActivate;
+    [SerializeField] private UnityEvent onDeactivate;
 
     private bool interacted;
 
@@ -36,5 +39,17 @@ public class Lever : MonoBehaviour, IInteractable
     public void EndHover(Interaction player)
     {
         
+    }
+    
+    private void OnEnable() => Initialize();
+    private void OnDisable() => Dispose();
+    public override void ResetState(Dictionary<string, object> states)
+    {
+        onDeactivate.Invoke();
+    }
+    public override void ApplyState(Dictionary<string, object> states)
+    {
+        if (states.ContainsKey($"{name}_{ID}_Activated"))
+            onActivate.Invoke();
     }
 }

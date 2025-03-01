@@ -6,7 +6,7 @@ namespace _Project.Scripts.Saves
 {
     public class SaveManager : MonoBehaviour
     {
-        private readonly List<SaveableBehaviour> saveObjects = new();
+        [SerializeField] private List<SaveableBehaviour> saveObjects = new();
         private readonly Dictionary<string, object> _stateChanges = new();
         private readonly Dictionary<string, object> _savedState = new();
         
@@ -17,6 +17,8 @@ namespace _Project.Scripts.Saves
             _stateChanges.Clear();
             foreach (var saveable in saveObjects)
                 saveable.ResetState(_savedState);
+            foreach (var saveable in saveObjects)
+                saveable.ApplyState(_savedState);
                 
         }
 

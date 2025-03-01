@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -61,5 +62,7 @@ namespace Triggers
             onDeactivated.Invoke();
             _activated = false;
         }
+        public override void ResetState(Dictionary<string, object> states) { }
+        public override void ApplyState(Dictionary<string, object> states) { }
     }
 }

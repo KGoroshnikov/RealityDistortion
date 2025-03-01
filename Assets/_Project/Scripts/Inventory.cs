@@ -33,7 +33,7 @@ public class Inventory : SaveableBehaviour
     void AddCamera(){
         haveCamera = true;
         camUI.SetActive(true);
-        AddState("Item_1");
+        SetState("Item_1");
     }
 
     public bool GetHaveCamera(){
@@ -77,7 +77,7 @@ public class Inventory : SaveableBehaviour
         freeIcon.transform.localPosition = posFirstItem.localPosition + iconOffset * currentItems.Count;
         
         currentItems.Add(newItem);
-        AddState($"Item_{id}", itemIconData);
+        SetState($"Item_{id}", itemIconData);
     }
 
     public bool RemoveItem(int id) {
@@ -113,14 +113,18 @@ public class Inventory : SaveableBehaviour
         AddItem(4, itemIconData);
     }
 
-    private void Awake() => Initialize();
+    private void OnEnable() => Initialize();
+    private void OnDisable() => Dispose();
 
     public override void ResetState(Dictionary<string, object> states)
     {
         foreach (var item in currentItems)
             item.uiIcon.SetActive(false);
         currentItems.Clear();
-        
+    }
+
+    public override void ApplyState(Dictionary<string, object> states)
+    {
         foreach (var (key, value) in 
                  states.Where(pair => pair.Key.StartsWith("Item_")))
             AddItem(int.Parse(key[5..]), (PickupableItem.ItemIconData)value);

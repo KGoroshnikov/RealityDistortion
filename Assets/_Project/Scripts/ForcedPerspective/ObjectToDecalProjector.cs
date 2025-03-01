@@ -1,8 +1,11 @@
+using System;
+using System.Collections.Generic;
+using _Project.Scripts.Saves;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.Serialization;
 
-public class ObjectToDecalProjector : MonoBehaviour
+public class ObjectToDecalProjector : SaveableBehaviour
 {
     private static readonly int BaseMap = Shader.PropertyToID("Base_Map");
     private static readonly int CameraPosition = Shader.PropertyToID("_Camera_Position");
@@ -15,12 +18,16 @@ public class ObjectToDecalProjector : MonoBehaviour
     [SerializeField] private GameObject objectToRender;
     [SerializeField] private Camera renderCamera;
     [SerializeField] private bool debug;
+    [SerializeField] private string uid;
     
     private RenderTexture texture;
 
 
 
     private void Start() => StartDecalBuild();
+    private void OnEnable() => Initialize();
+    private void OnDisable() => Dispose();
+
     private void CompleteDecalBuild()
     {
         renderCamera.targetTexture = null;
@@ -62,5 +69,16 @@ public class ObjectToDecalProjector : MonoBehaviour
     {
         objectToRender.SetActive(true);
         projectorObject.SetActive(false);
+        SetState($"{name}_{uid}_Activated");
+    }
+
+    public override void ResetState(Dictionary<string, object> states) { }
+
+    public override void ApplyState(Dictionary<string, object> states)
+    {
+        if (states.ContainsKey($"{name}_{uid}_Activated")) return;
+        objectToRender.SetActive(false);
+        projectorObject.SetActive(true);
+        
     }
 }

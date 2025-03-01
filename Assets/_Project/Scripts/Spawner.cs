@@ -1,7 +1,9 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using _Project.Scripts.Saves;
+using UnityEngine;
 
-[ExecuteInEditMode]
-public class Spawner : MonoBehaviour
+public class Spawner : SaveableBehaviour
 {
     [SerializeField] private GameObject prefab;
 
@@ -12,5 +14,15 @@ public class Spawner : MonoBehaviour
         if (transform.childCount != 0) return;
         Instantiate(prefab, transform);
     }
-    
+
+    private void OnEnable() => Initialize();
+    private void OnDisable() => Dispose();
+
+    public override void ResetState(Dictionary<string, object> states)
+    {
+        DestroyImmediate(transform.GetChild(0).gameObject);
+        TryRespawn();
+    }
+
+    public override void ApplyState(Dictionary<string, object> states) { }
 }

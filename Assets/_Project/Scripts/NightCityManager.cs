@@ -1,6 +1,8 @@
+using System.Collections.Generic;
+using _Project.Scripts.Saves;
 using UnityEngine;
 
-public class NightCityManager : MonoBehaviour
+public class NightCityManager : SaveableBehaviour
 {
     [SerializeField] private MoveObjects moveObjects;
     [SerializeField] private Transform[] portalPoses;
@@ -17,5 +19,16 @@ public class NightCityManager : MonoBehaviour
         portalObj.transform.position = portalPoses[0].position;
         portalObj.transform.rotation = portalPoses[0].rotation;
         portal.onTeleport.RemoveAllListeners();
+    }
+
+    private void OnEnable() => Initialize();
+    private void OnDisable() => Dispose();
+    public override void ResetState(Dictionary<string, object> states)
+    {
+        throw new System.NotImplementedException();
+    }
+    public override void ApplyState(Dictionary<string, object> states)
+    {
+        throw new System.NotImplementedException();
     }
 }

@@ -1,8 +1,9 @@
 using System.Collections.Generic;
+using _Project.Scripts.Saves;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class ScreamGameManager : MonoBehaviour
+public class ScreamGameManager : SaveableBehaviour
 {
     [SerializeField] private MoveObjects moveObjects;
     [SerializeField] private Transform startPlayerPos;
@@ -146,5 +147,16 @@ public class ScreamGameManager : MonoBehaviour
             }
         }
         return null;
+    }
+
+    private void OnEnable() => Initialize();
+    private void OnDisable() => Dispose();
+    public override void ResetState(Dictionary<string, object> states)
+    {
+        throw new System.NotImplementedException();
+    }
+    public override void ApplyState(Dictionary<string, object> states)
+    {
+        throw new System.NotImplementedException();
     }
 }
