@@ -1,5 +1,8 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
+using System.Linq;
+using _Project.Scripts.Saves;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,7 +13,7 @@ using UnityEngine.UI;
 // 3 - lever
 // 4 - bucket
 
-public class Inventory : MonoBehaviour
+public class Inventory : SaveableBehaviour
 {
     [SerializeField] private GameObject camUI;
     private bool haveCamera;
@@ -34,6 +37,7 @@ public class Inventory : MonoBehaviour
     void AddCamera(){
         haveCamera = true;
         camUI.SetActive(true);
+        AddState("Item_1");
     }
 
     public bool GetHaveCamera(){
@@ -80,6 +84,7 @@ public class Inventory : MonoBehaviour
         freeIcon.transform.localPosition = posFirstItem.localPosition + iconOffset * currentItems.Count;
         
         currentItems.Add(newItem);
+        AddState($"Item_{id}", itemIconData);
     }
 
     void ShowNewItemText(string name){
@@ -125,5 +130,18 @@ public class Inventory : MonoBehaviour
         itemIconData.blackOffset = 50;
 
         AddItem(4, itemIconData);
+    }
+
+    private void Awake() => Initialize();
+
+    public override void ResetState(Dictionary<string, object> states)
+    {
+        foreach (var item in currentItems)
+            item.uiIcon.SetActive(false);
+        currentItems.Clear();
+        
+        foreach (var (key, value) in 
+                 states.Where(pair => pair.Key.StartsWith("Item_")))
+            AddItem(int.Parse(key[5..]), (PickupableItem.ItemIconData)value);
     }
 }

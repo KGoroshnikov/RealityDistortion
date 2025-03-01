@@ -22,6 +22,7 @@ public class SuperliminalDrag : MonoBehaviour
     [Header("Views")]
     [SerializeField] private Transform target;
     
+    private bool isKinematicBuffer;
     private float originalDistance;
     private Vector3 originalScale;
     private float targetScale;
@@ -68,7 +69,11 @@ public class SuperliminalDrag : MonoBehaviour
             if (!RaycastFast(camera.transform.position, targetMask, out var hit)) return;
             
             target = hit.transform;
-            if(target.TryGetComponent<Rigidbody>(out var rb)) rb.isKinematic = true;
+            if (target.TryGetComponent<Rigidbody>(out var rb))
+            {
+                isKinematicBuffer = rb.isKinematic;
+                rb.isKinematic = true;
+            }
             originalDistance = Vector3.Distance(camera.transform.position, target.position);
             originalParent = target.parent;
             target.parent = transform;
@@ -80,7 +85,8 @@ public class SuperliminalDrag : MonoBehaviour
         else
         {
             if (!target) return;
-            if(target.TryGetComponent<Rigidbody>(out var rb)) rb.isKinematic = false;
+            if(target.TryGetComponent<Rigidbody>(out var rb)) 
+                rb.isKinematic = isKinematicBuffer;
             target.parent = originalParent;
             target.gameObject.layer = (int) Mathf.Log(targetMask, 2);
             target = null;
