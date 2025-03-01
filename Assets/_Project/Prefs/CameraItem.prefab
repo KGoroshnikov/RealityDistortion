@@ -300,7 +300,11 @@ MonoBehaviour:
   canUse: 1
   ID: 1
   iconData:
+    name: "\u041A\u0410\u041C\u0415\u0420\u0410"
     sprite: {fileID: 0}
     widthHeight: {x: 0, y: 0}
     scale: 0
     blackOffset: 0
+  pickedEvent:
+    m_PersistentCalls:
+      m_Calls: []

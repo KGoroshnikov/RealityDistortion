@@ -13,6 +13,7 @@ public class PickupableItem : MonoBehaviour, IInteractable
 
     [System.Serializable]
     public class ItemIconData{
+        public string name;
         public Sprite sprite;
         public Vector2 widthHeight;
         public float scale;

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -27,6 +28,9 @@ public class Inventory : MonoBehaviour
     }
     private List<Item> currentItems = new List<Item>();
 
+    [SerializeField] private GameObject newItemTip;
+    [SerializeField] private TMP_Text textNewItem;
+
     void AddCamera(){
         haveCamera = true;
         camUI.SetActive(true);
@@ -39,6 +43,7 @@ public class Inventory : MonoBehaviour
     public void AddItem(int id, PickupableItem.ItemIconData itemIconData){
         if (id == 1){
             AddCamera();
+            ShowNewItemText(itemIconData.name);
             return;
         }
         
@@ -66,6 +71,8 @@ public class Inventory : MonoBehaviour
         img1.sprite = itemIconData.sprite;
         img2.sprite = itemIconData.sprite;
 
+        ShowNewItemText(itemIconData.name);
+
         Item newItem = new Item();
         newItem.id = id;
         newItem.uiIcon = freeIcon;
@@ -73,6 +80,17 @@ public class Inventory : MonoBehaviour
         freeIcon.transform.localPosition = posFirstItem.localPosition + iconOffset * currentItems.Count;
         
         currentItems.Add(newItem);
+    }
+
+    void ShowNewItemText(string name){
+        CancelInvoke("HideNewItemTip");
+        Invoke("HideNewItemTip", 3);
+        newItemTip.SetActive(true);
+        textNewItem.text = name;
+    }
+
+    void HideNewItemTip(){
+        newItemTip.SetActive(false);
     }
 
     public bool RemoveItem(int id) {
@@ -100,6 +118,7 @@ public class Inventory : MonoBehaviour
 
     public void AddBucket(){
         PickupableItem.ItemIconData itemIconData = new PickupableItem.ItemIconData();
+        itemIconData.name = "КРАСКА";
         itemIconData.sprite = bucketSprite;
         itemIconData.widthHeight = new Vector2(393, 519);
         itemIconData.scale = 0.4f;

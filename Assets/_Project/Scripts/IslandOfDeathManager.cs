@@ -43,6 +43,7 @@ public class IslandOfDeathManager : MonoBehaviour
         portal.rotation = portalPoses[1].rotation;
         portalOnBoat = true;
 
+        inventory.RemoveItem(2);
         inventory.AddBucket();
     }
 
