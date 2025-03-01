@@ -36,6 +36,7 @@ public class PlayerContoller : Character
 
 
     [SerializeField] private Interaction interaction;
+    private bool canBeUnFreezed = true;
 
     void Awake()
     {
@@ -147,13 +148,23 @@ public class PlayerContoller : Character
         playerCamera.transform.localEulerAngles = new Vector3(pitch, 0, 0);
     }
 
-    public void FreezePlayer(){
+    public void ResetCamRot(){
+        yaw = 0;
+        pitch = 0;
+    }
+
+    public void FreezePlayer(bool forceFreeze){
+        if (forceFreeze) canBeUnFreezed = false;
+
         m_state = state.NoUse;
         MakeMeStatic();
 
         interaction.SetActive(false);
     }
-    public void UnfreezePlayer(){
+    public void UnfreezePlayer(bool forceUnFreeze){
+        if (!canBeUnFreezed && !forceUnFreeze) return;
+        canBeUnFreezed = true;
+        
         m_state = state.Idle;
         MakeMeNONStatic();
 
@@ -162,6 +173,7 @@ public class PlayerContoller : Character
 
     void OnGUI()
     {
+        return;
         GUIStyle guiStyle = new GUIStyle();
         guiStyle.normal.textColor = Color.red;
         guiStyle.fontSize = 20;

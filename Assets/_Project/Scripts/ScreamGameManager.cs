@@ -30,12 +30,13 @@ public class ScreamGameManager : SaveableBehaviour
     private NavMeshPath path;
 
     public void StartGame(){
-        playerContoller.FreezePlayer();
+        playerContoller.FreezePlayer(true);
+        playerContoller.ResetCamRot();
         moveObjects.AddObjectToMove(player.gameObject, startPlayerPos.position, startPlayerPos.rotation, 2, LauchGame);
     }
 
     void LauchGame(){
-        playerContoller.UnfreezePlayer();
+        playerContoller.UnfreezePlayer(true);
         playerContoller.SetRunningMode();
         SetupScream();
 

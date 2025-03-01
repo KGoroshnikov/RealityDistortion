@@ -122,15 +122,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdeba76d2eb521e4b85d01e8c3f5911f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tip: TAKE
-  description: Key
+  tip: "\u0412\u0417\u042F\u0422\u042C"
+  description: "\u041A\u041B\u042E\u0427"
   canUse: 1
   ID: 2
   iconData:
+    name: "\u041A\u041B\u042E\u0427"
     sprite: {fileID: 21300000, guid: de94042379deb7a4db2b60de0a27d37f, type: 3}
     widthHeight: {x: 105, y: 125}
     scale: 1.5
     blackOffset: 40
+  pickedEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &9116351794639779665
 GameObject:
   m_ObjectHideFlags: 0

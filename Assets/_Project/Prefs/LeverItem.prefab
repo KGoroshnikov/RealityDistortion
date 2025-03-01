@@ -235,7 +235,11 @@ MonoBehaviour:
   canUse: 1
   ID: 3
   iconData:
+    name: "\u0420\u042B\u0427\u0410\u0413"
     sprite: {fileID: 21300000, guid: daf02779e763e6242be59fa8d6d30155, type: 3}
     widthHeight: {x: 512, y: 413}
     scale: 0.4
     blackOffset: 100
+  pickedEvent:
+    m_PersistentCalls:
+      m_Calls: []
