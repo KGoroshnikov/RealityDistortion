@@ -80,11 +80,11 @@ public class Portal : MonoBehaviour {
 
     public void Render(){
         if (!CamFuncs.VisibleFromCamera(linkedPortal.screen, playerCam)){
-            //linkedPortal.portalCam.enabled = false;
-            //return;
+            linkedPortal.portalCam.enabled = false;
+            return;
         }
         else if (!linkedPortal.portalCam.enabled){
-            //linkedPortal.portalCam.enabled = true;
+            linkedPortal.portalCam.enabled = true;
         }
         Matrix4x4 localToWorldMatrix = playerCam.transform.localToWorldMatrix;
 

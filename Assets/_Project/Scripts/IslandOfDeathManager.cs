@@ -43,9 +43,7 @@ public class IslandOfDeathManager : MonoBehaviour
         portal.rotation = portalPoses[1].rotation;
         portalOnBoat = true;
 
-        /*PickupableItem.ItemIconData itemIconData = new PickupableItem.ItemIconData();
-        itemIconData.
-        inventory.AddItem();*/
+        inventory.AddBucket();
     }
 
     public void ActivateAngel(){

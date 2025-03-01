@@ -7,6 +7,7 @@ using UnityEngine.UI;
 // 1 - camera
 // 2 - key
 // 3 - lever
+// 4 - bucket
 
 public class Inventory : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class Inventory : MonoBehaviour
 
     [SerializeField] private Transform posFirstItem;
     [SerializeField] private Vector3 iconOffset;
+
+    [SerializeField] private Sprite bucketSprite;
     
     private class Item{
         public GameObject uiIcon;
@@ -93,5 +96,15 @@ public class Inventory : MonoBehaviour
             currentItems[i].uiIcon.transform.localPosition = posFirstItem.localPosition + iconOffset * i;
         }
         return true;
+    }
+
+    public void AddBucket(){
+        PickupableItem.ItemIconData itemIconData = new PickupableItem.ItemIconData();
+        itemIconData.sprite = bucketSprite;
+        itemIconData.widthHeight = new Vector2(393, 519);
+        itemIconData.scale = 0.4f;
+        itemIconData.blackOffset = 50;
+
+        AddItem(4, itemIconData);
     }
 }
