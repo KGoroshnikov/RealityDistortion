@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class ScreamGameManager : MonoBehaviour
+public class ScreamGameManager : MonoBehaviour, IFreezable
 {
     [SerializeField] private MoveObjects moveObjects;
     [SerializeField] private Transform startPlayerPos;
@@ -26,6 +26,8 @@ public class ScreamGameManager : MonoBehaviour
         idle, running
     }
     private screamState state;
+
+    private bool freezed;
 
     private NavMeshPath path;
 
@@ -84,7 +86,7 @@ public class ScreamGameManager : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!raceStarted) return;
+        if (!raceStarted || freezed) return;
 
         path = GetPath();
         if (path != null){
@@ -110,6 +112,7 @@ public class ScreamGameManager : MonoBehaviour
 
             if (!scream.enabled)
             {
+                if (scream.isStopped) scream.isStopped = false;
                 scream.enabled = true;
                 scream.ResetPath();
             }
@@ -163,5 +166,20 @@ public class ScreamGameManager : MonoBehaviour
             }
         }
         return null;
+    }
+
+    public void Freeze()
+    {
+        if (!raceStarted) return;
+
+        freezed = true;
+        scream.isStopped = true;
+        scream.ResetPath();
+        scream.enabled = false;
+    }
+
+    public void UnFreeze()
+    {
+        freezed = false;
     }
 }

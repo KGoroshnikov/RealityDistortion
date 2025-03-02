@@ -11,6 +11,9 @@ public class RotatingButtons : MonoBehaviour
         public Transform img;
     }
     [SerializeField] private mButton[] buttons;
+
+    [SerializeField] private AudioSource uiSounds;
+    [SerializeField] private AudioClip selectClip;
     
     private int selected;
 
@@ -22,6 +25,8 @@ public class RotatingButtons : MonoBehaviour
     }
 
     public void Hover(int id){
+        uiSounds.clip = selectClip;
+        uiSounds.Play();
         selected = id;
         buttons[selected].button.localScale = new Vector3(scaleSelected, scaleSelected, scaleSelected);
     }

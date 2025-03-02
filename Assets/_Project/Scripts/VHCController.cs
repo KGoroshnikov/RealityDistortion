@@ -26,9 +26,15 @@ public class VHCController : MonoBehaviour
     private bool VHSActive;
     private bool inAnimation;
 
+    private bool canPressF = true;
+
     void Awake()
     {
         fdelegate = ctx => OpenVHC();   
+    }
+
+    public void SetInputRection(bool a){
+        canPressF = a;
     }
 
     void OnEnable(){
@@ -42,7 +48,7 @@ public class VHCController : MonoBehaviour
     }
 
     void OpenVHC(){
-        if (inAnimation || !inventory.GetHaveCamera()) return;
+        if (inAnimation || !inventory.GetHaveCamera() || !canPressF) return;
         inAnimation = true;
 
         if (!VHSActive){

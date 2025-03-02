@@ -63,6 +63,11 @@ public class Portal : MonoBehaviour {
                 i--;
 
             } else{
+                if (offsetFromPortal.magnitude > 5f){
+                    trackedTravellers.RemoveAt(i);
+                    i--;
+                    continue;
+                }
                 traveller.previousOffsetFromPortal = offsetFromPortal;
             }
         }

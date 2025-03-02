@@ -15,12 +15,15 @@ public class Lever : MonoBehaviour, IInteractable
     [SerializeField] private Material defaultMat;
     [SerializeField] private UnityEvent onActivate;
 
+    [SerializeField] private AudioSource audioSource;
+
     private bool interacted;
 
     public void Interact(Interaction player)
     {
         if (interacted) return;
         interacted = true;
+        audioSource.Play();
 
         gameObject.tag = "Untagged";
         for(int i = 0; i < meshes.Length; i++) meshes[i].material = defaultMat;
