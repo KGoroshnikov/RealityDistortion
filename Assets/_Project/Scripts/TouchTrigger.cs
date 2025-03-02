@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Triggers;
 using UnityEngine;
 using UnityEngine.Events;
@@ -15,4 +16,11 @@ public class TouchTrigger : AbstractTrigger
     {
         if (other.CompareTag("Player")) onExit.Invoke();
     }
+
+    public override void ResetState(Dictionary<string, object> states) { }
+    public override void ApplyState(Dictionary<string, object> states)
+    {
+        throw new System.NotImplementedException();
+    }
+    public override void OnCommit() { }
 }

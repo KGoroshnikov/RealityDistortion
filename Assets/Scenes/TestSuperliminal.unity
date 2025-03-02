@@ -8169,6 +8169,7 @@ MonoBehaviour:
   objectToRender: {fileID: 1406505659}
   renderCamera: {fileID: 85110085}
   debug: 0
+  uid: 
 --- !u!4 &556796512
 Transform:
   m_ObjectHideFlags: 0
@@ -22615,6 +22616,11 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!20 &1668346219 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 5650883959136427425, guid: 3bff3607fa4d1384dae05c7198c776a8, type: 3}
+  m_PrefabInstance: {fileID: 791785572}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1802591633
 Mesh:
   m_ObjectHideFlags: 0
@@ -23294,7 +23300,7 @@ MonoBehaviour:
   onDeactivated:
     m_PersistentCalls:
       m_Calls: []
-  camera: {fileID: 0}
+  camera: {fileID: 1668346219}
   triggerSize: {x: 0.4, y: 0.7, z: 0.4}
   target: {fileID: 573060100}
   activationTime: 0.1

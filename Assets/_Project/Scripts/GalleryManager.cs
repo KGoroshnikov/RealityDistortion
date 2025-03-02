@@ -1,14 +1,17 @@
-using System.Linq;
+using System.Collections.Generic;
+using _Project.Scripts.Saves;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-public class GalleryManager : MonoBehaviour
+public class GalleryManager : SaveableBehaviour
 {
     [SerializeField] private Animator wallAnimator;
 
     [SerializeField] private ScriptableRendererFeature VHSscreenEffects;
 
     private bool greenlandOpened;
+
+    private Vector3 _wallStartPosition;
 
     [SerializeField] private GameObject[] AllLocations;
     // 0 - Greenlands and final scene
@@ -20,6 +23,8 @@ public class GalleryManager : MonoBehaviour
     void Start()
     {
         DisableLocations();
+        Initialize();
+        _wallStartPosition = wallAnimator.transform.position;
     }
 
     void DisableLocations(){
@@ -31,6 +36,7 @@ public class GalleryManager : MonoBehaviour
     public void ActivateLever(){
         wallAnimator.enabled = true;
         wallAnimator.Play("MoveWall", 0, 0);
+        SetState("ActivateLever");
     }
 
     public void OpenGreenLand(){
@@ -77,4 +83,16 @@ public class GalleryManager : MonoBehaviour
         if (greenlandOpened) AllLocations[0].SetActive(true);
         AllLocations[4].SetActive(true);
     }
+
+    public override void ResetState(Dictionary<string, object> states)
+    {
+        if (!states.ContainsKey("ActivateLever"))
+            wallAnimator.transform.position = _wallStartPosition;
+    }
+
+    public override void ApplyState(Dictionary<string, object> states)
+    {
+        
+    }
+    public override void OnCommit() { }
 }

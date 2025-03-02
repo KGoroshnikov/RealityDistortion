@@ -1,7 +1,10 @@
+using System;
+using System.Collections.Generic;
+using _Project.Scripts.Saves;
 using TMPro;
 using UnityEngine;
 
-public class IslandOfDeathManager : MonoBehaviour
+public class IslandOfDeathManager : SaveableBehaviour
 {
     [SerializeField] private PlayerContoller playerContoller;
     [SerializeField] private Inventory inventory;
@@ -45,12 +48,14 @@ public class IslandOfDeathManager : MonoBehaviour
 
         inventory.RemoveItem(2);
         inventory.AddBucket();
+        Commit();
     }
 
     public void ActivateAngel(){
         UseLever();
         angel.ActivateMe();
         rockexit.SetActive(true);
+        SetState("Angel_Activated");
     }
 
     public void KeyPicked(){
@@ -74,5 +79,25 @@ public class IslandOfDeathManager : MonoBehaviour
     void OpenGates(){
         leverUI.SetActive(false);
         kletka.SetActive(false);
+    }
+
+    private void Start() => Initialize();
+    public override void ResetState(Dictionary<string, object> states)
+    {
+        angel.DisableMe();
+        rockexit.SetActive(false);
+        kletka.SetActive(true);
+        leverUI.SetActive(false);
+        levaverActived = 0;
+    }
+    public override void ApplyState(Dictionary<string, object> states)
+    {
+        if (states.ContainsKey("MovePlayer")) Invoke(nameof(MovePlayer), 0);
+        if (states.ContainsKey("Angel_Activated")) ActivateAngel();
+    }
+
+    public override void OnCommit()
+    {
+        SetState("Leaver_Used_Count", levaverActived);
     }
 }

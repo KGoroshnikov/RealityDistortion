@@ -1,8 +1,11 @@
+using System;
+using System.Collections.Generic;
+using _Project.Scripts.Saves;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.Serialization;
 
-public class ObjectToDecalProjector : MonoBehaviour
+public class ObjectToDecalProjector : SaveableBehaviour
 {
     private static readonly int BaseMap = Shader.PropertyToID("Base_Map");
     private static readonly int CameraPosition = Shader.PropertyToID("_Camera_Position");
@@ -15,12 +18,15 @@ public class ObjectToDecalProjector : MonoBehaviour
     [SerializeField] private GameObject objectToRender;
     [SerializeField] private Camera renderCamera;
     [SerializeField] private bool debug;
+    [SerializeField] private string uid;
     
     private RenderTexture texture;
+    private DecalProjector projector;
 
 
 
     private void Start() => StartDecalBuild();
+
     private void CompleteDecalBuild()
     {
         renderCamera.targetTexture = null;
@@ -43,7 +49,7 @@ public class ObjectToDecalProjector : MonoBehaviour
         material.SetVector(CameraPosition, renderCamera.transform.position);
         
         
-        var projector = projectorObject.AddComponent<DecalProjector>();
+        projector = projectorObject.AddComponent<DecalProjector>();
         projector.scaleMode = DecalScaleMode.InheritFromHierarchy;
         projector.transform.forward = forward;
         projector.size = new Vector3(dst, dst, maxDepth);
@@ -57,10 +63,23 @@ public class ObjectToDecalProjector : MonoBehaviour
         renderCamera.Render();
         if (debug) return;
         Invoke(nameof(CompleteDecalBuild), 0);
+        Initialize();
     }
     public void DecalToObject()
     {
         objectToRender.SetActive(true);
-        projectorObject.SetActive(false);
+        projector.enabled = false;
+        SetState($"{name}_{uid}_Activated");
     }
+
+    public override void ResetState(Dictionary<string, object> states) { }
+
+    public override void ApplyState(Dictionary<string, object> states)
+    {
+        if (states.ContainsKey($"{name}_{uid}_Activated")) return;
+        objectToRender.SetActive(false);
+        projector.enabled = true;
+        
+    }
+    public override void OnCommit() { }
 }

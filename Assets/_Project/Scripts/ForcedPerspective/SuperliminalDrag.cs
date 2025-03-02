@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -40,14 +41,23 @@ public class SuperliminalDrag : MonoBehaviour
     private void OnDrawGizmos()
     {
         if (!target) return;
-        Gizmos.color = Color.red;
-        Gizmos.matrix = target.transform.localToWorldMatrix;
-        Gizmos.DrawWireCube(Vector3.zero, Vector3.one);
         
-        Gizmos.matrix = camera.transform.localToWorldMatrix;
         Gizmos.color = Color.green;
-        foreach (var point in shapedGrid)
-            Gizmos.DrawSphere(point + Vector3.forward, .01f);
+        foreach (var pos in shapedGrid)
+        {
+            var point = camera.transform.TransformPoint(pos);
+            point += camera.transform.forward * originalDistance;
+            if (RaycastFast(camera.transform.position,
+                    (point - camera.transform.position).normalized,
+                    ignoreTargetMask | targetMask, out var hit))
+                Gizmos.DrawSphere(hit.point, hit.distance * .01f);
+        }
+
+        Gizmos.matrix = camera.transform.localToWorldMatrix;
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(left, right);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawLine(top, bottom);
         
         // Gizmos.color = Color.yellow;
         // left = right = top = bottom = Vector2.zero;
@@ -66,7 +76,7 @@ public class SuperliminalDrag : MonoBehaviour
  
     private void HandleInput()
     {
-        if (RaycastFast(camera.transform.position, targetMask, out var hit0)){
+        if (RaycastFast(camera.transform.position, camera.transform.forward, targetMask, out _)){
             grabUI.SetActive(true);
         }
         else if (grabUI.activeSelf) grabUI.SetActive(false);
@@ -74,7 +84,8 @@ public class SuperliminalDrag : MonoBehaviour
         if (grab.action.IsPressed())
         {
             if (target) return;
-            if (!RaycastFast(camera.transform.position, targetMask, out var hit)) return;
+            if (!RaycastFast(camera.transform.position, 
+                    camera.transform.forward, targetMask, out var hit)) return;
             
             target = hit.transform;
             if (target.TryGetComponent<Rigidbody>(out var rb))
@@ -86,7 +97,7 @@ public class SuperliminalDrag : MonoBehaviour
             originalParent = target.parent;
             target.parent = transform;
             originalScale = target.localScale;
-            targetScale = target.localScale.x;
+            targetScale = 1;
             SetupShapedGrid(GetBoundingBoxPoints());
             target.gameObject.layer = (int) Mathf.Log(dragMask	, 2);
         }
@@ -106,15 +117,19 @@ public class SuperliminalDrag : MonoBehaviour
         if (!target) return;
 
         var dst = maxDistance;
-        foreach (var pos in shapedGrid)
-            if (RaycastFast(camera.transform.TransformPoint(pos),
+        foreach (var point in shapedGrid
+                     .Select(pos => camera.transform.TransformPoint(pos))
+                     .Select(point => point + camera.transform.forward * originalDistance))
+            if (RaycastFast(camera.transform.position,
+                    (point - camera.transform.position).normalized,
                     ignoreTargetMask | targetMask, out var hit))
                 dst = Mathf.Min(dst, hit.distance);
+        
 
         dst -= dst / originalDistance;
         dst = Mathf.Max(dst, minDistance);
-        target.position = camera.transform.position + camera.transform.forward * dst;
         targetScale = dst / originalDistance;
+        target.position = camera.transform.position + camera.transform.forward * dst;
         target.localScale = targetScale * originalScale;
     }
 
@@ -206,13 +221,13 @@ public class SuperliminalDrag : MonoBehaviour
     {
         shapedGrid.Clear();
         foreach (var point in grid)
-            if (RaycastFast(camera.transform.TransformPoint(point), targetMask, out _))
+            if (RaycastFast(camera.transform.TransformPoint(point), camera.transform.forward, targetMask, out _))
                 shapedGrid.Add(point);
     }
     #endregion
 
-    private bool RaycastFast(Vector3 point, LayerMask layerMask, out RaycastHit hit) =>
-        Physics.Raycast(point, camera.transform.forward, 
+    private bool RaycastFast(Vector3 point, Vector3 dir, LayerMask layerMask, out RaycastHit hit) =>
+        Physics.Raycast(point, dir, 
             out hit, maxDistance, layerMask);
 
 }

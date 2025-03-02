@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections;
 using Triggers;
 using UnityEngine;
@@ -7,7 +8,7 @@ using Random = UnityEngine.Random;
 
 namespace _Project.Scripts
 {
-    public class MurderMoon : AbstractTrigger, IFreezable
+    public class MurderMoon : MonoBehaviour, IFreezable
     {
         [SerializeField] private bool inDetectMode;
         [SerializeField] private Transform moon;

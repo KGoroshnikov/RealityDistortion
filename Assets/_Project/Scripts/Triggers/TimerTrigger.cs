@@ -18,4 +18,8 @@ public class TimerTrigger : AbstractTrigger
     private void Finish() => onTimerEnd.Invoke();
     
     public void CancelTimer() => CancelInvoke(nameof(Finish));
+
+    public override void ResetState(Dictionary<string, object> states) => CancelTimer();
+    public override void ApplyState(Dictionary<string, object> states) { }
+    public override void OnCommit() { }
 }
