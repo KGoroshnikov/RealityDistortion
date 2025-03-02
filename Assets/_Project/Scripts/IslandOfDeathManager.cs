@@ -48,6 +48,7 @@ public class IslandOfDeathManager : SaveableBehaviour
 
         inventory.RemoveItem(2);
         inventory.AddBucket();
+        Commit();
     }
 
     public void ActivateAngel(){
@@ -83,13 +84,14 @@ public class IslandOfDeathManager : SaveableBehaviour
     private void Start() => Initialize();
     public override void ResetState(Dictionary<string, object> states)
     {
-        angel.ActivateMe();
+        angel.DisableMe();
         rockexit.SetActive(false);
         kletka.SetActive(true);
+        leverUI.SetActive(false);
+        levaverActived = 0;
     }
     public override void ApplyState(Dictionary<string, object> states)
     {
-        levaverActived = (int)states.GetValueOrDefault("Leaver_Used_Count", 0);
         if (states.ContainsKey("Angel_Activated"))
             ActivateAngel();
     }

@@ -22,6 +22,7 @@ public class LightGuy : SaveableBehaviour, IInteractable
         //playerHaveKey = true;
         canUse = true;
         tip = "Отдать ключ";
+        Initialize();
         SetState("PlayerHaveKey");
     }
 
@@ -29,6 +30,7 @@ public class LightGuy : SaveableBehaviour, IInteractable
         //playerTookLever = true;
         canUse = true;
         tip = "Уйти";
+        Initialize();
         SetState("PlayerHaveLever");
     }
 

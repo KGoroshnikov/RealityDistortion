@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text.RegularExpressions;
 using UnityEngine;
@@ -78,6 +79,9 @@ namespace _Project.Scripts.Saves
                          .Where(key => Regex.IsMatch(key, regex)))
                 _stateChanges.Remove(state);
         }
+        
+        public bool GetState(string state, [NotNullWhen(true)] out object value) => 
+            _stateChanges.TryGetValue(state, out value);
 
         // public void Save()
         // {

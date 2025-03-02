@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public class CountTrigger : AbstractTrigger
 {
+    [SerializeField] protected string uid;
     [SerializeField] private UnityEvent<int> onValueChanged;
     [SerializeField] private UnityEvent onValueLimitReached;
     

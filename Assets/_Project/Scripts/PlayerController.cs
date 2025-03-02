@@ -49,6 +49,7 @@ public class PlayerContoller : Character
     void Start(){
         base.Start();
         Initialize();
+        Commit();
         jointOriginalPos = joint.localPosition;
         m_state = state.Idle;
 

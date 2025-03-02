@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public class Lever : SaveableBehaviour, IInteractable
 {
+    [SerializeField] private string uid;
     [SerializeField] private string tip;
     public string Tip => tip;
     [SerializeField] private string description;
@@ -29,6 +30,7 @@ public class Lever : SaveableBehaviour, IInteractable
         for(int i = 0; i < meshes.Length; i++) meshes[i].material = defaultMat;
 
         onActivate.Invoke();
+        SetState($"Lever_{name}_{ID}_{uid}_Activated");
     }
 
     public void Hover(Interaction player)
@@ -42,14 +44,13 @@ public class Lever : SaveableBehaviour, IInteractable
     }
     
     private void Start() => Initialize();
-    public override void ResetState(Dictionary<string, object> states)
-    {
-        onDeactivate.Invoke();
-    }
+    public override void ResetState(Dictionary<string, object> states) {}
     public override void ApplyState(Dictionary<string, object> states)
     {
-        if (states.ContainsKey($"{name}_{ID}_Activated"))
-            onActivate.Invoke();
+        if (states.ContainsKey($"Lever_{name}_{ID}_{uid}_Activated")) return;
+        interacted = false;
+        gameObject.tag = "Interactable";
+        onDeactivate.Invoke();
     }
     public override void OnCommit() { }
 }
