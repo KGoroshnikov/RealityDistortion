@@ -76,7 +76,7 @@ public class SuperliminalDrag : MonoBehaviour
  
     private void HandleInput()
     {
-        if (RaycastFast(camera.transform.position, targetMask, out var hit0)){
+        if (RaycastFast(camera.transform.position, camera.transform.forward, targetMask, out _)){
             grabUI.SetActive(true);
         }
         else if (grabUI.activeSelf) grabUI.SetActive(false);

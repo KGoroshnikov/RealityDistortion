@@ -33,6 +33,7 @@ public class ScreamGameManager : SaveableBehaviour, IFreezable
     private NavMeshPath path;
 
     private bool lvlCompleted;
+    private Vector3 screamOrigin;
 
     public void StartGame(){
         if (lvlCompleted) return;
@@ -76,6 +77,7 @@ public class ScreamGameManager : SaveableBehaviour, IFreezable
     }
 
     void SetupScream(){
+        scream.transform.position = screamOrigin;
         scream.acceleration = 10000f;
         scream.angularSpeed = 10000f;
         scream.autoBraking = false;
@@ -188,7 +190,11 @@ public class ScreamGameManager : SaveableBehaviour, IFreezable
         freezed = false;
     }
 
-    private void Start() => Initialize();
+    private void Start()
+    {
+        Initialize();
+        screamOrigin = scream.transform.position;
+    }
 
     public override void ResetState(Dictionary<string, object> states)
     {
