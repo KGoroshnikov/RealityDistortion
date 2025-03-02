@@ -56,6 +56,7 @@ public class PauseSystem : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
         }
         else{
+            playerContoller.GetSens();
             playerContoller.UnfreezePlayer(false);
             Cursor.lockState = CursorLockMode.Locked;
         }

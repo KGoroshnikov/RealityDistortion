@@ -13,8 +13,8 @@ public class Settings : MonoBehaviour
     [SerializeField] private AudioMixer audioMixer;
 
     void Start(){
-        //slidersText[1].text = "" + PlayerPrefs.GetFloat("PlayerSens", 3).ToString("F1");
-        //sliders[1].value = InverseLerp(sensRange[0], sensRange[1], PlayerPrefs.GetFloat("PlayerSens", 3));
+        slidersText[1].text = "" + PlayerPrefs.GetFloat("PlayerSens", 0.4f).ToString("F1");
+        sliders[1].value = InverseLerp(sensRange[0], sensRange[1], PlayerPrefs.GetFloat("PlayerSens", 0.4f));
 
         slidersText[0].text = "" + PlayerPrefs.GetFloat("PlayerVolume", 1).ToString("F1");
         sliders[0].value = PlayerPrefs.GetFloat("PlayerVolume", 1);

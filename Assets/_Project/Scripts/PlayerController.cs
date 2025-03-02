@@ -62,6 +62,13 @@ public class PlayerContoller : Character
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        GetSens();
+    }
+
+    public void GetSens(){
+        mouseSensitivity.x = PlayerPrefs.GetFloat("PlayerSens", 0.4f);
+        mouseSensitivity.y = mouseSensitivity.x * 0.375f;
     }
 
     void OnEnable() {
