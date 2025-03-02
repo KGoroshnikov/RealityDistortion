@@ -20,10 +20,10 @@ public class DeathManager : MonoBehaviour
 
     private bool died;
 
-    void Start()
-    {
-        //Invoke("Die", 2);
-    }
+    // void Start()
+    // {
+    //     Invoke("Die", 2);
+    // }
 
     void OnDisable(){
         for(int i = 0; i < VHSscreenEffects.Length; i++){
@@ -52,12 +52,18 @@ public class DeathManager : MonoBehaviour
     }
 
     void ReloadScene(){
+        playerContoller.UnfreezePlayer(true);
         saveManager.Revert();
+        Invoke(nameof(Respawn), 0.5f);
+    }
+
+    private void Respawn()
+    {
+        audioSource.Stop();
         canvas.SetActive(true);
         deathScreen.SetActive(false);
         black.SetActive(false);
+        videoPlayer.Pause();
         died = false;
-        
-        // SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

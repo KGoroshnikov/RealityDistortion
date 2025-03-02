@@ -35,6 +35,7 @@ public class PlayerContoller : Character
     private Vector3 dir;
 
     private bool canJump = true;
+    private bool lockUpdate = false;
 
     
 
@@ -79,10 +80,10 @@ public class PlayerContoller : Character
         jump.action.performed -= jumpDelegate;
     }
 
-    void FixedUpdate(){
+    protected override void FixedUpdate(){
+        if (lockUpdate) return;
         base.FixedUpdate();
         CalculateExternalForce();
-
         MoveCharacter(dir * walkSpeed);
     }
 
@@ -209,7 +210,8 @@ public class PlayerContoller : Character
 
         interaction.SetActive(true);
     }
-
+    
+#if UNITY_EDITOR
     void OnGUI()
     {
         return;
@@ -224,6 +226,7 @@ public class PlayerContoller : Character
         GUI.Label(new Rect(10, yOffset + 90, 300, 200), "externalForce: " + externalForce.ToString(), guiStyle);
         GUI.Label(new Rect(10, yOffset + 110, 300, 200), "platformVelocity: " + platformVelocity.ToString(), guiStyle);
     }
+#endif
 
     private void OnDrawGizmosSelected()
     {
@@ -234,20 +237,14 @@ public class PlayerContoller : Character
 
     public override void ResetState(Dictionary<string, object> states) {}
 
-    private Dictionary<string, object> statesBuff;
     public override void ApplyState(Dictionary<string, object> states)
     {
-        statesBuff = states;
-        FreezePlayer(true);
-        Invoke(nameof(Apply), 0);
+        transform.position = (Vector3)states.GetValueOrDefault("Player_Position", Vector3.zero);
+        transform.rotation = (Quaternion)states.GetValueOrDefault("Player_Rotation", Quaternion.identity);
+        SetPositionAndRotation(transform.position, transform.rotation);
     }
+    
 
-    private void Apply()
-    {
-        transform.position = (Vector3)statesBuff.GetValueOrDefault("Player_Position", Vector3.zero);
-        transform.rotation = (Quaternion)statesBuff.GetValueOrDefault("Player_Rotation", Quaternion.identity);
-        UnfreezePlayer(true);
-    }
 
     public override void OnCommit()
     {

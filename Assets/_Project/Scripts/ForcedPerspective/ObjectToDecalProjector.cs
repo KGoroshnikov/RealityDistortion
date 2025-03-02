@@ -13,7 +13,6 @@ public class ObjectToDecalProjector : SaveableBehaviour
     private static readonly int CameraUp = Shader.PropertyToID("_Camera_Up");
     [FormerlySerializedAs("projector")] [SerializeField] private GameObject projectorObject;
     [SerializeField] private Material decalMaterial;
-    [SerializeField] private int quality = 64;
     [SerializeField] private float maxDepth = 10;
     [SerializeField] private GameObject objectToRender;
     [SerializeField] private Camera renderCamera;
