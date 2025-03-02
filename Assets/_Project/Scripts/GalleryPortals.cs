@@ -4,6 +4,11 @@ public class GalleryPortals : MonoBehaviour
 {
     [SerializeField] private GameObject[] portals;
 
+    // 0 - island
+    // 1 - night
+    // 2 - scream
+    // 3 - black square
+
     private int currentLocation = -1;
 
     private bool isVhsOpened;
@@ -19,7 +24,6 @@ public class GalleryPortals : MonoBehaviour
     }
 
     public void VHSOpened(){
-        return;
         isVhsOpened = true;
         for(int i = 0; i < portals.Length; i++){
             portals[i].SetActive(true);
@@ -27,7 +31,6 @@ public class GalleryPortals : MonoBehaviour
     }
 
     public void VHSClosed(){
-        return;
         isVhsOpened = false;
         for(int i = 0; i < portals.Length; i++){
             if (i == currentLocation) continue;

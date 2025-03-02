@@ -98,6 +98,7 @@ public class ScreamGameManager : MonoBehaviour, IFreezable
             if (scream.isStopped) scream.isStopped = false;
             scream.speed = regularSpeed;
             scream.SetPath(path);
+            if (portalsPlayerEntered.Count != 0) portalsPlayerEntered.Clear();
         }
         else if (GetTargetPortal() != null)
         {

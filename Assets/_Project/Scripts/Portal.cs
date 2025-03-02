@@ -68,6 +68,7 @@ public class Portal : MonoBehaviour {
                     i--;
                     continue;
                 }
+                Debug.Log(traveller + " offsetFromPortal: " + offsetFromPortal);
                 traveller.previousOffsetFromPortal = offsetFromPortal;
             }
         }

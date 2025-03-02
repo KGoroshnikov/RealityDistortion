@@ -19,6 +19,10 @@ public class GalleryManager : MonoBehaviour
 
     void Start()
     {
+        DisableLocations();
+    }
+
+    void DisableLocations(){
         for(int i = 0; i < AllLocations.Length; i++){
             AllLocations[i].SetActive(false);
         }
