@@ -7,8 +7,9 @@ namespace _Project.Scripts.Saves
 {
     public abstract class SaveableBehaviour : MonoBehaviour
     {
+        [SerializeField] private int loadPriority;
         private SaveManager manager;
-        private bool initialized = false;
+        private bool initialized;
 
         protected string Guid { get; private set; }
         
@@ -17,6 +18,9 @@ namespace _Project.Scripts.Saves
             if (initialized) return;
             manager = FindAnyObjectByType<SaveManager>();
             manager.SaveObjects.Add(this);
+            manager.SaveObjects.Sort(
+                (x, y) => x.loadPriority - y.loadPriority
+            );
             Guid = GUID.Generate().ToString();
             initialized = true;
         }
