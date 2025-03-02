@@ -4,6 +4,8 @@ public class GalleryPortals : MonoBehaviour
 {
     [SerializeField] private GameObject[] portals;
 
+    [SerializeField] private GameObject[] paintingsNoVHS;
+
     // 0 - island
     // 1 - night
     // 2 - scream
@@ -27,6 +29,7 @@ public class GalleryPortals : MonoBehaviour
         isVhsOpened = true;
         for(int i = 0; i < portals.Length; i++){
             portals[i].SetActive(true);
+            paintingsNoVHS[i].SetActive(false);
         }
     }
 
@@ -35,6 +38,7 @@ public class GalleryPortals : MonoBehaviour
         for(int i = 0; i < portals.Length; i++){
             if (i == currentLocation) continue;
             portals[i].SetActive(false);
+            paintingsNoVHS[i].SetActive(true);
         }
     }
 }
