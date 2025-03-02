@@ -54,6 +54,7 @@ public class IslandOfDeathManager : SaveableBehaviour
         UseLever();
         angel.ActivateMe();
         rockexit.SetActive(true);
+        SetState("Angel_Activated");
     }
 
     public void KeyPicked(){
@@ -82,10 +83,19 @@ public class IslandOfDeathManager : SaveableBehaviour
     private void Start() => Initialize();
     public override void ResetState(Dictionary<string, object> states)
     {
-        throw new NotImplementedException();
+        angel.ActivateMe();
+        rockexit.SetActive(false);
+        kletka.SetActive(true);
     }
     public override void ApplyState(Dictionary<string, object> states)
     {
-        throw new NotImplementedException();
+        levaverActived = (int)states.GetValueOrDefault("Leaver_Used_Count", 0);
+        if (states.ContainsKey("Angel_Activated"))
+            ActivateAngel();
+    }
+
+    public override void OnCommit()
+    {
+        SetState("Leaver_Used_Count", levaverActived);
     }
 }

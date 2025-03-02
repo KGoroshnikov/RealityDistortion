@@ -43,4 +43,5 @@ public class ButtonTrigger : AbstractTrigger
     }
 
     public override void ApplyState(Dictionary<string, object> states) { }
+    public override void OnCommit() { }
 }

@@ -35,4 +35,5 @@ public class CountTrigger : AbstractTrigger
         onValueChanged.Invoke(value);
         if (value == limit) onValueLimitReached.Invoke();
     }
+    public override void OnCommit() { }
 }

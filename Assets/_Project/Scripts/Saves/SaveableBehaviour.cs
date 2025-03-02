@@ -17,6 +17,7 @@ namespace _Project.Scripts.Saves
 
         public abstract void ResetState(Dictionary<string, object> states);
         public abstract void ApplyState(Dictionary<string, object> states);
+        public abstract void OnCommit();
 
         protected void SetState(string state) => manager.SetState(state);
 

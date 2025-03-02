@@ -1,6 +1,9 @@
+using System;
+using System.Collections.Generic;
+using _Project.Scripts.Saves;
 using UnityEngine;
 
-public class LightGuy : MonoBehaviour, IInteractable
+public class LightGuy : SaveableBehaviour, IInteractable
 {
     [SerializeField] private string tip;
     public string Tip => tip;
@@ -19,12 +22,14 @@ public class LightGuy : MonoBehaviour, IInteractable
         //playerHaveKey = true;
         canUse = true;
         tip = "Отдать ключ";
+        SetState("PlayerHaveKey");
     }
 
     public void PlayerHaveLever(){
         //playerTookLever = true;
         canUse = true;
         tip = "Уйти";
+        SetState("PlayerHaveLever");
     }
 
     public void Interact(Interaction player)
@@ -59,4 +64,16 @@ public class LightGuy : MonoBehaviour, IInteractable
     {
         
     }
+
+    private void Start() => Initialize();
+
+    public override void ResetState(Dictionary<string, object> states) { }
+
+    public override void ApplyState(Dictionary<string, object> states)
+    {
+        playerHaveKey = (bool)states.GetValueOrDefault("PlayerHaveKey", false);
+        playerTookLever = (bool)states.GetValueOrDefault("PlayerTookLever", false);
+    }
+
+    public override void OnCommit() { }
 }

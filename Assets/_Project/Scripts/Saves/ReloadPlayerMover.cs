@@ -24,4 +24,5 @@ public class ReloadPlayerMover : SaveableBehaviour
         player.transform.position = transform.position;
         player.UnfreezePlayer(true);
     }
+    public override void OnCommit() { }
 }

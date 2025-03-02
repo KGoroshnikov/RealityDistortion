@@ -51,4 +51,5 @@ public class Lever : SaveableBehaviour, IInteractable
         if (states.ContainsKey($"{name}_{ID}_Activated"))
             onActivate.Invoke();
     }
+    public override void OnCommit() { }
 }

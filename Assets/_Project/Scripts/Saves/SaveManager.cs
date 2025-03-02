@@ -23,14 +23,39 @@ namespace _Project.Scripts.Saves
             
             // Reset Objects
             foreach (var saveable in saveObjects)
-                saveable.ResetState(_savedState);
-            foreach (var saveable in saveObjects)
-                saveable.ApplyState(_savedState);
+                try
+                {
+                    saveable.ResetState(_savedState);
+                }
+                catch (Exception e)
+                {
+                    Debug.LogException(e);
+                }
+
+            foreach (var saveable in saveObjects) try
+                {
+                    saveable.ApplyState(_savedState);
+                }
+                catch (Exception e)
+                {
+                    Debug.LogException(e);
+                }
                 
         }
 
         public void Commit()
         {
+            // Save state direct
+            foreach (var saveable in saveObjects)
+                try
+                {
+                    saveable.OnCommit();
+                }
+                catch (Exception e)
+                {
+                    Debug.LogException(e);
+                }
+            
             // Rewrite save state
             _savedState.Clear();
             foreach (var (key, value) in _stateChanges)

@@ -25,4 +25,5 @@ public class ConditionTrigger : AbstractTrigger
 
     public override void ResetState(Dictionary<string, object> states) { }
     public override void ApplyState(Dictionary<string, object> states) { }
+    public override void OnCommit() { }
 }

@@ -38,4 +38,5 @@ public class GalleryManager : SaveableBehaviour
     {
         throw new System.NotImplementedException();
     }
+    public override void OnCommit() { }
 }

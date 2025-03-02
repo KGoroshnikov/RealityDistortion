@@ -81,4 +81,5 @@ public class ObjectToDecalProjector : SaveableBehaviour
         projector.enabled = true;
         
     }
+    public override void OnCommit() { }
 }

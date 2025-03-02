@@ -22,4 +22,5 @@ public class TouchTrigger : AbstractTrigger
     {
         throw new System.NotImplementedException();
     }
+    public override void OnCommit() { }
 }

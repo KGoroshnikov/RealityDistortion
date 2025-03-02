@@ -24,4 +24,5 @@ public class Spawner : SaveableBehaviour
     }
 
     public override void ApplyState(Dictionary<string, object> states) { }
+    public override void OnCommit() { }
 }

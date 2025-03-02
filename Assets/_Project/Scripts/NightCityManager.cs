@@ -36,4 +36,5 @@ public class NightCityManager : SaveableBehaviour
     {
         throw new System.NotImplementedException();
     }
+    public override void OnCommit() { }
 }

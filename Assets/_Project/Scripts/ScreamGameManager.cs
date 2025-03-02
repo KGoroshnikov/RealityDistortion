@@ -175,4 +175,5 @@ public class ScreamGameManager : SaveableBehaviour
     {
         throw new System.NotImplementedException();
     }
+    public override void OnCommit() { }
 }

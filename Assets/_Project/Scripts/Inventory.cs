@@ -154,4 +154,5 @@ public class Inventory : SaveableBehaviour
                  states.Where(pair => pair.Key.StartsWith("Item_")))
             AddItem(int.Parse(key[5..]), (PickupableItem.ItemIconData)value);
     }
+    public override void OnCommit() { }
 }

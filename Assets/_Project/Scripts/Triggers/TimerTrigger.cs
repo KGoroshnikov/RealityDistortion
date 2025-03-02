@@ -21,4 +21,5 @@ public class TimerTrigger : AbstractTrigger
 
     public override void ResetState(Dictionary<string, object> states) => CancelTimer();
     public override void ApplyState(Dictionary<string, object> states) { }
+    public override void OnCommit() { }
 }
