@@ -76,7 +76,8 @@ public class SuperliminalDrag : MonoBehaviour
  
     private void HandleInput()
     {
-        if (RaycastFast(camera.transform.position, camera.transform.forward, targetMask, out _)){
+        if (RaycastFast(camera.transform.position, camera.transform.forward, targetMask, out var hit0)){
+            if (Physics.Linecast(camera.transform.position, hit0.point, ignoreTargetMask)) return;
             grabUI.SetActive(true);
         }
         else if (grabUI.activeSelf) grabUI.SetActive(false);
@@ -86,6 +87,7 @@ public class SuperliminalDrag : MonoBehaviour
             if (target) return;
             if (!RaycastFast(camera.transform.position, 
                     camera.transform.forward, targetMask, out var hit)) return;
+            if (Physics.Linecast(camera.transform.position, hit0.point, ignoreTargetMask)) return;
             
             target = hit.transform;
             if (target.TryGetComponent<Rigidbody>(out var rb))

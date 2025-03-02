@@ -42,6 +42,7 @@ namespace _Project.Scripts.Saves
                 {
                     Debug.LogException(e);
                 }
+            Debug.Log($"[SAVE] Revert performed! Reverted {_savedState.Count} states.");
         }
 
         public void Commit()
@@ -61,6 +62,7 @@ namespace _Project.Scripts.Saves
             _savedState.Clear();
             foreach (var (key, value) in _stateChanges)
                 _savedState[key] = value;
+            Debug.Log($"[SAVE] Commit performed! Saved {_savedState.Count} states.");
         }
 
         public void Clear()

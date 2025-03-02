@@ -6,7 +6,6 @@ using UnityEngine.Events;
 
 public class PickupableItem : SaveableBehaviour, IInteractable
 {
-    [SerializeField] private string uid;
     [SerializeField] private string tip;
     public string Tip => tip;
     [SerializeField] private string description;
@@ -43,7 +42,7 @@ public class PickupableItem : SaveableBehaviour, IInteractable
         player.AddItem(ID, iconData);
         pickedEvent.Invoke();
         gameObject.SetActive(false);
-        SetState($"Item_{ID}_{name}_{iconData.name}_{uid}_Used");
+        SetState($"Item_{name}_{ID}_{Guid}_Used");
     }
 
     private void Start() => Initialize();
@@ -52,7 +51,7 @@ public class PickupableItem : SaveableBehaviour, IInteractable
 
     public override void ApplyState(Dictionary<string, object> states)
     {
-        gameObject.SetActive(!states.ContainsKey($"Item_{ID}_{name}_{iconData.name}_{uid}_Used"));
+        gameObject.SetActive(!states.ContainsKey($"Item_{name}_{ID}_{Guid}_Used"));
     }
 
     public override void OnCommit() { }

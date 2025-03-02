@@ -18,7 +18,6 @@ public class ObjectToDecalProjector : SaveableBehaviour
     [SerializeField] private GameObject objectToRender;
     [SerializeField] private Camera renderCamera;
     [SerializeField] private bool debug;
-    [SerializeField] private string uid;
     
     private RenderTexture texture;
     private DecalProjector projector;
@@ -69,14 +68,14 @@ public class ObjectToDecalProjector : SaveableBehaviour
     {
         objectToRender.SetActive(true);
         projector.enabled = false;
-        SetState($"{name}_{uid}_Activated");
+        SetState($"{name}_{Guid}_Activated");
     }
 
     public override void ResetState(Dictionary<string, object> states) { }
 
     public override void ApplyState(Dictionary<string, object> states)
     {
-        if (states.ContainsKey($"{name}_{uid}_Activated")) return;
+        if (states.ContainsKey($"{name}_{Guid}_Activated")) return;
         objectToRender.SetActive(false);
         projector.enabled = true;
         
