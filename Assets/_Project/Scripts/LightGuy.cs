@@ -16,13 +16,13 @@ public class LightGuy : MonoBehaviour, IInteractable
     private bool playerHaveKey;
 
     public void PlayerHaveKey(){
-        playerHaveKey = true;
+        //playerHaveKey = true;
         canUse = true;
         tip = "Отдать ключ";
     }
 
     public void PlayerHaveLever(){
-        playerTookLever = true;
+        //playerTookLever = true;
         canUse = true;
         tip = "Уйти";
     }
@@ -45,7 +45,14 @@ public class LightGuy : MonoBehaviour, IInteractable
 
     public void Hover(Interaction player)
     {
-        
+        if (player.GetInventory().HaveItem(2) && !playerHaveKey){
+            playerHaveKey = true;
+            PlayerHaveKey();
+        }
+        if (player.GetInventory().HaveItem(3) && !playerTookLever){
+            playerTookLever = true;
+            PlayerHaveLever();
+        }
     }
 
     public void EndHover(Interaction player)

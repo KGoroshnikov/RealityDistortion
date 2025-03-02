@@ -3806,7 +3806,7 @@ MonoBehaviour:
   collider: {fileID: 6332116612782920618}
   layerMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 513
   layerMaskCOLLISION:
     serializedVersion: 2
     m_Bits: 513

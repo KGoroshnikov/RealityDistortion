@@ -98,6 +98,13 @@ public class Inventory : SaveableBehaviour
         newItemTip.SetActive(false);
     }
 
+    public bool HaveItem(int id){
+        for (int i = 0; i < currentItems.Count; i++) {
+            if (currentItems[i].id == id) return true;
+        }
+        return false;
+    }
+
     public bool RemoveItem(int id) {
         if (id == 1) {
             if (haveCamera) {

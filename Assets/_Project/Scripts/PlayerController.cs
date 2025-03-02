@@ -32,6 +32,8 @@ public class PlayerContoller : Character
 
     private Vector3 dir;
 
+    private bool canJump = true;
+
     
 
 
@@ -78,13 +80,20 @@ public class PlayerContoller : Character
     }
 
     public void SetRunningMode(){
+        canJump = false;
         walkSpeed = 6f;
         bobSpeed = 15f;
+    }
+    
+    public void SetWalkMode(){
+        canJump = true;
+        walkSpeed = 3.5f;
+        bobSpeed = 10f;
     }
 
     private void Jump()
     {
-        if (!isGrounded) return;
+        if (!isGrounded || !canJump) return;
         ApplyExplosionForce(Vector3.up * jumpForce, 0.55f);
         r.linearVelocity = new Vector3(r.linearVelocity.x, 0, r.linearVelocity.z);
     }

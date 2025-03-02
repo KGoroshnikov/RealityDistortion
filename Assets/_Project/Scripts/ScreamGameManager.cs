@@ -9,13 +9,14 @@ public class ScreamGameManager : SaveableBehaviour
     [SerializeField] private Transform startPlayerPos;
     [SerializeField] private Transform player;
     [SerializeField] private PlayerContoller playerContoller;
+    [SerializeField] private Inventory inventory;
 
     [SerializeField] private Transform[] posesPortal;
     [SerializeField] private Transform portalTransform;
     [SerializeField] private Portal portal;
 
 
-
+    [SerializeField] private AudioSource screamAudio;
     [SerializeField] private Animator screamAnimator;
     private List<Transform> portalsPlayerEntered = new List<Transform>();
     [SerializeField] private NavMeshAgent scream;
@@ -29,13 +30,20 @@ public class ScreamGameManager : SaveableBehaviour
 
     private NavMeshPath path;
 
+    private bool lvlCompleted;
+
     public void StartGame(){
+        if (lvlCompleted) return;
         playerContoller.FreezePlayer(true);
         playerContoller.ResetCamRot();
         moveObjects.AddObjectToMove(player.gameObject, startPlayerPos.position, startPlayerPos.rotation, 2, LauchGame);
     }
 
     void LauchGame(){
+        if (lvlCompleted) return;
+
+        screamAudio.Play();
+
         playerContoller.UnfreezePlayer(true);
         playerContoller.SetRunningMode();
         SetupScream();
@@ -47,11 +55,19 @@ public class ScreamGameManager : SaveableBehaviour
     }
     
     public void PlayerCompletedGame(){
+        if (lvlCompleted) return;
+        lvlCompleted = true;
+
+        screamAudio.Stop();
+
+        playerContoller.SetWalkMode();
+
         raceStarted = false;
         state = screamState.idle;
         screamAnimator.SetTrigger("ToIdle");
         scream.isStopped = true;
         scream.ResetPath();
+        inventory.AddBucket();
     }
 
     void SetupScream(){
