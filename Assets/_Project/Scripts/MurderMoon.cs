@@ -46,7 +46,7 @@ namespace _Project.Scripts
             Gizmos.DrawLine(moon.position, player.position);
         }
 
-        private void Start() => StartTimer();
+        private void OnEnable() => StartTimer();
 
         private IEnumerator WaitAndExecute(float waitTime, Action action)
         {
