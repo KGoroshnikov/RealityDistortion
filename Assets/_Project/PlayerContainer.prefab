@@ -3796,7 +3796,7 @@ MonoBehaviour:
   collider: {fileID: 6332116612782920618}
   layerMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 513
   layerMaskCOLLISION:
     serializedVersion: 2
     m_Bits: 513
@@ -7286,6 +7286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 271037571064cce44a70b4508bea75c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  saveManager: {fileID: 0}
   videoPlayer: {fileID: 6313094439643184081}
   deathScreen: {fileID: 2947176990702399258}
   canvas: {fileID: 3977401008737030866}

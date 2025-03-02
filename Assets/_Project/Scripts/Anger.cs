@@ -9,6 +9,7 @@ public class Anger : MonoBehaviour
 
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private GameObject meshToSee;
+    [SerializeField] private Renderer rendererMesh;
 
     private bool started;
 
@@ -29,7 +30,7 @@ public class Anger : MonoBehaviour
     void Update()
     {
         if (!started) return;
-        if (!playerFOV.isMeVisible(meshToSee))
+        if (!playerFOV.isMeVisible(meshToSee)) //if (!CamFuncs.VisibleFromCamera(rendererMesh, Camera.main) && !playerFOV.isMeVisible(meshToSee))
         {
             if (agent.isStopped)
                 agent.isStopped = false;
