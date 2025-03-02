@@ -88,8 +88,7 @@ public class Inventory : SaveableBehaviour
         if (GetState("Items", out var value)
             && value is List<ItemSave> items)
         {
-            items.Add(new ItemSave(id, itemIconData));
-            SetState("Items", new List<ItemSave>(items));
+            SetState("Items", new List<ItemSave>(items) { new(id, itemIconData) });
         }
 
         currentItems.Add(newItem);
@@ -137,8 +136,9 @@ public class Inventory : SaveableBehaviour
         if (GetState("Items", out var value)
             && value is List<ItemSave> items)
         {
+            items = new List<ItemSave>(items);
             items.RemoveAt(removeIndex);
-            SetState("Items", new List<ItemSave>(items));
+            SetState("Items", items);
         }
 
         return true;

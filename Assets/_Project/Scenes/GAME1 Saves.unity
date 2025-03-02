@@ -60338,6 +60338,10 @@ PrefabInstance:
       value: "\u0420\u044B\u0447\u0430\u0433"
       objectReference: {fileID: 0}
     - target: {fileID: 1080444403361879576, guid: d6ef7da19628dfa4c9e740e7b9f7dae4, type: 3}
+      propertyPath: onActivate.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1080444403361879576, guid: d6ef7da19628dfa4c9e740e7b9f7dae4, type: 3}
       propertyPath: onActivate.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2015737674}
@@ -60348,6 +60352,10 @@ PrefabInstance:
     - target: {fileID: 1080444403361879576, guid: d6ef7da19628dfa4c9e740e7b9f7dae4, type: 3}
       propertyPath: onActivate.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: UseLever
+      objectReference: {fileID: 0}
+    - target: {fileID: 1080444403361879576, guid: d6ef7da19628dfa4c9e740e7b9f7dae4, type: 3}
+      propertyPath: onActivate.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: IslandOfDeathManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2132406456782367502, guid: d6ef7da19628dfa4c9e740e7b9f7dae4, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -65728,18 +65736,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 1061440971}
     m_Modifications:
     - target: {fileID: 1080444403361879576, guid: d6ef7da19628dfa4c9e740e7b9f7dae4, type: 3}
-      propertyPath: onActivate.m_PersistentCalls.m_Calls.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1080444403361879576, guid: d6ef7da19628dfa4c9e740e7b9f7dae4, type: 3}
-      propertyPath: onDeactivate.m_PersistentCalls.m_Calls.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1080444403361879576, guid: d6ef7da19628dfa4c9e740e7b9f7dae4, type: 3}
-      propertyPath: onActivate.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1080444403361879576, guid: d6ef7da19628dfa4c9e740e7b9f7dae4, type: 3}
       propertyPath: onActivate.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
       value: 4
       objectReference: {fileID: 0}
@@ -65752,17 +65748,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1150819216}
     - target: {fileID: 1080444403361879576, guid: d6ef7da19628dfa4c9e740e7b9f7dae4, type: 3}
-      propertyPath: onDeactivate.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1080444403361879576, guid: d6ef7da19628dfa4c9e740e7b9f7dae4, type: 3}
       propertyPath: onDeactivate.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1080444403361879576, guid: d6ef7da19628dfa4c9e740e7b9f7dae4, type: 3}
       propertyPath: onDeactivate.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1150819216}
+      objectReference: {fileID: 1423299073}
     - target: {fileID: 1080444403361879576, guid: d6ef7da19628dfa4c9e740e7b9f7dae4, type: 3}
       propertyPath: onDeactivate.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
@@ -65770,10 +65762,6 @@ PrefabInstance:
     - target: {fileID: 1080444403361879576, guid: d6ef7da19628dfa4c9e740e7b9f7dae4, type: 3}
       propertyPath: onActivate.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1080444403361879576, guid: d6ef7da19628dfa4c9e740e7b9f7dae4, type: 3}
-      propertyPath: onActivate.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetActive
       objectReference: {fileID: 0}
     - target: {fileID: 1080444403361879576, guid: d6ef7da19628dfa4c9e740e7b9f7dae4, type: 3}
       propertyPath: onActivate.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
@@ -65784,20 +65772,8 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1080444403361879576, guid: d6ef7da19628dfa4c9e740e7b9f7dae4, type: 3}
-      propertyPath: onDeactivate.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PlayInFixedTime
-      objectReference: {fileID: 0}
-    - target: {fileID: 1080444403361879576, guid: d6ef7da19628dfa4c9e740e7b9f7dae4, type: 3}
-      propertyPath: onDeactivate.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: set_enabled
-      objectReference: {fileID: 0}
-    - target: {fileID: 1080444403361879576, guid: d6ef7da19628dfa4c9e740e7b9f7dae4, type: 3}
       propertyPath: onDeactivate.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
       value: SetActive
-      objectReference: {fileID: 0}
-    - target: {fileID: 1080444403361879576, guid: d6ef7da19628dfa4c9e740e7b9f7dae4, type: 3}
-      propertyPath: onActivate.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1080444403361879576, guid: d6ef7da19628dfa4c9e740e7b9f7dae4, type: 3}
       propertyPath: onActivate.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
@@ -65808,10 +65784,6 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1080444403361879576, guid: d6ef7da19628dfa4c9e740e7b9f7dae4, type: 3}
-      propertyPath: onDeactivate.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UnityEngine.Behaviour, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 1080444403361879576, guid: d6ef7da19628dfa4c9e740e7b9f7dae4, type: 3}
       propertyPath: onDeactivate.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
       value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
@@ -65820,20 +65792,8 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1080444403361879576, guid: d6ef7da19628dfa4c9e740e7b9f7dae4, type: 3}
-      propertyPath: onDeactivate.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1080444403361879576, guid: d6ef7da19628dfa4c9e740e7b9f7dae4, type: 3}
-      propertyPath: onDeactivate.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1080444403361879576, guid: d6ef7da19628dfa4c9e740e7b9f7dae4, type: 3}
       propertyPath: onDeactivate.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_BoolArgument
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1080444403361879576, guid: d6ef7da19628dfa4c9e740e7b9f7dae4, type: 3}
-      propertyPath: onDeactivate.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
-      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 1080444403361879576, guid: d6ef7da19628dfa4c9e740e7b9f7dae4, type: 3}
       propertyPath: onActivate.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -70607,6 +70567,10 @@ PrefabInstance:
       value: "\u0420\u044B\u0447\u0430\u0433"
       objectReference: {fileID: 0}
     - target: {fileID: 1080444403361879576, guid: d6ef7da19628dfa4c9e740e7b9f7dae4, type: 3}
+      propertyPath: onActivate.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1080444403361879576, guid: d6ef7da19628dfa4c9e740e7b9f7dae4, type: 3}
       propertyPath: onActivate.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2015737674}
@@ -70617,6 +70581,10 @@ PrefabInstance:
     - target: {fileID: 1080444403361879576, guid: d6ef7da19628dfa4c9e740e7b9f7dae4, type: 3}
       propertyPath: onActivate.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: UseLever
+      objectReference: {fileID: 0}
+    - target: {fileID: 1080444403361879576, guid: d6ef7da19628dfa4c9e740e7b9f7dae4, type: 3}
+      propertyPath: onActivate.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: IslandOfDeathManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2132406456782367502, guid: d6ef7da19628dfa4c9e740e7b9f7dae4, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -87761,15 +87729,15 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1189506630}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: PlayInFixedTime
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Activate
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 2104985828}
@@ -122280,6 +122248,10 @@ PrefabInstance:
       value: "\u0420\u044B\u0447\u0430\u0433"
       objectReference: {fileID: 0}
     - target: {fileID: 1080444403361879576, guid: d6ef7da19628dfa4c9e740e7b9f7dae4, type: 3}
+      propertyPath: onActivate.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1080444403361879576, guid: d6ef7da19628dfa4c9e740e7b9f7dae4, type: 3}
       propertyPath: onActivate.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2015737674}
@@ -122290,6 +122262,10 @@ PrefabInstance:
     - target: {fileID: 1080444403361879576, guid: d6ef7da19628dfa4c9e740e7b9f7dae4, type: 3}
       propertyPath: onActivate.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ActivateAngel
+      objectReference: {fileID: 0}
+    - target: {fileID: 1080444403361879576, guid: d6ef7da19628dfa4c9e740e7b9f7dae4, type: 3}
+      propertyPath: onActivate.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: IslandOfDeathManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3238700573622475475, guid: d6ef7da19628dfa4c9e740e7b9f7dae4, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -124437,7 +124413,7 @@ PrefabInstance:
       value: "\u0420\u044B\u0447\u0430\u0433"
       objectReference: {fileID: 0}
     - target: {fileID: 1080444403361879576, guid: d6ef7da19628dfa4c9e740e7b9f7dae4, type: 3}
-      propertyPath: onDeactivate.m_PersistentCalls.m_Calls.Array.size
+      propertyPath: onActivate.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1080444403361879576, guid: d6ef7da19628dfa4c9e740e7b9f7dae4, type: 3}
@@ -124445,24 +124421,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2015737674}
     - target: {fileID: 1080444403361879576, guid: d6ef7da19628dfa4c9e740e7b9f7dae4, type: 3}
-      propertyPath: onDeactivate.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1080444403361879576, guid: d6ef7da19628dfa4c9e740e7b9f7dae4, type: 3}
       propertyPath: onActivate.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: UseLever
       objectReference: {fileID: 0}
     - target: {fileID: 1080444403361879576, guid: d6ef7da19628dfa4c9e740e7b9f7dae4, type: 3}
-      propertyPath: onDeactivate.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: set_enabled
-      objectReference: {fileID: 0}
-    - target: {fileID: 1080444403361879576, guid: d6ef7da19628dfa4c9e740e7b9f7dae4, type: 3}
-      propertyPath: onDeactivate.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UnityEngine.Behaviour, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 1080444403361879576, guid: d6ef7da19628dfa4c9e740e7b9f7dae4, type: 3}
-      propertyPath: onDeactivate.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
-      value: 0
+      propertyPath: onActivate.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: IslandOfDeathManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3238700573622475475, guid: d6ef7da19628dfa4c9e740e7b9f7dae4, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -162507,6 +162471,10 @@ PrefabInstance:
     - target: {fileID: 9098721340954791087, guid: 3bff3607fa4d1384dae05c7198c776a8, type: 3}
       propertyPath: onPreTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 9119551489556017293, guid: 3bff3607fa4d1384dae05c7198c776a8, type: 3}
+      propertyPath: debugRender
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

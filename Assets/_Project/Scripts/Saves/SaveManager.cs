@@ -9,7 +9,6 @@ namespace _Project.Scripts.Saves
 {
     public class SaveManager : MonoBehaviour
     {
-        [SerializeField] private bool guiRender;
         [SerializeField] private List<SaveableBehaviour> saveObjects = new();
         private readonly Dictionary<string, object> _stateChanges = new();
         private readonly Dictionary<string, object> _savedState = new();
@@ -85,13 +84,18 @@ namespace _Project.Scripts.Saves
             _stateChanges.TryGetValue(state, out value);
 
 
+#if UNITY_EDITOR
+        [SerializeField] private bool debugRender;
         private void OnGUI()
         {
-#if UNITY_EDITOR
-            if(GUILayout.Button("Save")) Commit();
-            if(GUILayout.Button("Restart")) Revert();
-#endif
+            if (!debugRender) return;
+            var style = new GUIStyle(GUI.skin.box) {
+                fontSize = 32
+            };
+            if(GUI.Button(new Rect(10, 10, 200, 50),"Save", style)) Commit();
+            if(GUI.Button(new Rect(10, 80, 200, 50),"Restart", style)) Revert();
         }
+#endif
 
         // public void Save()
         // {
