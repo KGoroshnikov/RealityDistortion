@@ -92,8 +92,8 @@ public class IslandOfDeathManager : SaveableBehaviour
     }
     public override void ApplyState(Dictionary<string, object> states)
     {
-        if (states.ContainsKey("Angel_Activated"))
-            ActivateAngel();
+        if (states.ContainsKey("MovePlayer")) Invoke(nameof(MovePlayer), 0.01f);
+        if (states.ContainsKey("Angel_Activated")) ActivateAngel();
     }
 
     public override void OnCommit()

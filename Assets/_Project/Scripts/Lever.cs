@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public class Lever : SaveableBehaviour, IInteractable
 {
+    [SerializeField] private Transform leverTransform;
     [SerializeField] private string uid;
     [SerializeField] private string tip;
     public string Tip => tip;
@@ -20,6 +21,8 @@ public class Lever : SaveableBehaviour, IInteractable
     [SerializeField] private UnityEvent onDeactivate;
 
     private bool interacted;
+    private Vector3 originalPosition;
+    private Quaternion originalRotation;
 
     public void Interact(Interaction player)
     {
@@ -28,7 +31,8 @@ public class Lever : SaveableBehaviour, IInteractable
 
         gameObject.tag = "Untagged";
         for(int i = 0; i < meshes.Length; i++) meshes[i].material = defaultMat;
-
+        originalPosition = leverTransform.position;
+        originalRotation = leverTransform.rotation;
         onActivate.Invoke();
         SetState($"Lever_{name}_{ID}_{uid}_Activated");
     }
@@ -44,13 +48,16 @@ public class Lever : SaveableBehaviour, IInteractable
     }
     
     private void Start() => Initialize();
-    public override void ResetState(Dictionary<string, object> states) {}
+
+    public override void ResetState(Dictionary<string, object> states) { }
     public override void ApplyState(Dictionary<string, object> states)
     {
         if (states.ContainsKey($"Lever_{name}_{ID}_{uid}_Activated")) return;
         interacted = false;
         gameObject.tag = "Interactable";
         onDeactivate.Invoke();
+        leverTransform.position = originalPosition;
+        leverTransform.rotation = originalRotation;
     }
     public override void OnCommit() { }
 }

@@ -9,6 +9,7 @@ namespace _Project.Scripts.Saves
 {
     public class SaveManager : MonoBehaviour
     {
+        [SerializeField] private bool guiRender;
         [SerializeField] private List<SaveableBehaviour> saveObjects = new();
         private readonly Dictionary<string, object> _stateChanges = new();
         private readonly Dictionary<string, object> _savedState = new();
@@ -82,6 +83,15 @@ namespace _Project.Scripts.Saves
         
         public bool GetState(string state, [NotNullWhen(true)] out object value) => 
             _stateChanges.TryGetValue(state, out value);
+
+
+        private void OnGUI()
+        {
+#if UNITY_EDITOR
+            if(GUILayout.Button("Save")) Commit();
+            if(GUILayout.Button("Restart")) Revert();
+#endif
+        }
 
         // public void Save()
         // {
