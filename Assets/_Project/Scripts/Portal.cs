@@ -14,6 +14,7 @@ public class Portal : MonoBehaviour {
 
     private List<PortalTraveller> trackedTravellers = new List<PortalTraveller>();
 
+    public UnityEvent onPreTeleport;
     public UnityEvent onTeleport;
 
     public float nearClipOffset = 0.05f;
@@ -55,6 +56,7 @@ public class Portal : MonoBehaviour {
                 if (linkedPortal.screen) linkedPortal.ProtectScreenFromClipping(m.GetColumn(3));
                 var positionOld = travellerT.position;
                 var rotOld = travellerT.rotation;
+                onPreTeleport.Invoke();
                 traveller.Teleport(transform, linkedPortal.transform, m.GetColumn(3), m.rotation);
                 linkedPortal.OnTravellerEnterPortal(traveller);
                 trackedTravellers.RemoveAt(i);

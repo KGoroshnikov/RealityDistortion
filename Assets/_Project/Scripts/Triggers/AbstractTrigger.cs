@@ -1,8 +1,9 @@
-﻿using UnityEngine;
+﻿using _Project.Scripts.Saves;
+using UnityEngine;
 
 namespace Triggers
 {
-    public class AbstractTrigger : MonoBehaviour
+    public abstract class AbstractTrigger : SaveableBehaviour
     {
         public void LogInfo(string message) => Debug.Log(message);
         public void LogWarning(string message) => Debug.LogWarning(message);

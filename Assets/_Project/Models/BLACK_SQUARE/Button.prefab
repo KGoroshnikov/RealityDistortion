@@ -251,9 +251,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5665310174523463218}
   - component: {fileID: 16088643789990468}
-  - component: {fileID: 9034776222233174403}
-  - component: {fileID: 715324107336496306}
-  - component: {fileID: 6271341449906004762}
+  - component: {fileID: 8118361848058238064}
   m_Layer: 12
   m_Name: Trigger
   m_TagString: Untagged
@@ -297,7 +295,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &9034776222233174403
+--- !u!114 &8118361848058238064
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -306,87 +304,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 5644167448125211838}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb11d4ed0bbc4bf09f84c2b8c4a522e5, type: 3}
+  m_Script: {fileID: 11500000, guid: ccb93bdd085e4593bd89b2f1d7e3da27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uid: puzzle3
   useTag: 0
-  tag: Cube
+  tag: 
   layerMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  onEnter:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 715324107336496306}
-        m_TargetAssemblyTypeName: TimerTrigger, Assembly-CSharp
-        m_MethodName: StartTimer
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Button Press
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 6271341449906004762}
-        m_TargetAssemblyTypeName: TimerTrigger, Assembly-CSharp
-        m_MethodName: CancelTimer
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Button Press
-          m_BoolArgument: 0
-        m_CallState: 2
-  onStay:
-    m_PersistentCalls:
-      m_Calls: []
-  onExit:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6271341449906004762}
-        m_TargetAssemblyTypeName: TimerTrigger, Assembly-CSharp
-        m_MethodName: StartTimer
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Button Release
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 715324107336496306}
-        m_TargetAssemblyTypeName: TimerTrigger, Assembly-CSharp
-        m_MethodName: CancelTimer
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Button Release
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &715324107336496306
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5644167448125211838}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9016051de518460e8656fbcaa1d6b148, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onTimerStart:
-    m_PersistentCalls:
-      m_Calls: []
-  onTimerEnd:
+  detectTime: 0.1
+  onActivate:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6847999834076977438}
@@ -401,35 +329,7 @@ MonoBehaviour:
           m_StringArgument: Button Press
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: PlayInFixedTime
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Open Door
-          m_BoolArgument: 0
-        m_CallState: 2
-  timerDuration: 0.1
---- !u!114 &6271341449906004762
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5644167448125211838}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9016051de518460e8656fbcaa1d6b148, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onTimerStart:
-    m_PersistentCalls:
-      m_Calls: []
-  onTimerEnd:
+  onDeactivate:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6847999834076977438}
@@ -444,16 +344,3 @@ MonoBehaviour:
           m_StringArgument: Button Release
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: PlayInFixedTime
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Close Door
-          m_BoolArgument: 0
-        m_CallState: 2
-  timerDuration: 0.1

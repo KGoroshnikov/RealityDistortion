@@ -1,8 +1,11 @@
+using System.Collections.Generic;
+using _Project.Scripts.Saves;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Lever : MonoBehaviour, IInteractable
+public class Lever : SaveableBehaviour, IInteractable
 {
+    [SerializeField] private Transform leverTransform;
     [SerializeField] private string tip;
     public string Tip => tip;
     [SerializeField] private string description;
@@ -14,10 +17,13 @@ public class Lever : MonoBehaviour, IInteractable
     [SerializeField] private MeshRenderer[] meshes;
     [SerializeField] private Material defaultMat;
     [SerializeField] private UnityEvent onActivate;
+    [SerializeField] private UnityEvent onDeactivate;
 
     [SerializeField] private AudioSource audioSource;
 
     private bool interacted;
+    private Vector3 originalPosition;
+    private Quaternion originalRotation;
 
     public void Interact(Interaction player)
     {
@@ -27,8 +33,10 @@ public class Lever : MonoBehaviour, IInteractable
 
         gameObject.tag = "Untagged";
         for(int i = 0; i < meshes.Length; i++) meshes[i].material = defaultMat;
-
+        originalPosition = leverTransform.position;
+        originalRotation = leverTransform.rotation;
         onActivate.Invoke();
+        SetState($"Lever_{name}_{Guid}_Activated");
     }
 
     public void Hover(Interaction player)
@@ -40,4 +48,18 @@ public class Lever : MonoBehaviour, IInteractable
     {
         
     }
+    
+    private void Start() => Initialize();
+
+    public override void ResetState(Dictionary<string, object> states) { }
+    public override void ApplyState(Dictionary<string, object> states)
+    {
+        if (states.ContainsKey($"Lever_{name}_{Guid}_Activated")) return;
+        interacted = false;
+        gameObject.tag = "Interactable";
+        onDeactivate.Invoke();
+        leverTransform.position = originalPosition;
+        leverTransform.rotation = originalRotation;
+    }
+    public override void OnCommit() { }
 }

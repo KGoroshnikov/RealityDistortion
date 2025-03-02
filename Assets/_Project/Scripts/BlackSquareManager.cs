@@ -1,6 +1,9 @@
+using System;
+using System.Collections.Generic;
+using _Project.Scripts.Saves;
 using UnityEngine;
 
-public class BlackSquareManager : MonoBehaviour
+public class BlackSquareManager : SaveableBehaviour
 {   
     [SerializeField] private Transform startPosPortal;
     [SerializeField] private Transform endPosPortal;
@@ -18,12 +21,30 @@ public class BlackSquareManager : MonoBehaviour
         portal.onTeleport.AddListener(PlayerTeleportedBack);
 
         lvlPassed = true;
+        SetState("BlackSquareManager_lvlPassed");
     }
 
     void PlayerTeleportedBack(){
         portal.onTeleport.RemoveListener(PlayerTeleportedBack);
         inventory.AddBucket();
+        Commit();
     }
-    
 
+
+    private void Start() => Initialize();
+
+    public override void ResetState(Dictionary<string, object> states)
+    {
+        
+    }
+
+    public override void ApplyState(Dictionary<string, object> states)
+    {
+        if (states.ContainsKey("BlackSquareManager_lvlPassed"))
+            TeleportPortalToExit();
+    }
+
+    public override void OnCommit()
+    {
+    }
 }

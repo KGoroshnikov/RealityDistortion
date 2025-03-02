@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using TMPro;
 using System.Linq;
 using _Project.Scripts.Saves;
+using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.UI;
+using Object = UnityEngine.Object;
 
 // Item IDs:
 // 0 - nothing
@@ -39,7 +41,7 @@ public class Inventory : SaveableBehaviour
     void AddCamera(){
         haveCamera = true;
         camUI.SetActive(true);
-        AddState("Item_1");
+        SetState("Camera");
     }
 
     public bool GetHaveCamera(){
@@ -86,9 +88,14 @@ public class Inventory : SaveableBehaviour
         newItem.uiIcon = freeIcon;
 
         freeIcon.transform.localPosition = posFirstItem.localPosition + iconOffset * currentItems.Count;
-        
+
+        if (GetState("Items", out var value)
+            && value is List<ItemSave> items)
+        {
+            SetState("Items", new List<ItemSave>(items) { new(id, itemIconData) });
+        }
+
         currentItems.Add(newItem);
-        AddState($"Item_{id}", itemIconData);
     }
 
     void ShowNewItemText(string name){
@@ -129,6 +136,15 @@ public class Inventory : SaveableBehaviour
         for (int i = 0; i < currentItems.Count; i++) {
             currentItems[i].uiIcon.transform.localPosition = posFirstItem.localPosition + iconOffset * i;
         }
+
+        if (GetState("Items", out var value)
+            && value is List<ItemSave> items)
+        {
+            items = new List<ItemSave>(items);
+            items.RemoveAt(removeIndex);
+            SetState("Items", items);
+        }
+
         return true;
     }
 
@@ -143,16 +159,44 @@ public class Inventory : SaveableBehaviour
         AddItem(4, itemIconData);
     }
 
-    private void Awake() => Initialize();
+    private void Start()
+    {
+        Initialize();
+        SetState("Items", new List<ItemSave>());
+    }
 
     public override void ResetState(Dictionary<string, object> states)
     {
         foreach (var item in currentItems)
             item.uiIcon.SetActive(false);
         currentItems.Clear();
-        
-        foreach (var (key, value) in 
-                 states.Where(pair => pair.Key.StartsWith("Item_")))
-            AddItem(int.Parse(key[5..]), (PickupableItem.ItemIconData)value);
+        haveCamera = false;
+        camUI.SetActive(false);
+    }
+
+    public override void ApplyState(Dictionary<string, object> states)
+    {
+        if (!states.TryGetValue("Items", out var value)) return;
+        if (value is not List<ItemSave> items) return;
+        var itemBuffer = items.ToArray();
+        items.Clear();
+        foreach (var save in itemBuffer)
+            AddItem(save.id, save.itemIconData);
+        if (states.ContainsKey("Camera"))
+            AddCamera();
+    }
+    public override void OnCommit() { }
+
+    [Serializable]
+    private class ItemSave
+    {
+        public int id;
+        public PickupableItem.ItemIconData itemIconData;
+
+        public ItemSave(int id, PickupableItem.ItemIconData itemIconData)
+        {
+            this.id = id;
+            this.itemIconData = itemIconData;
+        }
     }
 }

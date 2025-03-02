@@ -1,8 +1,9 @@
 using System.Collections.Generic;
+using _Project.Scripts.Saves;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class ScreamGameManager : MonoBehaviour, IFreezable
+public class ScreamGameManager : SaveableBehaviour, IFreezable
 {
     [SerializeField] private MoveObjects moveObjects;
     [SerializeField] private Transform startPlayerPos;
@@ -32,6 +33,7 @@ public class ScreamGameManager : MonoBehaviour, IFreezable
     private NavMeshPath path;
 
     private bool lvlCompleted;
+    private Vector3 screamOrigin;
 
     public void StartGame(){
         if (lvlCompleted) return;
@@ -58,6 +60,8 @@ public class ScreamGameManager : MonoBehaviour, IFreezable
     public void PlayerCompletedGame(){
         if (lvlCompleted) return;
         lvlCompleted = true;
+        SetState("ScreamGameManager_lvlCompleted");
+        RemoveState("ScreamGameManager_StartGame");
 
         screamAudio.Stop();
 
@@ -69,9 +73,11 @@ public class ScreamGameManager : MonoBehaviour, IFreezable
         scream.isStopped = true;
         scream.ResetPath();
         inventory.AddBucket();
+        Commit();
     }
 
     void SetupScream(){
+        scream.transform.position = screamOrigin;
         scream.acceleration = 10000f;
         scream.angularSpeed = 10000f;
         scream.autoBraking = false;
@@ -183,4 +189,24 @@ public class ScreamGameManager : MonoBehaviour, IFreezable
     {
         freezed = false;
     }
+
+    private void Start()
+    {
+        Initialize();
+        screamOrigin = scream.transform.position;
+    }
+
+    public override void ResetState(Dictionary<string, object> states)
+    {
+    }
+
+    public override void ApplyState(Dictionary<string, object> states)
+    {
+        if (states.ContainsKey("ScreamGameManager_lvlCompleted"))
+            lvlCompleted = true;
+        if (states.ContainsKey("ScreamGameManager_StartGame"))
+            StartGame();
+    }
+
+    public override void OnCommit() { }
 }

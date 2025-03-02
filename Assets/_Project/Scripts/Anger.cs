@@ -1,7 +1,10 @@
+using System;
+using System.Collections.Generic;
+using _Project.Scripts.Saves;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Anger : MonoBehaviour, IFreezable
+public class Anger : SaveableBehaviour, IFreezable
 {
     [SerializeField] private Transform player;
 
@@ -55,5 +58,21 @@ public class Anger : MonoBehaviour, IFreezable
             agent.isStopped = true;
             agent.ResetPath();
         }
+    }
+
+
+    private void Start() => Initialize();
+    public override void ResetState(Dictionary<string, object> states)
+    {
+        transform.position = (Vector3)states.GetValueOrDefault("Anger_Position", Vector3.zero);
+        transform.rotation = (Quaternion)states.GetValueOrDefault("Anger_Rotation", Quaternion.identity);
+    }
+
+    public override void ApplyState(Dictionary<string, object> states) { }
+
+    public override void OnCommit()
+    {
+        SetState("Anger_Position", transform.position);
+        SetState("Anger_Rotation", transform.rotation);
     }
 }

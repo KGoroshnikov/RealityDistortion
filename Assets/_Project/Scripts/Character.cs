@@ -1,8 +1,9 @@
 using System.Linq;
 using System.Threading;
+using _Project.Scripts.Saves;
 using UnityEngine;
 
-public abstract class Character : MonoBehaviour
+public abstract class Character : SaveableBehaviour
 {
     [Header("Character Setttings")]
     [SerializeField] private float RideSpringStrength = 100f;

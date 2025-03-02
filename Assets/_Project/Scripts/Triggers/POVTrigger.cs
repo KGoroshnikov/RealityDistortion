@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -18,6 +19,13 @@ namespace Triggers
 
     
         private bool _activated;
+
+        private void Awake()
+        {
+            if (camera == null) 
+                camera = Camera.main;
+        }
+        
         private void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.yellow;
@@ -61,5 +69,8 @@ namespace Triggers
             onDeactivated.Invoke();
             _activated = false;
         }
+        public override void ResetState(Dictionary<string, object> states) { }
+        public override void ApplyState(Dictionary<string, object> states) { }
+        public override void OnCommit() { }
     }
 }
