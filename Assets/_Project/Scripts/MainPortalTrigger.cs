@@ -11,11 +11,15 @@ public class MainPortalTrigger : MonoBehaviour, IInteractable
 
     [SerializeField] private MainPortal mainPortal;
 
+    [SerializeField] private AudioSource audioSource;
+
     public void Interact(Interaction player)
     {
         if (!player.GetInventory().RemoveItem(4)) return;
 
         mainPortal.AddProgress();
+
+        audioSource.Play();
     }
 
     public void Hover(Interaction player)

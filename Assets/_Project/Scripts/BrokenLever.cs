@@ -17,6 +17,8 @@ public class BrokenLever : MonoBehaviour, IInteractable
 
     [SerializeField] private GameObject leverObj;
 
+    [SerializeField] private AudioSource audioSource;
+
     private bool interacted;
 
     void Start(){
@@ -34,6 +36,8 @@ public class BrokenLever : MonoBehaviour, IInteractable
         else if (leverObj.activeSelf){
             if (interacted) return;
             interacted = true;
+
+            audioSource.Play();
 
             gameObject.tag = "Untagged";
             for(int i = 0; i < meshes.Length; i++) meshes[i].material = defaultMat;

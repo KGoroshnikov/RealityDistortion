@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -38,7 +39,13 @@ public class PlayerContoller : Character
 
 
     [SerializeField] private Interaction interaction;
+    [SerializeField] private VHCController vHCController;
     private bool canBeUnFreezed = true;
+    [SerializeField] private AudioSource walkAudio;
+    [SerializeField] private float audioThresold;
+
+    [SerializeField] private AudioSource portalSound;
+    [SerializeField] private GameObject[] ignorePortalSoundPortals;
 
     void Awake()
     {
@@ -91,6 +98,11 @@ public class PlayerContoller : Character
         bobSpeed = 10f;
     }
 
+    public void DoPortalSound(Transform portal){
+        if (ignorePortalSoundPortals.Contains(portal.gameObject))return;
+        portalSound.Play();
+    }
+
     private void Jump()
     {
         if (!isGrounded || !canJump) return;
@@ -141,6 +153,9 @@ public class PlayerContoller : Character
         {
             timer += Time.deltaTime * bobSpeed;
             joint.localPosition = new Vector3(jointOriginalPos.x + Mathf.Sin(timer) * bobAmount.x, jointOriginalPos.y + Mathf.Sin(timer) * bobAmount.y, jointOriginalPos.z + Mathf.Sin(timer) * bobAmount.z);
+            if (Mathf.Sin(timer) >= audioThresold){
+                walkAudio.Play();
+            }
         }
         else
         {
@@ -160,10 +175,14 @@ public class PlayerContoller : Character
     public void ResetCamRot(){
         yaw = 0;
         pitch = 0;
+        Rotating();
     }
 
     public void FreezePlayer(bool forceFreeze){
-        if (forceFreeze) canBeUnFreezed = false;
+        if (forceFreeze){
+            vHCController.SetInputRection(false);
+            canBeUnFreezed = false;
+        }
 
         m_state = state.NoUse;
         MakeMeStatic();
@@ -172,6 +191,7 @@ public class PlayerContoller : Character
     }
     public void UnfreezePlayer(bool forceUnFreeze){
         if (!canBeUnFreezed && !forceUnFreeze) return;
+        if (forceUnFreeze) vHCController.SetInputRection(true);
         canBeUnFreezed = true;
         
         m_state = state.Idle;

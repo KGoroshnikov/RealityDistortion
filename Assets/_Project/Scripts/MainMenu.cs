@@ -10,6 +10,11 @@ public class MainMenu : MonoBehaviour
 
     [SerializeField] private MainMenuCam mainMenuCam;
 
+    [SerializeField] private GameObject settingsObj;
+
+    [SerializeField] private AudioSource uiSounds;
+    [SerializeField] private AudioClip clickClip;
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.None;
@@ -17,6 +22,8 @@ public class MainMenu : MonoBehaviour
     }
 
     public void Click(int id){
+        uiSounds.clip = clickClip;
+        uiSounds.Play();
         if (id == 0){
             animatorCam.enabled = true;
             if (Random.value > 0.5f) animatorCam.Play("CamEnterGame", 0, 0);
@@ -24,6 +31,12 @@ public class MainMenu : MonoBehaviour
             animatorFade.SetTrigger("FadeIn");
             mainMenuCam.LockMousePos();
             Invoke("LoadGame", 3f);
+        }
+        else if (id == 1){
+            settingsObj.SetActive(!settingsObj.activeSelf);
+        }
+        else if (id == 2){
+            Application.Quit();
         }
     }
 

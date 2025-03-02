@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MainPortal : MonoBehaviour
@@ -10,6 +11,9 @@ public class MainPortal : MonoBehaviour
     [SerializeField] private Animator doorAnimator;
 
     [SerializeField] private GreenLandManager greenLandManager;
+    [SerializeField] private GalleryManager galleryManager;
+
+    [SerializeField] private AudioSource doorOpenSound;
     private bool doorOpened;
 
     void Start()
@@ -29,6 +33,8 @@ public class MainPortal : MonoBehaviour
             doorAnimator.enabled = true;
             doorAnimator.Play("OpenDoor", 0, 0);
             greenLandManager.Activate();
+            doorOpenSound.Play();
+            galleryManager.OpenGreenLand();
         }
     }
     
