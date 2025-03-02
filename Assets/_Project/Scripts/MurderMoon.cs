@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using Triggers;
 using UnityEngine;
 using UnityEngine.Events;
@@ -7,7 +8,7 @@ using Random = UnityEngine.Random;
 
 namespace _Project.Scripts
 {
-    public class MurderMoon : MonoBehaviour
+    public class MurderMoon : MonoBehaviour, IFreezable
     {
         [SerializeField] private bool inDetectMode;
         [SerializeField] private Transform moon;
@@ -30,6 +31,16 @@ namespace _Project.Scripts
 
         [SerializeField] private DeathManager playerDie;
 
+        [SerializeField] private AudioSource warningAudio;
+        [SerializeField] private AudioSource attackAudio;
+
+        private bool freezed;
+
+        private Coroutine warnCoroutine;
+        private Coroutine rotateCoroutine;
+        private Coroutine detectCoroutine;
+        private Coroutine lookBackCoroutine;
+
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.yellow;
@@ -38,15 +49,31 @@ namespace _Project.Scripts
 
         private void Start() => StartTimer();
 
+        private IEnumerator WaitAndExecute(float waitTime, Action action)
+        {
+            float remaining = waitTime;
+            while (remaining > 0f)
+            {
+                if (!freezed)
+                {
+                    remaining -= Time.deltaTime;
+                }
+                yield return null;
+            }
+            action();
+        }
+
         private void TryDetect()
         {
+            attackAudio.Play();
             seeing = true;
-            Invoke("LookBack", Random.Range(timeSee.x, timeSee.y));
+            //Invoke("LookBack", Random.Range(timeSee.x, timeSee.y));
+            lookBackCoroutine = StartCoroutine(WaitAndExecute(Random.Range(timeSee.x, timeSee.y), LookBack));
             onDetectStarted.Invoke();
         }
 
         void WarnPlayer(){
-            Debug.Log("Warning");
+            warningAudio.Play();
         }
 
         void RotateToLook(){
@@ -55,13 +82,14 @@ namespace _Project.Scripts
 
         void FixedUpdate()
         {
-            if (!seeing || !inDetectMode) return;
+            if (!seeing || !inDetectMode || freezed) return;
             if (Physics.Linecast(moon.position, player.position, obstacleLayer)) return;
             playerDie.Die();
             onPlayerDetected.Invoke();
         }
 
         void LookBack(){
+            attackAudio.Stop();
             seeing = false;
             StartTimer();
             animator.SetTrigger("DontSee");
@@ -70,12 +98,26 @@ namespace _Project.Scripts
         private void StartTimer()
         {
             var time = Random.Range(timeNotSee.x, timeNotSee.y);
-            Invoke("WarnPlayer", time - warningTime);
+            /*Invoke("WarnPlayer", time - warningTime);
             Invoke("RotateToLook", time - rotateTime);
-            Invoke(nameof(TryDetect), time);
+            Invoke(nameof(TryDetect), time);*/
+            warnCoroutine = StartCoroutine(WaitAndExecute(time - warningTime, WarnPlayer));
+            rotateCoroutine = StartCoroutine(WaitAndExecute(time - rotateTime, RotateToLook));
+            detectCoroutine = StartCoroutine(WaitAndExecute(time, TryDetect));
+
             onTimerStarted.Invoke(time);
         }
         
         public void ChangeDetectMode(bool mode) => inDetectMode = mode;
+
+        public void Freeze()
+        {
+            freezed = true;
+        }
+
+        public void UnFreeze()
+        {
+            freezed = false;
+        }
     }
 }

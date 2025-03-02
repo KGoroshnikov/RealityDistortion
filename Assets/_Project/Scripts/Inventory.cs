@@ -36,6 +36,8 @@ public class Inventory : SaveableBehaviour
     [SerializeField] private GameObject newItemTip;
     [SerializeField] private TMP_Text textNewItem;
 
+    [SerializeField] private AudioSource pickupSound;
+
     void AddCamera(){
         haveCamera = true;
         camUI.SetActive(true);
@@ -47,6 +49,8 @@ public class Inventory : SaveableBehaviour
     }
 
     public void AddItem(int id, PickupableItem.ItemIconData itemIconData){
+        pickupSound.Play();
+        
         if (id == 1){
             AddCamera();
             ShowNewItemText(itemIconData.name);

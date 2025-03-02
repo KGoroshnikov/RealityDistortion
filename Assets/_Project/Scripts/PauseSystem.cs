@@ -17,6 +17,12 @@ public class PauseSystem : MonoBehaviour
     [SerializeField] private Animator pauseAnimator;
     [SerializeField] private Animator fadeAnim;
 
+    [SerializeField] private GameObject settingsObj;
+
+    [SerializeField] private AudioSource uiSounds;
+    [SerializeField] private AudioClip clickClip;
+    [SerializeField] private AudioClip hoverClip;
+
     private bool paused;
 
     void Awake()
@@ -57,19 +63,28 @@ public class PauseSystem : MonoBehaviour
     }
 
     public void PauseHover(){
+        uiSounds.clip = hoverClip;
+        uiSounds.Play();
         pauseAnimator.ResetTrigger("Leave");
         if (!pauseAnimator.enabled) pauseAnimator.enabled = true;
         else pauseAnimator.SetTrigger("Hover");
     }
     public void PauseLeave(){
+        
         pauseAnimator.ResetTrigger("Hover");
         pauseAnimator.SetTrigger("Leave");
     }
 
     public void ButtonClick(int id){
+        uiSounds.clip = clickClip;
+        uiSounds.Play();
+
         if (id == 1){
             fadeAnim.SetTrigger("FadeIn");
             Invoke("LoadMenu", 2f);
+        }
+        else if (id == 2){
+            settingsObj.SetActive(!settingsObj.activeSelf);
         }
     }
 

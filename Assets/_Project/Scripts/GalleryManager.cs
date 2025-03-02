@@ -9,19 +9,39 @@ public class GalleryManager : SaveableBehaviour
 
     [SerializeField] private ScriptableRendererFeature VHSscreenEffects;
 
+    private bool greenlandOpened;
+
     private Vector3 _wallStartPosition;
-    
-    private void Start()
+
+    [SerializeField] private GameObject[] AllLocations;
+    // 0 - Greenlands and final scene
+    // 1 - Island
+    // 2 - night city
+    // 3 - scream
+    // 4 - black square
+
+    void Start()
     {
+        DisableLocations();
         Initialize();
         _wallStartPosition = wallAnimator.transform.position;
     }
 
-    public void ActivateLever()
-    {
+    void DisableLocations(){
+        for(int i = 0; i < AllLocations.Length; i++){
+            AllLocations[i].SetActive(false);
+        }
+    }
+
+    public void ActivateLever(){
         wallAnimator.enabled = true;
         wallAnimator.Play("MoveWall", 0, 0);
         SetState("ActivateLever");
+    }
+
+    public void OpenGreenLand(){
+        greenlandOpened = true;
+        AllLocations[0].SetActive(true);
     }
 
     void OnEnable()
@@ -36,6 +56,32 @@ public class GalleryManager : SaveableBehaviour
 
     public void ActivateBlackAndWhite(bool onOff){
         VHSscreenEffects.SetActive(onOff);
+    }
+
+    public void EnableIslandAndNightCity(){
+        AllLocations[0].SetActive(false);
+        AllLocations[3].SetActive(false);
+        AllLocations[4].SetActive(false);
+
+        AllLocations[1].SetActive(true);
+        AllLocations[2].SetActive(true);
+    }
+    public void EnableScream(){
+        AllLocations[0].SetActive(false);
+        AllLocations[1].SetActive(false);
+        AllLocations[2].SetActive(false);
+        AllLocations[4].SetActive(false);
+
+        AllLocations[3].SetActive(true);
+    }
+
+    public void EnableBlackSquareAndGreenLand(){
+        AllLocations[1].SetActive(false);
+        AllLocations[2].SetActive(false);
+        AllLocations[3].SetActive(false);
+
+        if (greenlandOpened) AllLocations[0].SetActive(true);
+        AllLocations[4].SetActive(true);
     }
 
     public override void ResetState(Dictionary<string, object> states)

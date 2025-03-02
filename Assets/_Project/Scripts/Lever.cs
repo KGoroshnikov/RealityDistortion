@@ -20,6 +20,8 @@ public class Lever : SaveableBehaviour, IInteractable
     [SerializeField] private UnityEvent onActivate;
     [SerializeField] private UnityEvent onDeactivate;
 
+    [SerializeField] private AudioSource audioSource;
+
     private bool interacted;
     private Vector3 originalPosition;
     private Quaternion originalRotation;
@@ -28,6 +30,7 @@ public class Lever : SaveableBehaviour, IInteractable
     {
         if (interacted) return;
         interacted = true;
+        audioSource.Play();
 
         gameObject.tag = "Untagged";
         for(int i = 0; i < meshes.Length; i++) meshes[i].material = defaultMat;

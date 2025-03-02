@@ -4,7 +4,7 @@ using _Project.Scripts.Saves;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Anger : SaveableBehaviour
+public class Anger : SaveableBehaviour, IFreezable
 {
     [SerializeField] private Transform player;
 
@@ -15,6 +15,7 @@ public class Anger : SaveableBehaviour
     [SerializeField] private Renderer rendererMesh;
 
     private bool started;
+    private bool freezed;
 
     public void ActivateMe(){
         agent.acceleration = 10000f;
@@ -30,9 +31,22 @@ public class Anger : SaveableBehaviour
         agent.ResetPath();
     }
 
-    void Update()
+    public void Freeze()
     {
         if (!started) return;
+        freezed = true;
+        agent.isStopped = true;
+        agent.ResetPath();
+    }
+
+    public void UnFreeze()
+    {
+        freezed = false;
+    }
+
+    void Update()
+    {
+        if (!started || freezed) return;
         if (!playerFOV.isMeVisible(meshToSee)) //if (!CamFuncs.VisibleFromCamera(rendererMesh, Camera.main) && !playerFOV.isMeVisible(meshToSee))
         {
             if (agent.isStopped)

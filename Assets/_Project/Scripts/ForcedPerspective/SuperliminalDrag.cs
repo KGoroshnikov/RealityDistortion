@@ -35,6 +35,9 @@ public class SuperliminalDrag : MonoBehaviour
     private Vector3 bottom;
     private readonly List<Vector3> shapedGrid = new();
 
+
+    [SerializeField] private GameObject grabUI;
+
     private void OnDrawGizmos()
     {
         if (!target) return;
@@ -73,6 +76,11 @@ public class SuperliminalDrag : MonoBehaviour
  
     private void HandleInput()
     {
+        if (RaycastFast(camera.transform.position, targetMask, out var hit0)){
+            grabUI.SetActive(true);
+        }
+        else if (grabUI.activeSelf) grabUI.SetActive(false);
+
         if (grab.action.IsPressed())
         {
             if (target) return;

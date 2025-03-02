@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using _Project.Scripts.Saves;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MainPortal : SaveableBehaviour
@@ -12,6 +13,9 @@ public class MainPortal : SaveableBehaviour
     [SerializeField] private Animator doorAnimator;
 
     [SerializeField] private GreenLandManager greenLandManager;
+    [SerializeField] private GalleryManager galleryManager;
+
+    [SerializeField] private AudioSource doorOpenSound;
     private bool doorOpened;
 
     void Start() => Initialize();
@@ -35,6 +39,8 @@ public class MainPortal : SaveableBehaviour
             doorAnimator.enabled = true;
             doorAnimator.Play("OpenDoor", 0, 0);
             greenLandManager.Activate();
+            doorOpenSound.Play();
+            galleryManager.OpenGreenLand();
         }
     }
 

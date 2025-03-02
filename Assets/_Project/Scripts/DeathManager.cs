@@ -16,6 +16,8 @@ public class DeathManager : MonoBehaviour
 
     [SerializeField] private ScriptableRendererFeature[] VHSscreenEffects;
 
+    [SerializeField] private AudioSource audioSource;
+
     private bool died;
 
     void Start()
@@ -32,6 +34,7 @@ public class DeathManager : MonoBehaviour
     public void Die(){
         if (died) return;
         died = true;
+        audioSource.Play();
         canvas.SetActive(false);
         deathScreen.SetActive(true);
         videoPlayer.Play();

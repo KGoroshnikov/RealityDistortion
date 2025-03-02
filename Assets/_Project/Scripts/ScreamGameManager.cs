@@ -3,7 +3,7 @@ using _Project.Scripts.Saves;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class ScreamGameManager : SaveableBehaviour
+public class ScreamGameManager : SaveableBehaviour, IFreezable
 {
     [SerializeField] private MoveObjects moveObjects;
     [SerializeField] private Transform startPlayerPos;
@@ -27,6 +27,8 @@ public class ScreamGameManager : SaveableBehaviour
         idle, running
     }
     private screamState state;
+
+    private bool freezed;
 
     private NavMeshPath path;
 
@@ -88,7 +90,7 @@ public class ScreamGameManager : SaveableBehaviour
 
     void FixedUpdate()
     {
-        if (!raceStarted) return;
+        if (!raceStarted || freezed) return;
 
         path = GetPath();
         if (path != null){
@@ -100,6 +102,7 @@ public class ScreamGameManager : SaveableBehaviour
             if (scream.isStopped) scream.isStopped = false;
             scream.speed = regularSpeed;
             scream.SetPath(path);
+            if (portalsPlayerEntered.Count != 0) portalsPlayerEntered.Clear();
         }
         else if (GetTargetPortal() != null)
         {
@@ -114,6 +117,7 @@ public class ScreamGameManager : SaveableBehaviour
 
             if (!scream.enabled)
             {
+                if (scream.isStopped) scream.isStopped = false;
                 scream.enabled = true;
                 scream.ResetPath();
             }
@@ -167,6 +171,21 @@ public class ScreamGameManager : SaveableBehaviour
             }
         }
         return null;
+    }
+
+    public void Freeze()
+    {
+        if (!raceStarted) return;
+
+        freezed = true;
+        scream.isStopped = true;
+        scream.ResetPath();
+        scream.enabled = false;
+    }
+
+    public void UnFreeze()
+    {
+        freezed = false;
     }
 
     private void Start() => Initialize();
