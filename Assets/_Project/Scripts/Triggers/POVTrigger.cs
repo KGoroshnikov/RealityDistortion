@@ -19,6 +19,13 @@ namespace Triggers
 
     
         private bool _activated;
+
+        private void Awake()
+        {
+            if (camera == null) 
+                camera = Camera.main;
+        }
+        
         private void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.yellow;

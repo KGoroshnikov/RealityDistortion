@@ -57,6 +57,8 @@ public class ScreamGameManager : SaveableBehaviour
     public void PlayerCompletedGame(){
         if (lvlCompleted) return;
         lvlCompleted = true;
+        SetState("ScreamGameManager_lvlCompleted");
+        RemoveState("ScreamGameManager_StartGame");
 
         screamAudio.Stop();
 
@@ -68,6 +70,7 @@ public class ScreamGameManager : SaveableBehaviour
         scream.isStopped = true;
         scream.ResetPath();
         inventory.AddBucket();
+        Commit();
     }
 
     void SetupScream(){
@@ -167,13 +170,18 @@ public class ScreamGameManager : SaveableBehaviour
     }
 
     private void Start() => Initialize();
+
     public override void ResetState(Dictionary<string, object> states)
     {
-        throw new System.NotImplementedException();
     }
+
     public override void ApplyState(Dictionary<string, object> states)
     {
-        throw new System.NotImplementedException();
+        if (states.ContainsKey("ScreamGameManager_lvlCompleted"))
+            lvlCompleted = true;
+        if (states.ContainsKey("ScreamGameManager_StartGame"))
+            StartGame();
     }
+
     public override void OnCommit() { }
 }

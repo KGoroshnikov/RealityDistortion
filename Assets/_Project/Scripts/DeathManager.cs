@@ -50,6 +50,11 @@ public class DeathManager : MonoBehaviour
 
     void ReloadScene(){
         saveManager.Revert();
+        canvas.SetActive(true);
+        deathScreen.SetActive(false);
+        black.SetActive(false);
+        died = false;
+        
         // SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
 using UnityEngine;
 
 namespace _Project.Scripts.Saves
@@ -31,7 +33,6 @@ namespace _Project.Scripts.Saves
                 {
                     Debug.LogException(e);
                 }
-
             foreach (var saveable in saveObjects) try
                 {
                     saveable.ApplyState(_savedState);
@@ -40,7 +41,6 @@ namespace _Project.Scripts.Saves
                 {
                     Debug.LogException(e);
                 }
-                
         }
 
         public void Commit()
@@ -62,10 +62,22 @@ namespace _Project.Scripts.Saves
                 _savedState[key] = value;
         }
 
+        public void Clear()
+        {
+            _stateChanges.Clear();
+            _savedState.Clear();
+        }
+
         public void SetState(string state) => _stateChanges[state] = true;
         public void SetState(string state, object value) => _stateChanges[state] = value;
 
         public void RemoveState(string state) => _stateChanges.Remove(state);
+        public void RemoveStateRegex(string regex)
+        {
+            foreach (var state in _stateChanges.Keys.ToArray()
+                         .Where(key => Regex.IsMatch(key, regex)))
+                _stateChanges.Remove(state);
+        }
 
         // public void Save()
         // {

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -47,6 +48,7 @@ public class PlayerContoller : Character
 
     void Start(){
         base.Start();
+        Initialize();
         jointOriginalPos = joint.localPosition;
         m_state = state.Idle;
 
@@ -200,5 +202,28 @@ public class PlayerContoller : Character
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(new Vector3(transform.position.x, transform.position.y + originOffset, transform.position.z),
                                      bounds.extents.x);
+    }
+
+    public override void ResetState(Dictionary<string, object> states) {}
+
+    private Dictionary<string, object> statesBuff;
+    public override void ApplyState(Dictionary<string, object> states)
+    {
+        statesBuff = states;
+        FreezePlayer(true);
+        Invoke(nameof(Apply), 0);
+    }
+
+    private void Apply()
+    {
+        transform.position = (Vector3)statesBuff.GetValueOrDefault("Player_Position", Vector3.zero);
+        transform.rotation = (Quaternion)statesBuff.GetValueOrDefault("Player_Rotation", Quaternion.identity);
+        UnfreezePlayer(true);
+    }
+
+    public override void OnCommit()
+    {
+        SetState("Player_Position", transform.position);
+        SetState("Player_Rotation", transform.rotation);
     }
 }

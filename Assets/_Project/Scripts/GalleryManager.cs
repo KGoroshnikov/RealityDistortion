@@ -9,10 +9,19 @@ public class GalleryManager : SaveableBehaviour
 
     [SerializeField] private ScriptableRendererFeature VHSscreenEffects;
 
-    private void Start() => Initialize();
-    public void ActivateLever(){
+    private Vector3 _wallStartPosition;
+    
+    private void Start()
+    {
+        Initialize();
+        _wallStartPosition = wallAnimator.transform.position;
+    }
+
+    public void ActivateLever()
+    {
         wallAnimator.enabled = true;
         wallAnimator.Play("MoveWall", 0, 0);
+        SetState("ActivateLever");
     }
 
     void OnEnable()
@@ -31,12 +40,13 @@ public class GalleryManager : SaveableBehaviour
 
     public override void ResetState(Dictionary<string, object> states)
     {
-        throw new System.NotImplementedException();
+        if (!states.ContainsKey("ActivateLever"))
+            wallAnimator.transform.position = _wallStartPosition;
     }
 
     public override void ApplyState(Dictionary<string, object> states)
     {
-        throw new System.NotImplementedException();
+        
     }
     public override void OnCommit() { }
 }
