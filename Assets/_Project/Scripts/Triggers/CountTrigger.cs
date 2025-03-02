@@ -5,7 +5,6 @@ using UnityEngine.Events;
 
 public class CountTrigger : AbstractTrigger
 {
-    [SerializeField] protected string uid;
     [SerializeField] private UnityEvent<int> onValueChanged;
     [SerializeField] private UnityEvent onValueLimitReached;
     
@@ -18,21 +17,21 @@ public class CountTrigger : AbstractTrigger
         value++;
         onValueChanged.Invoke(value);
         if (value == limit) onValueLimitReached.Invoke();
-        SetState($"{uid}_Count", value);
+        SetState($"CountTrigger_{Guid}_Count", value);
     }
     public void Decrement()
     {
         value--;
         onValueChanged.Invoke(value);
         if (value == limit) onValueLimitReached.Invoke();
-        SetState($"{uid}_Count", value);
+        SetState($"CountTrigger_{Guid}_Count", value);
     }
     private void Start() => Initialize();
 
     public override void ResetState(Dictionary<string, object> states) { }
     public override void ApplyState(Dictionary<string, object> states)
     {
-        value = (int)states.GetValueOrDefault($"{uid}_Count", 0);
+        value = (int)states.GetValueOrDefault($"CountTrigger_{Guid}_Count", 0);
         onValueChanged.Invoke(value);
         if (value == limit) onValueLimitReached.Invoke();
     }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using _Project.Scripts.Saves;
 using UnityEngine;
@@ -29,6 +30,8 @@ public class BlackSquareManager : SaveableBehaviour
         Commit();
     }
 
+
+    private void Start() => Initialize();
 
     public override void ResetState(Dictionary<string, object> states)
     {

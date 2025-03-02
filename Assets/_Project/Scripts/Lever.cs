@@ -6,7 +6,6 @@ using UnityEngine.Events;
 public class Lever : SaveableBehaviour, IInteractable
 {
     [SerializeField] private Transform leverTransform;
-    [SerializeField] private string uid;
     [SerializeField] private string tip;
     public string Tip => tip;
     [SerializeField] private string description;
@@ -37,7 +36,7 @@ public class Lever : SaveableBehaviour, IInteractable
         originalPosition = leverTransform.position;
         originalRotation = leverTransform.rotation;
         onActivate.Invoke();
-        SetState($"Lever_{name}_{ID}_{uid}_Activated");
+        SetState($"Lever_{name}_{Guid}_Activated");
     }
 
     public void Hover(Interaction player)
@@ -55,7 +54,7 @@ public class Lever : SaveableBehaviour, IInteractable
     public override void ResetState(Dictionary<string, object> states) { }
     public override void ApplyState(Dictionary<string, object> states)
     {
-        if (states.ContainsKey($"Lever_{name}_{ID}_{uid}_Activated")) return;
+        if (states.ContainsKey($"Lever_{name}_{Guid}_Activated")) return;
         interacted = false;
         gameObject.tag = "Interactable";
         onDeactivate.Invoke();

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using UnityEditor;
 using UnityEngine;
 
 namespace _Project.Scripts.Saves
@@ -8,12 +9,15 @@ namespace _Project.Scripts.Saves
     {
         private SaveManager manager;
         private bool initialized = false;
+
+        protected string Guid { get; private set; }
         
         protected void Initialize()
         {
             if (initialized) return;
             manager = FindAnyObjectByType<SaveManager>();
             manager.SaveObjects.Add(this);
+            Guid = GUID.Generate().ToString();
             initialized = true;
         }
 
