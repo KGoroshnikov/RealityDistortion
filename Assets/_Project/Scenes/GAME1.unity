@@ -20387,7 +20387,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c51999cdd59143b9b4b72d8ce294d1c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uid: 
   onValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -63426,7 +63425,7 @@ GameObject:
   - component: {fileID: 839879434}
   - component: {fileID: 839879433}
   - component: {fileID: 839879436}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66867,7 +66866,8 @@ GameObject:
   - component: {fileID: 885490089}
   - component: {fileID: 885490088}
   - component: {fileID: 885490087}
-  m_Layer: 0
+  - component: {fileID: 885490090}
+  m_Layer: 8
   m_Name: water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66904,9 +66904,9 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -66963,6 +66963,36 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 885490085}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &885490090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885490085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0a1cb2d8e221e43a5d8e623032ee2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 352125866316277876}
+        m_TargetAssemblyTypeName: DeathManager, Assembly-CSharp
+        m_MethodName: Die
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onExit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &890994421
 GameObject:
   m_ObjectHideFlags: 0
@@ -88623,7 +88653,6 @@ MonoBehaviour:
   objectToRender: {fileID: 1876090735}
   renderCamera: {fileID: 1303077273}
   debug: 0
-  uid: puzzle3_ladder
 --- !u!1 &1171613095
 GameObject:
   m_ObjectHideFlags: 0
@@ -92656,7 +92685,7 @@ GameObject:
   - component: {fileID: 1221188597}
   - component: {fileID: 1221188596}
   - component: {fileID: 1221188599}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: water (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98574,7 +98603,6 @@ MonoBehaviour:
   objectToRender: {fileID: 711072422}
   renderCamera: {fileID: 2033232337}
   debug: 0
-  uid: puzzle3_portal
 --- !u!1001 &1287128267
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -128461,7 +128489,7 @@ GameObject:
   - component: {fileID: 1676637729}
   - component: {fileID: 1676637728}
   - component: {fileID: 1676637731}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: water (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139492,7 +139520,6 @@ MonoBehaviour:
   objectToRender: {fileID: 34706481}
   renderCamera: {fileID: 2076252862}
   debug: 0
-  uid: puzzle2_cube
 --- !u!1001 &1836424343
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -161728,7 +161755,7 @@ GameObject:
   - component: {fileID: 2108858858}
   - component: {fileID: 2108858857}
   - component: {fileID: 2108858860}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: water (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
