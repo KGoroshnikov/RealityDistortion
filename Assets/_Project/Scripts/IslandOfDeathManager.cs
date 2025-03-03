@@ -37,6 +37,7 @@ public class IslandOfDeathManager : SaveableBehaviour
     }
 
     void PlayerMoved(){
+        playerContoller.SyncYaw(null);
         playerContoller.UnfreezePlayer(true);
         
     }

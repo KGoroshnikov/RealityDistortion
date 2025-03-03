@@ -4,6 +4,8 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text.RegularExpressions;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 namespace _Project.Scripts.Saves
 {
@@ -17,12 +19,21 @@ namespace _Project.Scripts.Saves
         public IReadOnlyDictionary<string, object> StateChanges => _stateChanges;
         public IReadOnlyDictionary<string, object> SavedState => _savedState;
 
+        [SerializeField] private AudioSource deathAudio;
+        [SerializeField] private GameObject VHSVolume;
+        [SerializeField] private ScriptableRendererFeature[] VHSscreenEffects;
+
         public void Revert()
         {
             // Rewrite temp state
             _stateChanges.Clear();
             foreach (var (key, value) in _savedState) 
                 _stateChanges[key] = value;
+            
+            for(int i = 0; i < VHSscreenEffects.Length; i++)    
+                VHSscreenEffects[i].SetActive(false);
+            VHSVolume.SetActive(false);
+            deathAudio.Stop();
             
             // Reset Objects
             foreach (var saveable in saveObjects)
