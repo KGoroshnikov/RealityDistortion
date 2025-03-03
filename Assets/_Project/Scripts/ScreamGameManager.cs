@@ -39,6 +39,8 @@ public class ScreamGameManager : SaveableBehaviour, IFreezable
 
     public void StartGame(){
         if (lvlCompleted) return;
+        scream.transform.position = screamOrigin;
+        scream.enabled = true;
         playerContoller.FreezePlayer(true);
         playerContoller.ResetCamRot();
         moveObjects.AddObjectToMove(player.gameObject, startPlayerPos.position, startPlayerPos.rotation, 2, LauchGame);
@@ -80,7 +82,6 @@ public class ScreamGameManager : SaveableBehaviour, IFreezable
     }
 
     void SetupScream(){
-        scream.transform.position = screamOrigin;
         scream.acceleration = 10000f;
         scream.angularSpeed = 10000f;
         scream.autoBraking = false;
@@ -206,6 +207,7 @@ public class ScreamGameManager : SaveableBehaviour, IFreezable
 
     public override void ResetState(Dictionary<string, object> states)
     {
+        scream.enabled = false;
     }
 
     public override void ApplyState(Dictionary<string, object> states)
@@ -213,7 +215,7 @@ public class ScreamGameManager : SaveableBehaviour, IFreezable
         if (states.ContainsKey("ScreamGameManager_lvlCompleted"))
             lvlCompleted = true;
         if (states.ContainsKey("ScreamGameManager_StartGame"))
-            StartGame();
+            Invoke(nameof(StartGame), 0);
     }
 
     public override void OnCommit() { }

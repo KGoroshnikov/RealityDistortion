@@ -2087,6 +2087,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b0a1cb2d8e221e43a5d8e623032ee2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadPriority: 0
   onEnter:
     m_PersistentCalls:
       m_Calls:
@@ -3177,6 +3178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5027717fe46c4113bc58bf894ca5d7bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadPriority: 0
   prefab: {fileID: 2257628571446777128, guid: 00fc7e0e78f30c14392a8909f90916b5, type: 3}
 --- !u!4 &34706483
 Transform:
@@ -20310,6 +20312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c51999cdd59143b9b4b72d8ce294d1c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadPriority: 0
   onValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -20342,6 +20345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb11d4ed0bbc4bf09f84c2b8c4a522e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadPriority: 0
   useTag: 1
   tag: Star
   layerMask:
@@ -27431,6 +27435,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b0a1cb2d8e221e43a5d8e623032ee2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadPriority: 0
   onEnter:
     m_PersistentCalls:
       m_Calls:
@@ -31453,6 +31458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b0a1cb2d8e221e43a5d8e623032ee2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadPriority: 0
   onEnter:
     m_PersistentCalls:
       m_Calls:
@@ -38484,6 +38490,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b0a1cb2d8e221e43a5d8e623032ee2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadPriority: 0
   onEnter:
     m_PersistentCalls:
       m_Calls:
@@ -41879,6 +41886,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5027717fe46c4113bc58bf894ca5d7bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadPriority: 0
   prefab: {fileID: 5857560729158945190, guid: b79c98bdc4610384a82b5b055a613b9e, type: 3}
 --- !u!4 &557165679
 Transform:
@@ -53104,6 +53112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2726e9bc5d406d341ab34881ad2df05a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadPriority: 0
   player: {fileID: 920452368}
   playerFOV: {fileID: 920452371}
   agent: {fileID: 698473583}
@@ -53631,6 +53640,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b0a1cb2d8e221e43a5d8e623032ee2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadPriority: 0
   onEnter:
     m_PersistentCalls:
       m_Calls:
@@ -58626,6 +58636,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b0a1cb2d8e221e43a5d8e623032ee2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadPriority: 0
   onEnter:
     m_PersistentCalls:
       m_Calls:
@@ -58977,6 +58988,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b556349088b80714e8dc14beaae91ac7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadPriority: 0
   onActivated:
     m_PersistentCalls:
       m_Calls:
@@ -63673,6 +63685,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b0a1cb2d8e221e43a5d8e623032ee2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadPriority: 0
   onEnter:
     m_PersistentCalls:
       m_Calls:
@@ -67115,6 +67128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b0a1cb2d8e221e43a5d8e623032ee2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadPriority: 0
   onEnter:
     m_PersistentCalls:
       m_Calls:
@@ -75912,6 +75926,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b0a1cb2d8e221e43a5d8e623032ee2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadPriority: 0
   onEnter:
     m_PersistentCalls:
       m_Calls:
@@ -88724,9 +88739,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d534df2f14480da44acd5f0a80e0372b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadPriority: 0
   projectorObject: {fileID: 1171335948}
   decalMaterial: {fileID: 2100000, guid: 15190ad3bfc653b479638c381c538597, type: 2}
-  quality: 64
   maxDepth: 30
   objectToRender: {fileID: 1876090735}
   renderCamera: {fileID: 1303077273}
@@ -92871,6 +92886,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b0a1cb2d8e221e43a5d8e623032ee2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadPriority: 0
   onEnter:
     m_PersistentCalls:
       m_Calls:
@@ -93042,6 +93058,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b0a1cb2d8e221e43a5d8e623032ee2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadPriority: 0
   onEnter:
     m_PersistentCalls:
       m_Calls:
@@ -97076,6 +97093,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b0a1cb2d8e221e43a5d8e623032ee2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadPriority: 0
   onEnter:
     m_PersistentCalls:
       m_Calls:
@@ -98674,9 +98692,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d534df2f14480da44acd5f0a80e0372b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadPriority: 0
   projectorObject: {fileID: 1286786352}
   decalMaterial: {fileID: 2100000, guid: 15190ad3bfc653b479638c381c538597, type: 2}
-  quality: 64
   maxDepth: 30
   objectToRender: {fileID: 711072422}
   renderCamera: {fileID: 2033232337}
@@ -102166,6 +102184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b556349088b80714e8dc14beaae91ac7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadPriority: 0
   onActivated:
     m_PersistentCalls:
       m_Calls:
@@ -102854,6 +102873,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b0a1cb2d8e221e43a5d8e623032ee2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadPriority: 0
   onEnter:
     m_PersistentCalls:
       m_Calls:
@@ -103315,6 +103335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d6c081cfa5b64440bc7446357ab1fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadPriority: 0
   startPosPortal: {fileID: 1916085040}
   endPosPortal: {fileID: 257844504}
   portalTrans: {fileID: 6307906351045265364}
@@ -105292,6 +105313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b0a1cb2d8e221e43a5d8e623032ee2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadPriority: 0
   onEnter:
     m_PersistentCalls:
       m_Calls:
@@ -105869,6 +105891,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b0a1cb2d8e221e43a5d8e623032ee2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadPriority: 0
   onEnter:
     m_PersistentCalls:
       m_Calls:
@@ -105899,6 +105922,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb11d4ed0bbc4bf09f84c2b8c4a522e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadPriority: 0
   useTag: 0
   tag: 
   layerMask:
@@ -111128,6 +111152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b0a1cb2d8e221e43a5d8e623032ee2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadPriority: 0
   onEnter:
     m_PersistentCalls:
       m_Calls:
@@ -114606,6 +114631,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b0a1cb2d8e221e43a5d8e623032ee2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadPriority: 0
   onEnter:
     m_PersistentCalls:
       m_Calls:
@@ -116842,6 +116868,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb11d4ed0bbc4bf09f84c2b8c4a522e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadPriority: 0
   useTag: 0
   tag: 
   layerMask:
@@ -118478,6 +118505,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b556349088b80714e8dc14beaae91ac7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadPriority: 0
   onActivated:
     m_PersistentCalls:
       m_Calls:
@@ -128540,6 +128568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b0a1cb2d8e221e43a5d8e623032ee2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadPriority: 0
   onEnter:
     m_PersistentCalls:
       m_Calls:
@@ -139456,9 +139485,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d534df2f14480da44acd5f0a80e0372b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadPriority: 0
   projectorObject: {fileID: 1836086148}
   decalMaterial: {fileID: 2100000, guid: 15190ad3bfc653b479638c381c538597, type: 2}
-  quality: 64
   maxDepth: 30
   objectToRender: {fileID: 34706481}
   renderCamera: {fileID: 2076252862}
@@ -139574,6 +139603,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb11d4ed0bbc4bf09f84c2b8c4a522e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadPriority: 0
   useTag: 0
   tag: 
   layerMask:
@@ -142896,6 +142926,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5027717fe46c4113bc58bf894ca5d7bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadPriority: 0
   prefab: {fileID: 5857560729158945190, guid: b79c98bdc4610384a82b5b055a613b9e, type: 3}
 --- !u!4 &1876090737
 Transform:
@@ -143148,6 +143179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b0a1cb2d8e221e43a5d8e623032ee2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadPriority: 0
   onEnter:
     m_PersistentCalls:
       m_Calls:
@@ -150932,6 +150964,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa7fd74ab188a764996be486433c866e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadPriority: 0
   inventory: {fileID: 352125866316277877}
   moveObjects: {fileID: 1042685071}
   portalPoses:
@@ -151082,6 +151115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb11d4ed0bbc4bf09f84c2b8c4a522e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadPriority: 0
   useTag: 0
   tag: 
   layerMask:
@@ -151165,6 +151199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b0a1cb2d8e221e43a5d8e623032ee2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadPriority: 0
   onEnter:
     m_PersistentCalls:
       m_Calls:
@@ -154244,6 +154279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d67cdb8f82a787143841a53cb4798681, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadPriority: 0
   playerContoller: {fileID: 920452365}
   inventory: {fileID: 352125866316277877}
   moveObjects: {fileID: 1042685071}
@@ -154931,6 +154967,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d065b6f787446a040aa6c76e048341aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadPriority: 0
   moveObjects: {fileID: 1042685071}
   startPlayerPos: {fileID: 2105129845}
   player: {fileID: 920452368}
@@ -161142,6 +161179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdf73b6154c214e4d9ae92c21801658b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadPriority: 0
   wallAnimator: {fileID: 824404500}
   VHSscreenEffects: {fileID: 2864052568620588148, guid: f288ae1f4751b564a96ac7587541f7a2, type: 2}
   AllLocations:
@@ -161177,6 +161215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95f4febab209a5f47822704c81bd7247, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadPriority: 0
   masks:
   - {fileID: 1148923715}
   - {fileID: 365244057}
@@ -161694,6 +161733,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b0a1cb2d8e221e43a5d8e623032ee2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadPriority: 0
   onEnter:
     m_PersistentCalls:
       m_Calls:
@@ -165196,6 +165236,10 @@ PrefabInstance:
       propertyPath: onCloseVHS.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 2947176990702399258, guid: 3bff3607fa4d1384dae05c7198c776a8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3257349848994877897, guid: 3bff3607fa4d1384dae05c7198c776a8, type: 3}
       propertyPath: m_Name
       value: PlayerContainer
@@ -165204,6 +165248,10 @@ PrefabInstance:
       propertyPath: portalSound
       value: 
       objectReference: {fileID: 1631340756}
+    - target: {fileID: 5681631784430942131, guid: 3bff3607fa4d1384dae05c7198c776a8, type: 3}
+      propertyPath: loadPriority
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 5681631784430942131, guid: 3bff3607fa4d1384dae05c7198c776a8, type: 3}
       propertyPath: ignorePortalSoundPortals.Array.size
       value: 2

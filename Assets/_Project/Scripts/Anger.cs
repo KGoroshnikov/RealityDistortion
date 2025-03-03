@@ -21,6 +21,7 @@ public class Anger : SaveableBehaviour, IFreezable
     private bool freezed;
 
     public void ActivateMe(){
+        agent.enabled = true;
         agent.acceleration = 10000f;
         agent.angularSpeed = 10000f;
         agent.autoBraking = false;
@@ -72,8 +73,9 @@ public class Anger : SaveableBehaviour, IFreezable
     private void Start() => Initialize();
     public override void ResetState(Dictionary<string, object> states)
     {
-        transform.position = (Vector3)states.GetValueOrDefault("Anger_Position", Vector3.zero);
-        transform.rotation = (Quaternion)states.GetValueOrDefault("Anger_Rotation", Quaternion.identity);
+        agent.enabled = false;
+        agent.transform.position = (Vector3)states.GetValueOrDefault("Anger_Position", Vector3.zero);
+        agent.transform.rotation = (Quaternion)states.GetValueOrDefault("Anger_Rotation", Quaternion.identity);
     }
 
     public override void ApplyState(Dictionary<string, object> states) { }

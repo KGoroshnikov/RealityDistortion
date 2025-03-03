@@ -1,5 +1,3 @@
-using System.Linq;
-using System.Threading;
 using _Project.Scripts.Saves;
 using UnityEngine;
 
@@ -58,6 +56,13 @@ public abstract class Character : SaveableBehaviour
         }
     }
 
+    public void SetPositionAndRotation(Vector3 position, Quaternion rotation)
+    {
+        r.position = position;
+        r.rotation = rotation;
+        r.linearVelocity = Vector3.zero;
+    }
+
     Vector3 PlatformMovement()
     {
         if (!onPlatform) return Vector3.zero;
@@ -97,7 +102,7 @@ public abstract class Character : SaveableBehaviour
         im_static = false;
     }
 
-    protected void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         if (im_static){
             GroundCheck();
