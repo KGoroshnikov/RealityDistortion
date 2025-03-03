@@ -60,7 +60,13 @@ public class SuperliminalDrag : MonoBehaviour
         Gizmos.color = Color.blue;
         Gizmos.DrawLine(top, bottom);
 
-
+        
+        Gizmos.matrix = target.transform.localToWorldMatrix;
+        Gizmos.color = Color.yellow;
+        foreach (var pos in box)
+            Gizmos.DrawSphere(pos, .0025f);
+            
+        
         // Gizmos.color = Color.yellow;
         // left = right = top = bottom = Vector2.zero;
         // GetRectConfines(GetBoundingBoxPoints());
@@ -129,14 +135,15 @@ public class SuperliminalDrag : MonoBehaviour
                     (point - camera.transform.position).normalized,
                     ignoreTargetMask | targetMask, out var hit))
                 dst = Mathf.Min(dst, Vector3.Dot(hit.point - camera.transform.position, camera.transform.forward));
-            
 
+        // var shift = 0f;
         // foreach (var point in box)
-        //     if (Physics.Linecast(camera.transform.position, point, out var hit, ignoreTargetMask | targetMask))
-        //     {
-        //         hit.point 
-        //     }
-        
+        // {
+        //     var pos = target.transform.TransformPoint(point);
+        //     if (!Physics.Linecast(camera.transform.position, pos, out var hit, ignoreTargetMask | targetMask)) continue;
+        //     shift = Mathf.Max(shift, Vector3.Dot(pos - hit.point, camera.transform.forward));
+        // }
+
         dst -= dst / originalDistance;
         dst = Mathf.Max(dst, minDistance);
         targetScale = dst / originalDistance;
