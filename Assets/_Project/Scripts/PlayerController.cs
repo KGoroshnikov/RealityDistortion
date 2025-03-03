@@ -63,11 +63,13 @@ public class PlayerContoller : Character
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
+        SyncYaw(null);
+
         GetSens();
     }
 
     public void GetSens(){
-        mouseSensitivity.x = PlayerPrefs.GetFloat("PlayerSens", 0.4f);
+        mouseSensitivity.x = PlayerPrefs.GetFloat("PlayerSens", 0.13f);
         mouseSensitivity.y = mouseSensitivity.x * 0.375f;
     }
 
@@ -174,11 +176,23 @@ public class PlayerContoller : Character
         }
     }
 
-    void Rotating(){
+    /*void Rotating(){
         yaw = transform.localEulerAngles.y + look.action.ReadValue<Vector2>().x * mouseSensitivity.x;
-        pitch -= mouseSensitivity.y * look.action.ReadValue<Vector2>().y;
+        pitch -= mouseSensitivity.x * look.action.ReadValue<Vector2>().y;
         pitch = Mathf.Clamp(pitch, -maxLookAngle, maxLookAngle);
         r.rotation = Quaternion.Euler(new Vector3(0, yaw, 0));
+        playerCamera.transform.localEulerAngles = new Vector3(pitch, 0, 0);
+    }*/
+    public void SyncYaw(Transform rot){
+        yaw = transform.eulerAngles.y;
+    }
+    void Rotating(){
+        Vector2 lookInput = look.action.ReadValue<Vector2>();
+        yaw += lookInput.x * mouseSensitivity.x;
+        pitch -= lookInput.y * mouseSensitivity.x;
+        pitch = Mathf.Clamp(pitch, -maxLookAngle, maxLookAngle);
+
+        r.rotation = Quaternion.Euler(0, yaw, 0);
         playerCamera.transform.localEulerAngles = new Vector3(pitch, 0, 0);
     }
 

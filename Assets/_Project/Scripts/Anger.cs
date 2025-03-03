@@ -14,6 +14,9 @@ public class Anger : SaveableBehaviour, IFreezable
     [SerializeField] private GameObject meshToSee;
     [SerializeField] private Renderer rendererMesh;
 
+    [SerializeField] private DeathManager deathManager;
+    [SerializeField] private float killRadius;
+
     private bool started;
     private bool freezed;
 
@@ -52,6 +55,11 @@ public class Anger : SaveableBehaviour, IFreezable
             if (agent.isStopped)
                 agent.isStopped = false;
             agent.SetDestination(player.position);
+
+            if (Vector3.Distance(transform.position, player.position) <= killRadius){
+                started = false;
+                deathManager.Die();
+            }
         }
         else
         {
@@ -74,5 +82,11 @@ public class Anger : SaveableBehaviour, IFreezable
     {
         SetState("Anger_Position", transform.position);
         SetState("Anger_Rotation", transform.rotation);
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, killRadius);
     }
 }

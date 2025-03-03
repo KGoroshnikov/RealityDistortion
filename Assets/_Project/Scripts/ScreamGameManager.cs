@@ -10,12 +10,14 @@ public class ScreamGameManager : SaveableBehaviour, IFreezable
     [SerializeField] private Transform player;
     [SerializeField] private PlayerContoller playerContoller;
     [SerializeField] private Inventory inventory;
+    [SerializeField] private DeathManager deathManager;
 
     [SerializeField] private Transform[] posesPortal;
     [SerializeField] private Transform portalTransform;
     [SerializeField] private Portal portal;
 
 
+    [SerializeField] private float killRadius;
     [SerializeField] private AudioSource screamAudio;
     [SerializeField] private Animator screamAnimator;
     private List<Transform> portalsPlayerEntered = new List<Transform>();
@@ -47,6 +49,7 @@ public class ScreamGameManager : SaveableBehaviour, IFreezable
 
         screamAudio.Play();
 
+        playerContoller.SyncYaw(null);
         playerContoller.UnfreezePlayer(true);
         playerContoller.SetRunningMode();
         SetupScream();
@@ -93,6 +96,11 @@ public class ScreamGameManager : SaveableBehaviour, IFreezable
     void FixedUpdate()
     {
         if (!raceStarted || freezed) return;
+
+        if (Vector3.Distance(player.position, scream.transform.position) <= killRadius){
+            raceStarted = false;
+            deathManager.Die();
+        }
 
         path = GetPath();
         if (path != null){
@@ -209,4 +217,10 @@ public class ScreamGameManager : SaveableBehaviour, IFreezable
     }
 
     public override void OnCommit() { }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(scream.transform.position, killRadius);
+    }
 }

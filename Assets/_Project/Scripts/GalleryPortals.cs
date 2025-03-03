@@ -3,6 +3,7 @@ using UnityEngine;
 public class GalleryPortals : MonoBehaviour
 {
     [SerializeField] private GameObject[] portals;
+    [SerializeField] private Portal[] portalScripts;
 
     [SerializeField] private GameObject[] paintingsNoVHS;
 
@@ -39,6 +40,7 @@ public class GalleryPortals : MonoBehaviour
             if (i == currentLocation) continue;
             portals[i].SetActive(false);
             paintingsNoVHS[i].SetActive(true);
+            portalScripts[i].ClearTravelers(true);
         }
     }
 }
