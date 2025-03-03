@@ -12,6 +12,7 @@ public class PortalTraveller : MonoBehaviour
         transform.position = pos;
         transform.rotation = rot;
         onTeleport.Invoke(fromPortal);
+        //Debug.Log(gameObject + " TELEPORTED!: from " + fromPortal.gameObject + " " + fromPortal.position + " to: " + toPortal.gameObject + " " + toPortal.position + " prevpos: " + previousOffsetFromPortal);
     }
 
 }

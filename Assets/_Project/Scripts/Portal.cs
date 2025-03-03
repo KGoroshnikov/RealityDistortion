@@ -133,6 +133,11 @@ public class Portal : MonoBehaviour {
         }
     }
 
+    public void ClearTravelers(bool clearLinked){
+        if (clearLinked) linkedPortal.ClearTravelers(false);
+        trackedTravellers.Clear();
+    }
+
     void OnTriggerEnter(Collider other){
         var traveller = other.GetComponent<PortalTraveller>();
         if (traveller){
