@@ -37,6 +37,7 @@ public class SuperliminalDrag : MonoBehaviour
 
 
     [SerializeField] private GameObject grabUI;
+    private Vector3[] box;
 
     private void OnDrawGizmos()
     {
@@ -58,7 +59,8 @@ public class SuperliminalDrag : MonoBehaviour
         Gizmos.DrawLine(left, right);
         Gizmos.color = Color.blue;
         Gizmos.DrawLine(top, bottom);
-        
+
+
         // Gizmos.color = Color.yellow;
         // left = right = top = bottom = Vector2.zero;
         // GetRectConfines(GetBoundingBoxPoints());
@@ -100,7 +102,8 @@ public class SuperliminalDrag : MonoBehaviour
             target.parent = transform;
             originalScale = target.localScale;
             targetScale = 1;
-            SetupShapedGrid(GetBoundingBoxPoints());
+            box = GetBoundingBoxPoints();
+            SetupShapedGrid(box);
             target.gameObject.layer = (int) Mathf.Log(dragMask	, 2);
         }
         else
