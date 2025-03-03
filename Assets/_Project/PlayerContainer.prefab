@@ -2389,6 +2389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 312f1b930fce7e14a96738f9d84178e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadPriority: 0
   animator: {fileID: 4906379592623794362}
   imgLocName: {fileID: 3388694718822604792}
 --- !u!1 &1808018368692225269
@@ -5297,6 +5298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f161a892fc8cafb4285e84d524de0b0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadPriority: 0
   RideSpringStrength: 100
   RideSpringDamper: 20
   height: 1.5
@@ -5429,6 +5431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5222d37296bb04c448bf0c5e3ca4e46e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadPriority: 0
   camUI: {fileID: 6246122852646974941}
   itemIconPool:
   - {fileID: 8651783211382184433}
@@ -7209,6 +7212,8 @@ MonoBehaviour:
     m_Bits: 23
   maxDistance: 100
   minDistance: 0.5
+  minPickupDistance: 1
+  minObjectSize: 0.4
   numberOfGridColumns: 16
   numberOfGridRows: 16
   target: {fileID: 0}

@@ -16,6 +16,8 @@ public class SuperliminalDrag : MonoBehaviour
     [SerializeField] private LayerMask ignoreTargetMask;
     [SerializeField, Min(1)] private float maxDistance = 100;
     [SerializeField, Min(0)] private float minDistance = 0.5f;
+    [SerializeField, Min(0.1f)] private float minPickupDistance = 1f;
+    [SerializeField] private float minObjectSize = 0.1f;
     [SerializeField, Min(1)] private int numberOfGridColumns = 16;
     [SerializeField, Min(1)] private int numberOfGridRows = 16;
     
@@ -37,7 +39,6 @@ public class SuperliminalDrag : MonoBehaviour
 
 
     [SerializeField] private GameObject grabUI;
-    private Vector3[] box;
 
     private void OnDrawGizmos()
     {
@@ -59,13 +60,6 @@ public class SuperliminalDrag : MonoBehaviour
         Gizmos.DrawLine(left, right);
         Gizmos.color = Color.blue;
         Gizmos.DrawLine(top, bottom);
-
-        
-        Gizmos.matrix = target.transform.localToWorldMatrix;
-        Gizmos.color = Color.yellow;
-        foreach (var pos in box)
-            Gizmos.DrawSphere(pos, .0025f);
-            
         
         // Gizmos.color = Color.yellow;
         // left = right = top = bottom = Vector2.zero;
@@ -104,12 +98,12 @@ public class SuperliminalDrag : MonoBehaviour
                 rb.isKinematic = true;
             }
             originalDistance = Vector3.Distance(camera.transform.position, target.position);
+            originalDistance = Mathf.Max(originalDistance, minPickupDistance);
             originalParent = target.parent;
             target.parent = transform;
             originalScale = target.localScale;
             targetScale = 1;
-            box = GetBoundingBoxPoints();
-            SetupShapedGrid(box);
+            SetupShapedGrid(GetBoundingBoxPoints());
             target.gameObject.layer = (int) Mathf.Log(dragMask	, 2);
         }
         else
@@ -123,33 +117,38 @@ public class SuperliminalDrag : MonoBehaviour
         }
     }
 
-    private void ResizeTarget()
+private void ResizeTarget()
+{
+    if (!target) return;
+
+    var dst = maxDistance;
+    foreach (var point in shapedGrid
+                 .Select(pos => camera.transform.TransformPoint(pos))
+                 .Select(point => point + camera.transform.forward * originalDistance))
     {
-        if (!target) return;
-
-        var dst = maxDistance;
-        foreach (var point in shapedGrid
-                     .Select(pos => camera.transform.TransformPoint(pos))
-                     .Select(point => point + camera.transform.forward * originalDistance))
-            if (RaycastFast(camera.transform.position,
-                    (point - camera.transform.position).normalized,
-                    ignoreTargetMask | targetMask, out var hit))
-                dst = Mathf.Min(dst, Vector3.Dot(hit.point - camera.transform.position, camera.transform.forward));
-
-        // var shift = 0f;
-        // foreach (var point in box)
-        // {
-        //     var pos = target.transform.TransformPoint(point);
-        //     if (!Physics.Linecast(camera.transform.position, pos, out var hit, ignoreTargetMask | targetMask)) continue;
-        //     shift = Mathf.Max(shift, Vector3.Dot(pos - hit.point, camera.transform.forward));
-        // }
-
-        dst -= dst / originalDistance;
-        dst = Mathf.Max(dst, minDistance);
-        targetScale = dst / originalDistance;
-        target.position = camera.transform.position + camera.transform.forward * dst;
-        target.localScale = targetScale * originalScale;
+        if (RaycastFast(camera.transform.position,
+                (point - camera.transform.position).normalized,
+                ignoreTargetMask | targetMask, out var hit))
+        {
+            dst = Mathf.Min(dst, hit.distance);
+        }
     }
+    if (dst < maxDistance)
+        dst -= dst / originalDistance;
+    dst = Mathf.Max(dst, minDistance);
+    targetScale = dst / originalDistance;
+
+    float computedFinalSize = targetScale * originalScale.x;
+
+    if (computedFinalSize < minObjectSize)
+    {
+        targetScale = minObjectSize / originalScale.x;
+    }
+
+    target.position = camera.transform.position + camera.transform.forward * dst;
+    target.localScale = targetScale * originalScale;
+}
+
 
     #region Calculating grid
     private Vector3[] GetBoundingBoxPoints() 
@@ -181,30 +180,42 @@ public class SuperliminalDrag : MonoBehaviour
         GetShapedGrid(grid);
     }
 
-    private void GetRectConfines(Vector3[] bbPoints)
+private void GetRectConfines(Vector3[] bbPoints) 
+{
+    var renderer = target.GetComponent<Renderer>();
+    var closestPoint = renderer.localBounds.ClosestPoint(camera.transform.position);
+    var closestZ = camera.transform.InverseTransformPoint(target.TransformPoint(closestPoint)).z;
+    
+    // Если объект слишком близко, используем minDistance вместо отрицательного или нулевого значения
+    if (closestZ <= 0)
     {
-        var closestPoint = target.GetComponent<Renderer>().localBounds.ClosestPoint(camera.transform.position);
-        var closestZ = camera.transform.InverseTransformPoint(target.TransformPoint(closestPoint)).z;
-        if (closestZ <= 0) throw new Exception("HeldObject's inside the player!");
+        closestZ = minDistance;
+        Debug.LogWarning("Объект слишком близко к камере. Используем minDistance для расчётов.");
+    }
 
-        for (var i = 0; i < bbPoints.Length; i++)
+    for (var i = 0; i < bbPoints.Length; i++)
+    {
+        var bbPoint = target.TransformPoint(bbPoints[i]);
+        Vector2 viewportPoint = camera.WorldToViewportPoint(bbPoint);
+        var cameraPoint = camera.transform.InverseTransformPoint(bbPoint);
+        cameraPoint.z = closestZ;
+
+        if (viewportPoint.x < 0 || viewportPoint.x > 1 ||
+            viewportPoint.y < 0 || viewportPoint.y > 1)
+            continue;
+
+        if (i == 0)
+            left = right = top = bottom = cameraPoint;
+        else
         {
-            var bbPoint = target.TransformPoint(bbPoints[i]);
-            Vector2 viewportPoint = camera.WorldToViewportPoint(bbPoint);
-            var cameraPoint = camera.transform.InverseTransformPoint(bbPoint);
-            cameraPoint.z = closestZ;
-
-            if (viewportPoint.x < 0 || viewportPoint.x > 1
-                || viewportPoint.y < 0 || viewportPoint.y > 1) continue;
-
-            if (i == 0) left = right = top = bottom = cameraPoint;
-
             if (cameraPoint.x < left.x) left = cameraPoint;
             if (cameraPoint.x > right.x) right = cameraPoint;
             if (cameraPoint.y > top.y) top = cameraPoint;
             if (cameraPoint.y < bottom.y) bottom = cameraPoint;
         }
     }
+}
+
 
     private Vector3[,] SetupGrid() 
     {
