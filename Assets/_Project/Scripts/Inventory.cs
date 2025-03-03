@@ -178,9 +178,8 @@ public class Inventory : SaveableBehaviour
     {
         if (!states.TryGetValue("Items", out var value)) return;
         if (value is not List<ItemSave> items) return;
-        var itemBuffer = items.ToArray();
-        items.Clear();
-        foreach (var save in itemBuffer)
+        SetState("Items", new List<ItemSave>());
+        foreach (var save in items)
             AddItem(save.id, save.itemIconData);
         if (states.ContainsKey("Camera"))
             AddCamera();
