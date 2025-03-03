@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using UnityEditor;
 using UnityEngine;
 
 namespace _Project.Scripts.Saves
@@ -21,7 +20,7 @@ namespace _Project.Scripts.Saves
             manager.SaveObjects.Sort(
                 (x, y) => x.loadPriority - y.loadPriority
             );
-            Guid = GUID.Generate().ToString();
+            Guid = System.Guid.NewGuid().ToString();
             initialized = true;
         }
 
