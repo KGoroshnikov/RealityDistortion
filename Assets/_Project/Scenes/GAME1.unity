@@ -61079,6 +61079,10 @@ PrefabInstance:
       propertyPath: far clip plane
       value: 150
       objectReference: {fileID: 0}
+    - target: {fileID: 4884293161548722697, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 383
+      objectReference: {fileID: 0}
     - target: {fileID: 6871567780927798196, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
       propertyPath: far clip plane
       value: 150
@@ -71739,6 +71743,7 @@ Transform:
   - {fileID: 961986615}
   - {fileID: 1837366171}
   - {fileID: 557165679}
+  - {fileID: 1625502531}
   m_Father: {fileID: 1585103135}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &950284137
@@ -116879,8 +116884,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2.8510945, y: 2.2658153, z: 3.2382464}
+  m_Center: {x: 0.92554736, y: 0.6329076, z: -0.051195145}
 --- !u!1001 &1540266912
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -124404,6 +124409,111 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3635333206112714490, guid: 8a5fdf0fe240abe42b104448e0c07f57, type: 3}
   m_PrefabInstance: {fileID: 1624982703}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1625502530
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1625502531}
+  - component: {fileID: 1625502533}
+  - component: {fileID: 1625502532}
+  m_Layer: 12
+  m_Name: Movable Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1625502531
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625502530}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -19.11, y: -3.2, z: -7}
+  m_LocalScale: {x: 3, y: 4, z: 3}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 950043005}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1625502532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625502530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb11d4ed0bbc4bf09f84c2b8c4a522e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadPriority: 0
+  useTag: 0
+  tag: 
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 1536
+  onEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1625502532}
+        m_TargetAssemblyTypeName: Triggers.AbstractTrigger, Assembly-CSharp
+        m_MethodName: DestroyGameObject
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 557165678}
+        m_TargetAssemblyTypeName: Spawner, Assembly-CSharp
+        m_MethodName: TryRespawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onStay:
+    m_PersistentCalls:
+      m_Calls: []
+  onExit:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!65 &1625502533
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625502530}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.276233, y: 2.3672845, z: 3.121592}
+  m_Center: {x: 1.138117, y: 0.68364227, z: -0.18056343}
 --- !u!1001 &1626122306
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -129733,6 +129843,10 @@ PrefabInstance:
     - target: {fileID: 4884293161548722697, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
       propertyPath: far clip plane
       value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884293161548722697, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 383
       objectReference: {fileID: 0}
     - target: {fileID: 6871567780927798196, guid: b7883b3c01a3d364cb07a21fecc30da5, type: 3}
       propertyPath: far clip plane
@@ -165453,7 +165567,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5053309972898395981, guid: 2f9ea895013235145b867ef99448394b, type: 3}
       propertyPath: m_CullingMask.m_Bits
-      value: 127
+      value: 383
       objectReference: {fileID: 0}
     - target: {fileID: 7798195385332547098, guid: 2f9ea895013235145b867ef99448394b, type: 3}
       propertyPath: m_Name
