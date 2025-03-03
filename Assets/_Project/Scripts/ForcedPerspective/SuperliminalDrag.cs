@@ -37,6 +37,7 @@ public class SuperliminalDrag : MonoBehaviour
 
 
     [SerializeField] private GameObject grabUI;
+    private Vector3[] box;
 
     private void OnDrawGizmos()
     {
@@ -58,6 +59,13 @@ public class SuperliminalDrag : MonoBehaviour
         Gizmos.DrawLine(left, right);
         Gizmos.color = Color.blue;
         Gizmos.DrawLine(top, bottom);
+
+        
+        Gizmos.matrix = target.transform.localToWorldMatrix;
+        Gizmos.color = Color.yellow;
+        foreach (var pos in box)
+            Gizmos.DrawSphere(pos, .0025f);
+            
         
         // Gizmos.color = Color.yellow;
         // left = right = top = bottom = Vector2.zero;
@@ -100,7 +108,8 @@ public class SuperliminalDrag : MonoBehaviour
             target.parent = transform;
             originalScale = target.localScale;
             targetScale = 1;
-            SetupShapedGrid(GetBoundingBoxPoints());
+            box = GetBoundingBoxPoints();
+            SetupShapedGrid(box);
             target.gameObject.layer = (int) Mathf.Log(dragMask	, 2);
         }
         else
@@ -125,8 +134,15 @@ public class SuperliminalDrag : MonoBehaviour
             if (RaycastFast(camera.transform.position,
                     (point - camera.transform.position).normalized,
                     ignoreTargetMask | targetMask, out var hit))
-                dst = Mathf.Min(dst, hit.distance);
-        
+                dst = Mathf.Min(dst, Vector3.Dot(hit.point - camera.transform.position, camera.transform.forward));
+
+        // var shift = 0f;
+        // foreach (var point in box)
+        // {
+        //     var pos = target.transform.TransformPoint(point);
+        //     if (!Physics.Linecast(camera.transform.position, pos, out var hit, ignoreTargetMask | targetMask)) continue;
+        //     shift = Mathf.Max(shift, Vector3.Dot(pos - hit.point, camera.transform.forward));
+        // }
 
         dst -= dst / originalDistance;
         dst = Mathf.Max(dst, minDistance);

@@ -32,7 +32,6 @@ public class Lever : SaveableBehaviour, IInteractable
         interacted = true;
         audioSource.Play();
         
-        origMat = meshes[0].material;
         gameObject.tag = "Untagged";
         for(int i = 0; i < meshes.Length; i++) meshes[i].material = defaultMat;
         originalPosition = leverTransform.position;
@@ -51,7 +50,11 @@ public class Lever : SaveableBehaviour, IInteractable
         
     }
     
-    private void Start() => Initialize();
+    private void Start()
+    {
+        Initialize();
+        origMat = meshes[0].material;
+    }
 
     public override void ResetState(Dictionary<string, object> states) { }
     public override void ApplyState(Dictionary<string, object> states)
