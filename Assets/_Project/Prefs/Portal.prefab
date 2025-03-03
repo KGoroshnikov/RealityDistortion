@@ -70,6 +70,9 @@ MonoBehaviour:
   screen: {fileID: 797852713687355618}
   portalCam: {fileID: 5053309972898395981}
   myRenderTex: {fileID: 8400000, guid: 3e6f887a2d67cc943858e8515326e83d, type: 2}
+  onPreTeleport:
+    m_PersistentCalls:
+      m_Calls: []
   onTeleport:
     m_PersistentCalls:
       m_Calls: []
@@ -147,7 +150,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 191
+    m_Bits: 447
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 3e6f887a2d67cc943858e8515326e83d, type: 2}
   m_TargetDisplay: 0
