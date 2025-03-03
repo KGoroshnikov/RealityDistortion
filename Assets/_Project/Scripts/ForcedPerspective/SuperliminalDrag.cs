@@ -129,17 +129,14 @@ private void ResizeTarget()
         if (RaycastFast(camera.transform.position,
                 (point - camera.transform.position).normalized,
                 ignoreTargetMask | targetMask, out var hit))
-        {
-            dst = Mathf.Min(dst, hit.distance);
-        }
+            dst = Mathf.Min(dst, Vector3.Dot(hit.point - camera.transform.position, camera.transform.forward));
     }
     if (dst < maxDistance)
         dst -= dst / originalDistance;
     dst = Mathf.Max(dst, minDistance);
     targetScale = dst / originalDistance;
 
-    float computedFinalSize = targetScale * originalScale.x;
-
+    var computedFinalSize = targetScale * originalScale.x;
     if (computedFinalSize < minObjectSize)
     {
         targetScale = minObjectSize / originalScale.x;
