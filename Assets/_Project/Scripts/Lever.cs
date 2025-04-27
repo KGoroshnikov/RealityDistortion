@@ -22,9 +22,7 @@ public class Lever : SaveableBehaviour, IInteractable
     [SerializeField] private AudioSource audioSource;
 
     private bool interacted;
-    private Vector3 originalPosition;
     private Material origMat;
-    private Quaternion originalRotation;
 
     public void Interact(Interaction player)
     {
@@ -34,8 +32,6 @@ public class Lever : SaveableBehaviour, IInteractable
         
         gameObject.tag = "Untagged";
         for(int i = 0; i < meshes.Length; i++) meshes[i].material = defaultMat;
-        originalPosition = leverTransform.position;
-        originalRotation = leverTransform.rotation;
         onActivate.Invoke();
         SetState($"Lever_{name}_{Guid}_Activated");
     }
@@ -62,8 +58,6 @@ public class Lever : SaveableBehaviour, IInteractable
         interacted = false;
         gameObject.tag = "Interactable";
         onDeactivate.Invoke();
-        leverTransform.position = originalPosition;
-        leverTransform.rotation = originalRotation;
         for(int i = 0; i < meshes.Length; i++) meshes[i].material = origMat;
         if (states.ContainsKey($"Lever_{name}_{Guid}_Activated")) Interact(null);
     }
