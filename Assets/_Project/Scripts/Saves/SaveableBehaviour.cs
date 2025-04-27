@@ -6,7 +6,7 @@ namespace _Project.Scripts.Saves
 {
     public abstract class SaveableBehaviour : MonoBehaviour
     {
-        [SerializeField] private int loadPriority;
+        [SerializeField] protected int loadPriority;
         private SaveManager manager;
         private bool initialized;
 

@@ -59,13 +59,13 @@ public class Lever : SaveableBehaviour, IInteractable
     public override void ResetState(Dictionary<string, object> states) { }
     public override void ApplyState(Dictionary<string, object> states)
     {
-        if (states.ContainsKey($"Lever_{name}_{Guid}_Activated")) return;
         interacted = false;
         gameObject.tag = "Interactable";
         onDeactivate.Invoke();
         leverTransform.position = originalPosition;
         leverTransform.rotation = originalRotation;
         for(int i = 0; i < meshes.Length; i++) meshes[i].material = origMat;
+        if (states.ContainsKey($"Lever_{name}_{Guid}_Activated")) Interact(null);
     }
     public override void OnCommit() { }
 }

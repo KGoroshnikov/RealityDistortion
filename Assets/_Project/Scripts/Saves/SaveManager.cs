@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.Video;
 
 namespace _Project.Scripts.Saves
 {
@@ -20,20 +21,23 @@ namespace _Project.Scripts.Saves
         public IReadOnlyDictionary<string, object> SavedState => _savedState;
 
         [SerializeField] private AudioSource deathAudio;
-        [SerializeField] private GameObject VHSVolume;
+        [SerializeField] private VideoPlayer videoPlayer;
         [SerializeField] private ScriptableRendererFeature[] VHSscreenEffects;
 
         public void Revert()
         {
+            var effects = (bool[])_stateChanges["VHS Screen Effects"];
+            for(int i = 0; i < VHSscreenEffects.Length; i++)    
+                VHSscreenEffects[i].SetActive(effects[i]);
+            if (_stateChanges.ContainsKey("VHS Video Active"))
+                videoPlayer.Play();
+            deathAudio.Stop();
+            
             // Rewrite temp state
             _stateChanges.Clear();
             foreach (var (key, value) in _savedState) 
                 _stateChanges[key] = value;
             
-            for(int i = 0; i < VHSscreenEffects.Length; i++)    
-                VHSscreenEffects[i].SetActive(false);
-            VHSVolume.SetActive(false);
-            deathAudio.Stop();
             
             // Reset Objects
             foreach (var saveable in saveObjects)

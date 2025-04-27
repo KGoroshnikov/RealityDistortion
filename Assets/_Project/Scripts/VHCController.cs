@@ -1,12 +1,14 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using _Project.Scripts.Saves;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.Video;
 
-public class VHCController : MonoBehaviour
+public class VHCController : SaveableBehaviour
 {
     [SerializeField] private Animator camAnim;
     [SerializeField] private Animator animFade;
@@ -30,6 +32,7 @@ public class VHCController : MonoBehaviour
 
     void Awake()
     {
+        Initialize();
         fdelegate = ctx => OpenVHC();   
     }
 
@@ -47,7 +50,7 @@ public class VHCController : MonoBehaviour
         }
     }
 
-    void OpenVHC(){
+    private void OpenVHC(){
         if (inAnimation || !inventory.GetHaveCamera() || !canPressF) return;
         inAnimation = true;
 
@@ -55,11 +58,13 @@ public class VHCController : MonoBehaviour
             VHSActive = true;
             CamPref.SetActive(true);
             camAnim.SetTrigger("OpenVHC");
+            SetState("Camera_Active");
         }
         else{
             StartFade();
             VHSActive = false;
             Invoke("closeCam", 0.5f);
+            RemoveState("Camera_Active");
         }
     }
 
@@ -102,4 +107,14 @@ public class VHCController : MonoBehaviour
         videoPlayer.Play();
         VHSCanvas.SetActive(true);
     }
+
+    public override void ResetState(Dictionary<string, object> states) { }
+
+    public override void ApplyState(Dictionary<string, object> states)
+    {
+        if (states.ContainsKey("Camera_Active") ^ VHSActive)
+            OpenVHC();
+    }
+
+    public override void OnCommit() { }
 }

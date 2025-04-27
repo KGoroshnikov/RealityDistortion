@@ -1,7 +1,8 @@
-﻿using System;
+﻿
 using System.Collections.Generic;
 using _Project.Scripts.Saves;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class Spawner : SaveableBehaviour
 {
@@ -15,13 +16,15 @@ public class Spawner : SaveableBehaviour
         Instantiate(prefab, transform);
     }
 
-    private void Start() => Initialize();
-
-    public override void ResetState(Dictionary<string, object> states)
+    public void ForceRespawn()
     {
         DestroyImmediate(transform.GetChild(0).gameObject);
         TryRespawn();
     }
+
+    private void Start() => Initialize();
+
+    public override void ResetState(Dictionary<string, object> states) => ForceRespawn();
 
     public override void ApplyState(Dictionary<string, object> states) { }
     public override void OnCommit() { }

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using _Project.Scripts.Saves;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class BlackSquareManager : SaveableBehaviour
 {   
@@ -11,6 +12,8 @@ public class BlackSquareManager : SaveableBehaviour
     [SerializeField] private Portal portal;
     [SerializeField] private Inventory inventory;
     private bool lvlPassed;
+    
+    [SerializeField] private UnityEvent onRespawn;
 
     public void TeleportPortalToExit(){
         if (lvlPassed) return;
@@ -47,4 +50,7 @@ public class BlackSquareManager : SaveableBehaviour
     public override void OnCommit()
     {
     }
+
+    public void RespawnAll() => Invoke(nameof(RespawnAllCall), 0);
+    private void RespawnAllCall() => onRespawn.Invoke();
 }

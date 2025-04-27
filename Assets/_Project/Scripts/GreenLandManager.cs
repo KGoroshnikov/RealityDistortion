@@ -17,6 +17,7 @@ public class GreenLandManager : MonoBehaviour
     [SerializeField] private Animator fadeAnim;
     [SerializeField] private Transform[] posesLastCS;
 
+    private bool inGreenland;
     private bool active;
     private bool gameEnded;
 
@@ -26,13 +27,16 @@ public class GreenLandManager : MonoBehaviour
         active = true;
     }
 
+    public void SetInGreenland(bool a){
+        inGreenland = a;
+    }
     public void SetVHS(bool a){
         VHSActived = a;
     }
 
     void Update()
     {
-        if (!active || gameEnded || !VHSActived) return;
+        if (!active || gameEnded || !VHSActived || !inGreenland) return;
 
         if (CamFuncs.VisibleFromCamera(seeObj, Camera.main)){
             gameEnded = true;
