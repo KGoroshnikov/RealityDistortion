@@ -29,8 +29,6 @@ namespace _Project.Scripts.Saves
             var effects = (bool[])_stateChanges["VHS Screen Effects"];
             for(int i = 0; i < VHSscreenEffects.Length; i++)    
                 VHSscreenEffects[i].SetActive(effects[i]);
-            if (_stateChanges.ContainsKey("VHS Video Active"))
-                videoPlayer.Play();
             deathAudio.Stop();
             
             // Rewrite temp state

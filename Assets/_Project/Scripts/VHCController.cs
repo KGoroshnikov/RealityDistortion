@@ -32,6 +32,7 @@ public class VHCController : SaveableBehaviour
 
     void Awake()
     {
+        loadPriority = 100;
         Initialize();
         fdelegate = ctx => OpenVHC();   
     }
@@ -112,8 +113,15 @@ public class VHCController : SaveableBehaviour
 
     public override void ApplyState(Dictionary<string, object> states)
     {
-        if (states.ContainsKey("Camera_Active") ^ VHSActive)
-            OpenVHC();
+        VHSActive = states.ContainsKey("Camera_Active");
+        Invoke(nameof(UpdateCameraState), 0.6f);
+    }
+
+    private void UpdateCameraState()
+    {
+        
+        SetupCamVHC();
+        if (!VHSActive) closeCam();
     }
 
     public override void OnCommit() { }

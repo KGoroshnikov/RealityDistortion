@@ -37,8 +37,6 @@ public class DeathManager : MonoBehaviour
         audioSource.Play();
         canvas.SetActive(false);
         deathScreen.SetActive(true);
-        if (videoPlayer.isPlaying && !videoPlayer.isPaused) 
-            saveManager.SetState("VHS Video Active");
         videoPlayer.Play();
         var effects = new bool[VHSscreenEffects.Length];
         for(int i = 0; i < VHSscreenEffects.Length; i++)
